@@ -214,7 +214,7 @@ molmod.minimizer.QuasiNewton.is_sd method reference/algo.html
 molmod.minimizer.SearchDirection.reset method reference/algo.html
 molmod.bonds.BondData class reference/data.html
 molmod.transformations.Rotation class reference/basic.html
-molmod.graphs.OneToOne.insources method reference/basic.html
+molmod.graphs.OneToOne.in_sources method reference/basic.html
 molmod.io.psf.PSFFile.write_to_file method reference/io.html
 molmod.graphs.EqualPattern.MatchClass attribute reference/basic.html
 molmod.molecular_graphs.MolecularGraph.get_subgraph method reference/basic.html

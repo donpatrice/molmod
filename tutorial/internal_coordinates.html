@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>Internal coordinates &mdash; MolMod v0.0 documentation</title>
-    <link rel="stylesheet" href="../static/default.css" type="text/css" />
-    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -18,9 +18,9 @@
         HAS_SOURCE:  true
       };
     </script>
-    <script type="text/javascript" src="../static/jquery.js"></script>
-    <script type="text/javascript" src="../static/underscore.js"></script>
-    <script type="text/javascript" src="../static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
     <link rel="up" title="MolMod by example" href="examples.html" />
     <link rel="next" title="Pattern-matching in molecular graphs" href="patterns.html" />
@@ -334,19 +334,19 @@ facilitates the program as we only have to take into account the force constants
 of the energy terms.</p>
 <p>The mathematical form of the FF model is:</p>
 <div class="math">
-<p><img src="../images/math/9a7d3e01663f97ca53e47445ea0f47b337c1b2e2.png" alt="E_{\text{FF}} =
+<p><img src="../_images/math/9a7d3e01663f97ca53e47445ea0f47b337c1b2e2.png" alt="E_{\text{FF}} =
 \sum_{i=1}^{M_\text{bonds}} K_{i,\text{bond}} (b_i - b_{i,0})^2 +
 \sum_{i=1}^{M_\text{bends}} K_{i,\text{bend}} (\theta_i - \theta_{i,0})^2." /></p>
 </div><p>The Cartesian gradient of the force-field energy becomes:</p>
 <div class="math">
-<p><img src="../images/math/e3e1cf4804a257d7a29d289bb00032e4a94081af.png" alt="\frac{\partial E_{\text{FF}}}{\partial x_{j}} =
+<p><img src="../_images/math/e3e1cf4804a257d7a29d289bb00032e4a94081af.png" alt="\frac{\partial E_{\text{FF}}}{\partial x_{j}} =
 \sum_{i=1}^{M_\text{bonds}} 2 K_{i,\text{bond}}
     (b_i - b_{i,0}) \frac{\partial b_i}{\partial x_{j}} +
 \sum_{i=1}^{M_\text{bends}} 2 K_{i,\text{bend}}
     (\theta_i - \theta_{i,0}) \frac{\partial \theta_i}{\partial x_{j}}" /></p>
 </div><p>The Cartesian Hessian of the force-field becomes:</p>
 <div class="math">
-<p><img src="../images/math/10b2b4a225812dfd8102b6fce88b77ddfe6c3600.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} =
+<p><img src="../_images/math/10b2b4a225812dfd8102b6fce88b77ddfe6c3600.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} =
 \sum_{i=1}^{M_\text{bonds}} 2 K_{i,\text{bond}} \left[
     \frac{\partial b_i}{\partial x_{j_1}} \frac{\partial b_i}{\partial x_{j_2}} +
     (b_i - b_{i,0}) \frac{\partial^2 b}{\partial x_{j_1} \partial x_{j_2}}
@@ -360,7 +360,7 @@ angles are at their optimum such that the second derivatives of the internal
 coordinates towards the Cartesian coordinates drop out of the expression for the
 Hessian:</p>
 <div class="math">
-<p><img src="../images/math/e800aa71f6f19f07b43bb4179e6d1898aed3c419.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} \approx
+<p><img src="../_images/math/e800aa71f6f19f07b43bb4179e6d1898aed3c419.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} \approx
 \sum_{i=1}^{M_\text{bonds}} 2 K_{i,\text{bond}}
     \frac{\partial b_i}{\partial x_{j_1}} \frac{\partial b_i}{\partial x_{j_2}} +
 \sum_{i=1}^{M_\text{bends}} 2 K_{i,\text{bend}}
@@ -771,25 +771,25 @@ for a given geometry.</p>
 <div class="section" id="dft-hessian-in-internal-coordinates-stationary-geometries">
 <h3>DFT Hessian in <cite>internal coordinates</cite> &#8211; Stationary geometries<a class="headerlink" href="#dft-hessian-in-internal-coordinates-stationary-geometries" title="Permalink to this headline">¶</a></h3>
 <p>Given a DFT Hessian for a stationary molecular system, and a list of internal
-coordinates, <img class="math" src="../images/math/6b50b1e2a036e3897de5cd74a367b0a7da70d160.png" alt="q_i"/>, one may construct a model for the Hessian based on a
+coordinates, <img class="math" src="../_images/math/6b50b1e2a036e3897de5cd74a367b0a7da70d160.png" alt="q_i"/>, one may construct a model for the Hessian based on a
 complete second order expansion in terms of internal coordinates. This means
 that one uses a force-field model with all possible cross terms as follows:</p>
 <div class="math">
-<p><img src="../images/math/8c34d182806b129e825a00a43f44734611101e45.png" alt="E_{\text{FF}} = \sum_{i_1=1}^M
+<p><img src="../_images/math/8c34d182806b129e825a00a43f44734611101e45.png" alt="E_{\text{FF}} = \sum_{i_1=1}^M
 \sum_{i_2=1}^M
 K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})" /></p>
-</div><p>One can define internal force constants, <img class="math" src="../images/math/fa64b63b0947a2be73c32ec2b82ddd8c5b55728b.png" alt="K_{ij}"/> such that the
+</div><p>One can define internal force constants, <img class="math" src="../_images/math/fa64b63b0947a2be73c32ec2b82ddd8c5b55728b.png" alt="K_{ij}"/> such that the
 force-field Hessian coincides with a given Hessian from a DFT computation. One
-could call the matrix <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> the Hessian in <cite>internal coordinates</cite>, but as
+could call the matrix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> the Hessian in <cite>internal coordinates</cite>, but as
 we will see below, this not a very strict definition. The purpose of such a
-transformation is that the matrix <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> is (or can be made) more diagonally
+transformation is that the matrix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> is (or can be made) more diagonally
 dominant than the original Hessian. It is a tool to get insight in the
 contributions to the Hessian that one should include in a force-field model.
 Similar models are used in redundant optimization methods.</p>
 <p>Assuming that the geometry is at a stationary point of the potential energy
 surface, one has to following expression for the force-field Hessian:</p>
 <div class="math">
-<p><img src="../images/math/a56f41c81766009256d0083931f6652e34f273d4.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}}
+<p><img src="../_images/math/a56f41c81766009256d0083931f6652e34f273d4.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}}
 = \sum_{i_1=1}^M \sum_{i_2=1}^M
 K_{i_1 i_2} \left(
     \frac{\partial q_{i_1}}{\partial x_{j_1}}
@@ -801,22 +801,22 @@ K_{i_1 i_2} \left(
 K_{i_1 i_2}
 \frac{\partial q_{i_1}}{\partial x_{j_1}}
 \frac{\partial q_{i_2}}{\partial x_{j_2}}" /></p>
-</div><p>The last step assumes that <img class="math" src="../images/math/b90654c7e5b6e212986d76795c3c01facdb196f3.png" alt="K_{i_1 i_2} = K_{i_2 i_1}"/>. This can be
+</div><p>The last step assumes that <img class="math" src="../_images/math/b90654c7e5b6e212986d76795c3c01facdb196f3.png" alt="K_{i_1 i_2} = K_{i_2 i_1}"/>. This can be
 rewritten in matrix notation:</p>
 <div class="math" id="equation-matrix_hessian_int">
-<p><span class="eqno">(1)</span><img src="../images/math/e519bc1e6500ccae2975fee896a32f6db55ae719.png" alt="H = J K J^T" /></p>
+<p><span class="eqno">(1)</span><img src="../_images/math/e519bc1e6500ccae2975fee896a32f6db55ae719.png" alt="H = J K J^T" /></p>
 </div><p>with</p>
 <div class="math">
-<p><img src="../images/math/18939994ad93819dda63ba7ce82b12ae1e1b4286.png" alt="\begin{align*}
+<p><img src="../_images/math/18939994ad93819dda63ba7ce82b12ae1e1b4286.png" alt="\begin{align*}
     H_{j_1 j_2} &amp; = \frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} \\
     J_{j_1 i_i} &amp; = \frac{\partial q_{i_1}}{\partial x_{j_1}}
 \end{align*}" /></p>
-</div><p>In practice, the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/> is rectangular, mainly because there
+</div><p>In practice, the Jacobian matrix <img class="math" src="../_images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/> is rectangular, mainly because there
 are often much more internal coordinates than Cartesian coordinates. Therefore
 one can not simply invert <a href="#equation-matrix_hessian_int">(1)</a> to obtain the Hessian in
-internal coordinates. There are actually many matrices <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> that solve
+internal coordinates. There are actually many matrices <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> that solve
 equation <a href="#equation-matrix_hessian_int">(1)</a>, and one has to introduce some additional
-criteria to fix <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>.</p>
+criteria to fix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>.</p>
 <p>For the sake of simplicity, we will use the <a class="reference external" href="http://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_pseudoinverse">Moore-Penrose pseudoinverse</a> of the
 Jacobian to invert <a href="#equation-matrix_hessian_int">(1)</a>, but there may be better choices.
 This may seem a unique choice, but in practice it is not. The problem is that
@@ -1197,17 +1197,17 @@ such that it also works for non-stationery points on the potential energy
 surface. The starting point is a more general expression for the force-field
 model</p>
 <div class="math">
-<p><img src="../images/math/0a585c1cd1021a86048080a094f2fea11df48fca.png" alt="E_{\text{FF}} =
+<p><img src="../_images/math/0a585c1cd1021a86048080a094f2fea11df48fca.png" alt="E_{\text{FF}} =
 \sum_{i=1}^M A (q_{i} - q_{i,0}) +
 \sum_{i_1=1}^M \sum_{i_2=1}^M
 K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})" /></p>
 </div><p>where the rest values can be the current internal coordinates, or some reference
-values. The vector <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> and the matrix <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> can be defined in such
+values. The vector <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> and the matrix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> can be defined in such
 a way that the force-field gradient and Hessian in Cartesian coordinates
-coincide with their DFT counter-parts. First derive proper forms for <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>
-and <img class="math" src="../images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>.</p>
+coincide with their DFT counter-parts. First derive proper forms for <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>
+and <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/>.</p>
 <p>Let the program still use the current internal coordinates as reference values
-for the force field. Let it also print out the vector <img class="math" src="../images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>.</p>
+for the force field. Let it also print out the vector <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/>.</p>
 </div>
 <div class="section" id="fitting-force-constants">
 <h3>Fitting force-constants<a class="headerlink" href="#fitting-force-constants" title="Permalink to this headline">¶</a></h3>
@@ -1255,7 +1255,7 @@ choice of rest parameters.</p>
                         title="next chapter">Pattern-matching in molecular graphs</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../sources/tutorial/internal_coordinates.txt"
+    <li><a href="../_sources/tutorial/internal_coordinates.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
