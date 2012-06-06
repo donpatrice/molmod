@@ -1,0 +1,191 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Internals of the MolMod package &mdash; MolMod v0.0 documentation</title>
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="prev" title="Algorithms" href="algo.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="algo.html" title="Algorithms"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="internals-of-the-molmod-package">
+<h1>Internals of the MolMod package<a class="headerlink" href="#internals-of-the-molmod-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-molmod.utils">
+<h2><a title="" class="reference external" href="#module-molmod.utils"><tt class="xref docutils literal"><span class="pre">molmod.utils</span></tt></a> &#8211; Read-only objects and cached attributes<a class="headerlink" href="#module-molmod.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="molmod.utils.cached">
+<tt class="descclassname">molmod.utils.</tt><tt class="descname">cached</tt><a class="headerlink" href="#molmod.utils.cached" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator that will turn a method into a caching descriptor</p>
+<p>When an attribute is requested for the first time, the original method
+will be called and its return value is cached. Subsequent access to the
+attribute will just return the cached value.</p>
+<p>Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@cached</span>
+    <span class="k">def</span> <span class="nf">some_property</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>There are a few limitations on the <tt class="docutils literal"><span class="pre">cached</span></tt> decorator. Once the result
+is computed and cached, it can not be erased. This means that the values
+on which the result depends have to be read-only parameters that can not
+be changed afterwards. This is facilitated by deriving from the
+<a title="molmod.utils.ReadOnly" class="reference internal" href="#molmod.utils.ReadOnly"><tt class="xref docutils literal"><span class="pre">ReadOnly</span></tt></a> object. See <a title="molmod.molecules.Molecule" class="reference external" href="basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> for an
+example.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="molmod.utils.ReadOnly">
+<em class="property">class </em><tt class="descclassname">molmod.utils.</tt><tt class="descname">ReadOnly</tt><a class="headerlink" href="#molmod.utils.ReadOnly" title="Permalink to this definition">¶</a></dt>
+<dd><p>A base class for read-only objects</p>
+<p>An object that has nothing but read-only attributes. If an attribute is
+not assigned yet, it is writable. Some attributes are cached, i.e. they
+are computed from other attributes upon request.</p>
+<p>If you want to modify a ReadOnly object, just create a modified one from
+scratch. This is greatly facilitated by the method <a title="molmod.utils.ReadOnly.copy_with" class="reference internal" href="#molmod.utils.ReadOnly.copy_with"><tt class="xref docutils literal"><span class="pre">copy_with()</span></tt></a>.</p>
+<dl class="method">
+<dt id="molmod.utils.ReadOnly.copy_with">
+<tt class="descname">copy_with</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#molmod.utils.ReadOnly.copy_with" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy with (a few) changed attributes</p>
+<p>The keyword arguments are the attributes to be replaced by new
+values. All other attributes are copied (or referenced) from the
+original object. This only works if the constructor takes all
+(read-only) attributes as arguments.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-molmod.context">
+<h2><a title="" class="reference external" href="#module-molmod.context"><tt class="xref docutils literal"><span class="pre">molmod.context</span></tt></a> &#8211; Runtime context information<a class="headerlink" href="#module-molmod.context" title="Permalink to this headline">¶</a></h2>
+<p>This module defines a <tt class="docutils literal"><span class="pre">context</span></tt> object of the class <a title="molmod.context.Context" class="reference internal" href="#molmod.context.Context"><tt class="xref docutils literal"><span class="pre">Context</span></tt></a>. The
+instance can be used to retrieve shared files:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="n">context</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">get_share_filename</span><span class="p">(</span><span class="s">&quot;periodic.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="molmod.context.Context">
+<em class="property">class </em><tt class="descclassname">molmod.context.</tt><tt class="descname">Context</tt><a class="headerlink" href="#molmod.context.Context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Global variable to find and use share directory</p>
+<p>Initialize the Context object</p>
+<p>This is done once, when importing a molmod module. There is no need
+to do this manually a second time.</p>
+<dl class="method">
+<dt id="molmod.context.Context.get_share_filename">
+<tt class="descname">get_share_filename</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.context.Context.get_share_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the full path for a given filename in the share folder</p>
+<dl class="docutils">
+<dt>Argument:</dt>
+<dd><div class="first last line-block">
+<div class="line">filename  &#8211;  A file from the share directory (without the
+<tt class="docutils literal"><span class="pre">share/</span></tt> prefix)</div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference external" href="#">Internals of the MolMod package</a><ul>
+<li><a class="reference external" href="#module-molmod.utils"><tt class="docutils literal"><span class="pre">molmod.utils</span></tt> &#8211; Read-only objects and cached attributes</a></li>
+<li><a class="reference external" href="#module-molmod.context"><tt class="docutils literal"><span class="pre">molmod.context</span></tt> &#8211; Runtime context information</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="algo.html"
+                        title="previous chapter">Algorithms</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/reference/internals.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="algo.html" title="Algorithms"
+             >previous</a> |</li>
+        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Toon Verstraelen.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>

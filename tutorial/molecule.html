@@ -1,0 +1,744 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Working with molecules &mdash; MolMod v0.0 documentation</title>
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/underscore.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="up" title="MolMod by example" href="examples.html" />
+    <link rel="next" title="Working with molecular graphs" href="graph.html" />
+    <link rel="prev" title="Unit conversion" href="units.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="graph.html" title="Working with molecular graphs"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="units.html" title="Unit conversion"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+          <li><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="working-with-molecules">
+<h1>Working with molecules<a class="headerlink" href="#working-with-molecules" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="molecule-objects">
+<h3>Molecule objects<a class="headerlink" href="#molecule-objects" title="Permalink to this headline">¶</a></h3>
+<p>The class <a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> is a fundamental part of the MolMod
+package. Instances of this class hold all information to describe the geometry
+and the topology of a molecular structure. In practice the following attributes
+can be stored in a Molecule object:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">numbers</span></tt>  &#8211;  An array of atomic numbers with N elements. This
+is the only mandatory attribute. All other attributes are optional.</li>
+<li><tt class="docutils literal"><span class="pre">coordinates</span></tt>  &#8211;  An array with atomic coordinates (in Bohr) with
+shape (N,3).</li>
+<li><tt class="docutils literal"><span class="pre">title</span></tt>  &#8211;  A short description of the molecule.</li>
+<li><tt class="docutils literal"><span class="pre">masses</span></tt>  &#8211;  An array with atomic masses (in <img class="math" src="../images/math/fbf7241baf5a43ae1aee88fb986854f3c84c6df7.png" alt="m_e"/>)</li>
+<li><tt class="docutils literal"><span class="pre">graph</span></tt>  &#8211;  A <tt class="docutils literal"><span class="pre">MolecularGraph</span></tt> instance describing the connectivity of
+the atoms.</li>
+<li><tt class="docutils literal"><span class="pre">symbols</span></tt>  &#8211;  A tuple with atomic symbols. These may be the names of the
+elements or some force-field atom types.</li>
+<li><tt class="docutils literal"><span class="pre">unit_cell</span></tt>  &#8211;  A <tt class="docutils literal"><span class="pre">UnitCell</span></tt> instance describing the periodic boundary
+conditions.</li>
+</ul>
+<p>One can create Molecule instances based on several conventional file formats as
+follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;foo.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The extension of the file is used to detect the file format. The following
+formats are currently supported: <tt class="docutils literal"><span class="pre">*.cml</span></tt>, <tt class="docutils literal"><span class="pre">*.fchk</span></tt>, <tt class="docutils literal"><span class="pre">*.pdb</span></tt>, <tt class="docutils literal"><span class="pre">*.sdf</span></tt>,
+<tt class="docutils literal"><span class="pre">*.xyz</span></tt>. It is relatively trivial to implement new file formats, but there is
+no real urgent need for that because the babel program can convert most files
+into one of these formats.</p>
+<p>A Molecule object can be written to file as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mol</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="s">&quot;bar.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The currently supported formats for writing files are: <tt class="docutils literal"><span class="pre">*.xyz</span></tt>, <tt class="docutils literal"><span class="pre">*.cml</span></tt></p>
+</div>
+<div class="section" id="derived-quantities">
+<h3>Derived quantities<a class="headerlink" href="#derived-quantities" title="Permalink to this headline">¶</a></h3>
+<p>Some derived quantities are accessible as attributes. The contents of these
+attributes are only computed when they are accessed for the first time. Once a
+derived quantity is computed it is stored internally (in the molecule object) in
+case it would be requested a second time. This mechanism is called <cite>caching</cite>. It
+imposes good scripting practices when using the MolMod package and also improves
+the efficiency of the scripts. These are a few convenient derived quantities:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">chemical_formula</span></tt>  &#8211;  A string containing the chemical formula.</li>
+<li><tt class="docutils literal"><span class="pre">com</span></tt>  &#8211;  The center of mass of the molecule.</li>
+<li><tt class="docutils literal"><span class="pre">distance_matrix</span></tt>  &#8211;  A square matrix with all inter-atomic distances in
+a molecule (ignoring periodic boundary conditions for the moment).</li>
+<li><tt class="docutils literal"><span class="pre">inertia_tensor</span></tt>  &#8211;  The inertia tensor of the molecule computed with the
+center of mass as the origin.</li>
+<li><tt class="docutils literal"><span class="pre">mass</span></tt>  &#8211;  The total mass of the system.</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt>  &#8211;  The number of atoms.</li>
+</ul>
+<p>An up-to-date list can be found in the reference documentation:
+<a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>. Most derived quantities depend on optional
+attributes. If these optional attributes are not present, an error is raised
+when a derived quantity is requested.</p>
+</div>
+<div class="section" id="modifying-molecule-objects">
+<h3>Modifying molecule objects<a class="headerlink" href="#modifying-molecule-objects" title="Permalink to this headline">¶</a></h3>
+<p>The <cite>caching</cite> mechanism has one important side-effect. When the underlying data
+of the derived quantities change, the <cite>cached</cite> results are no longer correct.
+This problem is called <cite>cache inconsistency</cite>. There are typically two ways to
+impose <cite>cache consistency</cite>: (i) all underlying quantities are kept constant, or
+(ii) cached results are deleted when the underlying data change. The first
+mechanism is used throughout the MolMod package. When you need to modify a
+<tt class="docutils literal"><span class="pre">Molecule</span></tt> object, just create a new one with modified attributes. This is
+facilitated by the <tt class="docutils literal"><span class="pre">copy_with</span></tt> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">mol1</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;foo.xyz&quot;</span><span class="p">)</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">mol1</span><span class="o">.</span><span class="n">copy_with</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any of the above attributes can be modified through <tt class="docutils literal"><span class="pre">copy_with</span></tt>. Cached
+derived quantities are never discarded with this approach.</p>
+<p>The concept of derived quantities and read-only attributes is extensively used
+in the following classes:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Molecule</span></tt>, see <a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Graph</span></tt>, see <a title="molmod.graphs.Graph" class="reference external" href="../reference/basic.html#molmod.graphs.Graph"><tt class="xref docutils literal"><span class="pre">molmod.graphs.Graph</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">MolecularGraph</span></tt>, see <a title="molmod.molecular_graphs.MolecularGraph" class="reference external" href="../reference/basic.html#molmod.molecular_graphs.MolecularGraph"><tt class="xref docutils literal"><span class="pre">molmod.molecular_graphs.MolecularGraph</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">UnitCell</span></tt>, see <a title="molmod.unit_cells.UnitCell" class="reference external" href="../reference/basic.html#molmod.unit_cells.UnitCell"><tt class="xref docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Translation</span></tt>, see <a title="molmod.transformations.Translation" class="reference external" href="../reference/basic.html#molmod.transformations.Translation"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Translation</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Rotation</span></tt>, see <a title="molmod.transformations.Rotation" class="reference external" href="../reference/basic.html#molmod.transformations.Rotation"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Rotation</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Complete</span></tt>, see <a title="molmod.transformations.Complete" class="reference external" href="../reference/basic.html#molmod.transformations.Complete"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Complete</span></tt></a>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conversion-of-files">
+<h3>Conversion of files<a class="headerlink" href="#conversion-of-files" title="Permalink to this headline">¶</a></h3>
+<p>Although the conversion of files with molecular systems from one format to the
+other is easily done with the babel program, the example is still useful for
+didactic purposes.</p>
+<p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/a_convert.py</span></tt></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
+<span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
+<span class="c"># for Molecular Modeling (CMM), Ghent University, Ghent, Belgium; all rights</span>
+<span class="c"># reserved unless otherwise stated.</span>
+<span class="c">#</span>
+<span class="c"># This file is part of MolMod.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is free software; you can redistribute it and/or</span>
+<span class="c"># modify it under the terms of the GNU General Public License</span>
+<span class="c"># as published by the Free Software Foundation; either version 3</span>
+<span class="c"># of the License, or (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c">#</span>
+<span class="c"># --</span>
+<span class="c"># --</span>
+<span class="c">#--</span>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
+<span class="n">mol</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.xyz&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="center-of-mass-to-origin">
+<h3>Center of mass to origin<a class="headerlink" href="#center-of-mass-to-origin" title="Permalink to this headline">¶</a></h3>
+<p>This example shows how a modified molecule object is made.</p>
+<p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/b_com.py</span></tt></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
+<span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
+<span class="c"># for Molecular Modeling (CMM), Ghent University, Ghent, Belgium; all rights</span>
+<span class="c"># reserved unless otherwise stated.</span>
+<span class="c">#</span>
+<span class="c"># This file is part of MolMod.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is free software; you can redistribute it and/or</span>
+<span class="c"># modify it under the terms of the GNU General Public License</span>
+<span class="c"># as published by the Free Software Foundation; either version 3</span>
+<span class="c"># of the License, or (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c">#</span>
+<span class="c"># --</span>
+<span class="c"># --</span>
+<span class="c">#--</span>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># 0) Load the molecule from file</span>
+<span class="n">mol1</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
+
+<span class="c"># 1) The atomic masses are not included in the sdf file. We need them below to</span>
+<span class="c"># compute the center of mass, so we assign standard masses.</span>
+<span class="n">mol1</span><span class="o">.</span><span class="n">set_default_masses</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">mol1</span><span class="o">.</span><span class="n">masses</span><span class="o">/</span><span class="n">amu</span>
+
+<span class="c"># 2) Create modified coordinates. The attribute coordinates is an N by 3 array,</span>
+<span class="c"># while the com attribute is an array with three components. The following</span>
+<span class="c"># subtraction is performed elementwise at the level of the rows. Each row</span>
+<span class="c"># of the coordinates array corresponds to one atom. From each atomic coordinate</span>
+<span class="c"># the center of mass is subtracted to construct a new coordinates array.</span>
+<span class="n">new_coordinates</span> <span class="o">=</span> <span class="n">mol1</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">-</span> <span class="n">mol1</span><span class="o">.</span><span class="n">com</span>
+
+<span class="c"># 3) Make a copy of mol1 with updated coordinates and write it to a file.</span>
+<span class="n">mol2</span> <span class="o">=</span> <span class="n">mol1</span><span class="o">.</span><span class="n">copy_with</span><span class="p">(</span><span class="n">coordinates</span><span class="o">=</span><span class="n">new_coordinates</span><span class="p">)</span>
+<span class="n">mol2</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">(</span><span class="s">&quot;ibuprofen_com.xyz&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Written file ibuprofen_com.xyz&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="all-carbons">
+<h3>All carbons<a class="headerlink" href="#all-carbons" title="Permalink to this headline">¶</a></h3>
+<p>The following program prints the X-, Y- and Z-coordinates of all Carbon atoms in
+the ibuprofen molecule.</p>
+<p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/c_carbon.py</span></tt></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
+<span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
+<span class="c"># for Molecular Modeling (CMM), Ghent University, Ghent, Belgium; all rights</span>
+<span class="c"># reserved unless otherwise stated.</span>
+<span class="c">#</span>
+<span class="c"># This file is part of MolMod.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is free software; you can redistribute it and/or</span>
+<span class="c"># modify it under the terms of the GNU General Public License</span>
+<span class="c"># as published by the Free Software Foundation; either version 3</span>
+<span class="c"># of the License, or (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c">#</span>
+<span class="c"># --</span>
+<span class="c"># --</span>
+<span class="c">#--</span>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># 0) Load the molecule</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
+
+<span class="c"># 1) Print out all carbon positions</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">angstrom</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="size-of-a-molecule">
+<h3>Size of a molecule<a class="headerlink" href="#size-of-a-molecule" title="Permalink to this headline">¶</a></h3>
+<p>One can define the size of a molecule in several ways. The following program
+prints out the largest inter-atomic distance in Ångström.</p>
+<p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/d_size.py</span></tt></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
+<span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
+<span class="c"># for Molecular Modeling (CMM), Ghent University, Ghent, Belgium; all rights</span>
+<span class="c"># reserved unless otherwise stated.</span>
+<span class="c">#</span>
+<span class="c"># This file is part of MolMod.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is free software; you can redistribute it and/or</span>
+<span class="c"># modify it under the terms of the GNU General Public License</span>
+<span class="c"># as published by the Free Software Foundation; either version 3</span>
+<span class="c"># of the License, or (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c">#</span>
+<span class="c"># --</span>
+<span class="c"># --</span>
+<span class="c">#--</span>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c"># 0) Load the molecule.</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
+
+<span class="c"># 1) Print the largest element in the distance matrix.</span>
+<span class="k">print</span> <span class="s">&quot;Largest interatomic distance [A]:&quot;</span>
+<span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">distance_matrix</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="n">angstrom</span>
+<span class="c"># Some comments:</span>
+<span class="c">#  - One can just write code that assumes the attribute distance_matrix is</span>
+<span class="c">#    present, but in fact it is only computed once the first time it is used.</span>
+<span class="c">#  - The method max is a method of the numpy array. It returns the largest value</span>
+<span class="c">#    in an array.</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="shape-of-a-molecule">
+<h3>Shape of a molecule<a class="headerlink" href="#shape-of-a-molecule" title="Permalink to this headline">¶</a></h3>
+<p>One can define the shape of a molecule based on the covariance of the atomic
+coordinates with respect to their geometric center. Some shape categories were
+introduced by <a class="reference external" href="http://en.wikipedia.org/wiki/Equidimensional">Zingg</a>. The
+following program computes the shape category for the ibuprofen molecule</p>
+<p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/e_shape.py</span></tt></p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
+<span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
+<span class="c"># for Molecular Modeling (CMM), Ghent University, Ghent, Belgium; all rights</span>
+<span class="c"># reserved unless otherwise stated.</span>
+<span class="c">#</span>
+<span class="c"># This file is part of MolMod.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is free software; you can redistribute it and/or</span>
+<span class="c"># modify it under the terms of the GNU General Public License</span>
+<span class="c"># as published by the Free Software Foundation; either version 3</span>
+<span class="c"># of the License, or (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># MolMod is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program; if not, see &lt;http://www.gnu.org/licenses/&gt;</span>
+<span class="c">#</span>
+<span class="c"># --</span>
+<span class="c"># --</span>
+<span class="c">#--</span>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dot</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">eigvalsh</span>
+
+
+<span class="c"># 0) Load the molecule.</span>
+<span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
+
+<span class="c"># 1) Compute the arithmetic center of the atomic coordinates.</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+<span class="c"># Without the axis=0 argument, the average over all X, Y and Z components would</span>
+<span class="c"># be computed. Now it just computes the averages for each column. axis=1 would</span>
+<span class="c"># refer to averaging over rows.</span>
+
+<span class="c"># 2) Move the arithmetic center of the coordinates to the origin. The same</span>
+<span class="c"># comments from the b_com.py apply.</span>
+<span class="n">centered</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">-</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+
+<span class="c"># 3) Compute the covariance matrix of the centered coordinates.</span>
+<span class="n">covar</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">centered</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">centered</span><span class="p">)</span><span class="o">/</span><span class="n">mol</span><span class="o">.</span><span class="n">size</span>
+
+<span class="c"># 4) Compute the eigenvalues of the symmetric covariance matrix.</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">eigvalsh</span><span class="p">(</span><span class="n">covar</span><span class="p">)</span>
+
+<span class="c"># 5) The spread along the three eigenvectors is computed as the standard deviation</span>
+<span class="c"># of the atomic coordinates along that direction:</span>
+<span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">evals</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Spread along the long axis [A]:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="o">/</span><span class="n">angstrom</span>
+<span class="k">print</span> <span class="s">&quot;Spread along the intermediate axis [A]:&quot;</span><span class="p">,</span> <span class="n">b</span><span class="o">/</span><span class="n">angstrom</span>
+<span class="k">print</span> <span class="s">&quot;Spread along the short axis [A]:&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">/</span><span class="n">angstrom</span>
+
+<span class="c"># 6) Test in which category this shape belongs. The factor R is set to 1.5.</span>
+<span class="n">R</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">R</span><span class="o">*</span><span class="n">c</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">R</span><span class="o">*</span><span class="n">b</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="s">&#39;equant&#39;</span> <span class="c"># sphere-like</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="s">&#39;prolate&#39;</span> <span class="c"># sigar-like</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">R</span><span class="o">*</span><span class="n">b</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="s">&#39;oblate&#39;</span> <span class="c"># pancake-like</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="s">&#39;bladed&#39;</span> <span class="c"># keyboard-like</span>
+<span class="k">print</span> <span class="s">&quot;The shape category:&quot;</span><span class="p">,</span> <span class="n">shape</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="problems">
+<h2>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Write a program that makes a list of all (unique) pairs of Carbon atoms that
+have an inter-atomic distance below 2.0 Ångström.</p>
+</li>
+<li><p class="first">Try to find for each shape category (equant, prolate, oblate and bladed) some
+molecules from <a class="reference external" href="http://pubchem.ncbi.nlm.nih.gov/">PubChem</a>. Just download a
+bunch of SDF files and use the glob module from Python to loop over all these
+files:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">glob</span><span class="p">(</span><span class="s">&quot;*.sdf&quot;</span><span class="p">):</span>
+    <span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+    <span class="c"># do something here</span>
+</pre></div>
+</div>
+<p>If you feel <cite>lucky</cite>, extend to program so that it downloads the first 100
+molecules from the PubChem database.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference external" href="#">Working with molecules</a><ul>
+<li><a class="reference external" href="#introduction">Introduction</a><ul>
+<li><a class="reference external" href="#molecule-objects">Molecule objects</a></li>
+<li><a class="reference external" href="#derived-quantities">Derived quantities</a></li>
+<li><a class="reference external" href="#modifying-molecule-objects">Modifying molecule objects</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#examples">Examples</a><ul>
+<li><a class="reference external" href="#conversion-of-files">Conversion of files</a></li>
+<li><a class="reference external" href="#center-of-mass-to-origin">Center of mass to origin</a></li>
+<li><a class="reference external" href="#all-carbons">All carbons</a></li>
+<li><a class="reference external" href="#size-of-a-molecule">Size of a molecule</a></li>
+<li><a class="reference external" href="#shape-of-a-molecule">Shape of a molecule</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#problems">Problems</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="units.html"
+                        title="previous chapter">Unit conversion</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graph.html"
+                        title="next chapter">Working with molecular graphs</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../sources/tutorial/molecule.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="graph.html" title="Working with molecular graphs"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="units.html" title="Unit conversion"
+             >previous</a> |</li>
+        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+          <li><a href="examples.html" >MolMod by example</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Toon Verstraelen.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+    </div>
+  </body>
+</html>
