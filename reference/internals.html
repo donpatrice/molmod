@@ -2,18 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Internals of the MolMod package &mdash; MolMod v0.0 documentation</title>
+    <title>Internals of the MolMod package &mdash; MolMod 0.0 documentation</title>
+    
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
     <link rel="prev" title="Algorithms" href="algo.html" /> 
   </head>
   <body>
@@ -32,12 +35,12 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="algo.html" title="Algorithms"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -49,7 +52,7 @@
   <div class="section" id="internals-of-the-molmod-package">
 <h1>Internals of the MolMod package<a class="headerlink" href="#internals-of-the-molmod-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-molmod.utils">
-<h2><a title="" class="reference external" href="#module-molmod.utils"><tt class="xref docutils literal"><span class="pre">molmod.utils</span></tt></a> &#8211; Read-only objects and cached attributes<a class="headerlink" href="#module-molmod.utils" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-utils-read-only-objects-and-cached-attributes"></span><h2><a class="reference internal" href="#module-molmod.utils" title="molmod.utils"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.utils</span></tt></a> &#8211; Read-only objects and cached attributes<a class="headerlink" href="#module-molmod.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="attribute">
 <dt id="molmod.utils.cached">
 <tt class="descclassname">molmod.utils.</tt><tt class="descname">cached</tt><a class="headerlink" href="#molmod.utils.cached" title="Permalink to this definition">¶</a></dt>
@@ -68,7 +71,7 @@ attribute will just return the cached value.</p>
 is computed and cached, it can not be erased. This means that the values
 on which the result depends have to be read-only parameters that can not
 be changed afterwards. This is facilitated by deriving from the
-<a title="molmod.utils.ReadOnly" class="reference internal" href="#molmod.utils.ReadOnly"><tt class="xref docutils literal"><span class="pre">ReadOnly</span></tt></a> object. See <a title="molmod.molecules.Molecule" class="reference external" href="basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> for an
+<a class="reference internal" href="#molmod.utils.ReadOnly" title="molmod.utils.ReadOnly"><tt class="xref py py-class docutils literal"><span class="pre">ReadOnly</span></tt></a> object. See <a class="reference internal" href="basic.html#molmod.molecules.Molecule" title="molmod.molecules.Molecule"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> for an
 example.</p>
 </dd></dl>
 
@@ -80,7 +83,7 @@ example.</p>
 not assigned yet, it is writable. Some attributes are cached, i.e. they
 are computed from other attributes upon request.</p>
 <p>If you want to modify a ReadOnly object, just create a modified one from
-scratch. This is greatly facilitated by the method <a title="molmod.utils.ReadOnly.copy_with" class="reference internal" href="#molmod.utils.ReadOnly.copy_with"><tt class="xref docutils literal"><span class="pre">copy_with()</span></tt></a>.</p>
+scratch. This is greatly facilitated by the method <a class="reference internal" href="#molmod.utils.ReadOnly.copy_with" title="molmod.utils.ReadOnly.copy_with"><tt class="xref py py-meth docutils literal"><span class="pre">copy_with()</span></tt></a>.</p>
 <dl class="method">
 <dt id="molmod.utils.ReadOnly.copy_with">
 <tt class="descname">copy_with</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#molmod.utils.ReadOnly.copy_with" title="Permalink to this definition">¶</a></dt>
@@ -95,8 +98,8 @@ original object. This only works if the constructor takes all
 
 </div>
 <div class="section" id="module-molmod.context">
-<h2><a title="" class="reference external" href="#module-molmod.context"><tt class="xref docutils literal"><span class="pre">molmod.context</span></tt></a> &#8211; Runtime context information<a class="headerlink" href="#module-molmod.context" title="Permalink to this headline">¶</a></h2>
-<p>This module defines a <tt class="docutils literal"><span class="pre">context</span></tt> object of the class <a title="molmod.context.Context" class="reference internal" href="#molmod.context.Context"><tt class="xref docutils literal"><span class="pre">Context</span></tt></a>. The
+<span id="molmod-context-runtime-context-information"></span><h2><a class="reference internal" href="#module-molmod.context" title="molmod.context"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.context</span></tt></a> &#8211; Runtime context information<a class="headerlink" href="#module-molmod.context" title="Permalink to this headline">¶</a></h2>
+<p>This module defines a <tt class="docutils literal"><span class="pre">context</span></tt> object of the class <a class="reference internal" href="#molmod.context.Context" title="molmod.context.Context"><tt class="xref py py-class docutils literal"><span class="pre">Context</span></tt></a>. The
 instance can be used to retrieve shared files:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="n">context</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">get_share_filename</span><span class="p">(</span><span class="s">&quot;periodic.csv&quot;</span><span class="p">)</span>
@@ -136,9 +139,9 @@ to do this manually a second time.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference external" href="#">Internals of the MolMod package</a><ul>
-<li><a class="reference external" href="#module-molmod.utils"><tt class="docutils literal"><span class="pre">molmod.utils</span></tt> &#8211; Read-only objects and cached attributes</a></li>
-<li><a class="reference external" href="#module-molmod.context"><tt class="docutils literal"><span class="pre">molmod.context</span></tt> &#8211; Runtime context information</a></li>
+<li><a class="reference internal" href="#">Internals of the MolMod package</a><ul>
+<li><a class="reference internal" href="#module-molmod.utils"><tt class="docutils literal"><span class="pre">molmod.utils</span></tt> &#8211; Read-only objects and cached attributes</a></li>
+<li><a class="reference internal" href="#module-molmod.context"><tt class="docutils literal"><span class="pre">molmod.context</span></tt> &#8211; Runtime context information</a></li>
 </ul>
 </li>
 </ul>
@@ -154,7 +157,7 @@ to do this manually a second time.</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -175,17 +178,17 @@ to do this manually a second time.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="algo.html" title="Algorithms"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

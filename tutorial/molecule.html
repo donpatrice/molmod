@@ -2,18 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with molecules &mdash; MolMod v0.0 documentation</title>
+    <title>Working with molecules &mdash; MolMod 0.0 documentation</title>
+    
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
     <link rel="up" title="MolMod by example" href="examples.html" />
     <link rel="next" title="Working with molecular graphs" href="graph.html" />
     <link rel="prev" title="Unit conversion" href="units.html" /> 
@@ -34,15 +37,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="graph.html" title="Working with molecular graphs"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="units.html" title="Unit conversion"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,7 +61,7 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="molecule-objects">
 <h3>Molecule objects<a class="headerlink" href="#molecule-objects" title="Permalink to this headline">¶</a></h3>
-<p>The class <a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> is a fundamental part of the MolMod
+<p>The class <a class="reference internal" href="../reference/basic.html#molmod.molecules.Molecule" title="molmod.molecules.Molecule"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a> is a fundamental part of the MolMod
 package. Instances of this class hold all information to describe the geometry
 and the topology of a molecular structure. In practice the following attributes
 can be stored in a Molecule object:</p>
@@ -111,7 +114,7 @@ center of mass as the origin.</li>
 <li><tt class="docutils literal"><span class="pre">size</span></tt>  &#8211;  The number of atoms.</li>
 </ul>
 <p>An up-to-date list can be found in the reference documentation:
-<a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>. Most derived quantities depend on optional
+<a class="reference internal" href="../reference/basic.html#molmod.molecules.Molecule" title="molmod.molecules.Molecule"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>. Most derived quantities depend on optional
 attributes. If these optional attributes are not present, an error is raised
 when a derived quantity is requested.</p>
 </div>
@@ -134,13 +137,13 @@ derived quantities are never discarded with this approach.</p>
 <p>The concept of derived quantities and read-only attributes is extensively used
 in the following classes:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">Molecule</span></tt>, see <a title="molmod.molecules.Molecule" class="reference external" href="../reference/basic.html#molmod.molecules.Molecule"><tt class="xref docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">Graph</span></tt>, see <a title="molmod.graphs.Graph" class="reference external" href="../reference/basic.html#molmod.graphs.Graph"><tt class="xref docutils literal"><span class="pre">molmod.graphs.Graph</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">MolecularGraph</span></tt>, see <a title="molmod.molecular_graphs.MolecularGraph" class="reference external" href="../reference/basic.html#molmod.molecular_graphs.MolecularGraph"><tt class="xref docutils literal"><span class="pre">molmod.molecular_graphs.MolecularGraph</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">UnitCell</span></tt>, see <a title="molmod.unit_cells.UnitCell" class="reference external" href="../reference/basic.html#molmod.unit_cells.UnitCell"><tt class="xref docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">Translation</span></tt>, see <a title="molmod.transformations.Translation" class="reference external" href="../reference/basic.html#molmod.transformations.Translation"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Translation</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">Rotation</span></tt>, see <a title="molmod.transformations.Rotation" class="reference external" href="../reference/basic.html#molmod.transformations.Rotation"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Rotation</span></tt></a>.</li>
-<li><tt class="docutils literal"><span class="pre">Complete</span></tt>, see <a title="molmod.transformations.Complete" class="reference external" href="../reference/basic.html#molmod.transformations.Complete"><tt class="xref docutils literal"><span class="pre">molmod.transformations.Complete</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Molecule</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.molecules.Molecule" title="molmod.molecules.Molecule"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecules.Molecule</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Graph</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.graphs.Graph" title="molmod.graphs.Graph"><tt class="xref py py-class docutils literal"><span class="pre">molmod.graphs.Graph</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">MolecularGraph</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.molecular_graphs.MolecularGraph" title="molmod.molecular_graphs.MolecularGraph"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecular_graphs.MolecularGraph</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">UnitCell</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.unit_cells.UnitCell" title="molmod.unit_cells.UnitCell"><tt class="xref py py-class docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Translation</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.transformations.Translation" title="molmod.transformations.Translation"><tt class="xref py py-class docutils literal"><span class="pre">molmod.transformations.Translation</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Rotation</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.transformations.Rotation" title="molmod.transformations.Rotation"><tt class="xref py py-class docutils literal"><span class="pre">molmod.transformations.Rotation</span></tt></a>.</li>
+<li><tt class="docutils literal"><span class="pre">Complete</span></tt>, see <a class="reference internal" href="../reference/basic.html#molmod.transformations.Complete" title="molmod.transformations.Complete"><tt class="xref py py-class docutils literal"><span class="pre">molmod.transformations.Complete</span></tt></a>.</li>
 </ul>
 </div>
 </div>
@@ -152,7 +155,7 @@ in the following classes:</p>
 other is easily done with the babel program, the example is still useful for
 didactic purposes.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/a_convert.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -180,7 +183,7 @@ didactic purposes.</p>
 26
 27
 28
-29</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+29</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -216,7 +219,7 @@ didactic purposes.</p>
 <h3>Center of mass to origin<a class="headerlink" href="#center-of-mass-to-origin" title="Permalink to this headline">¶</a></h3>
 <p>This example shows how a modified molecule object is made.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/b_com.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -261,7 +264,7 @@ didactic purposes.</p>
 43
 44
 45
-46</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+46</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -315,7 +318,7 @@ didactic purposes.</p>
 <p>The following program prints the X-, Y- and Z-coordinates of all Carbon atoms in
 the ibuprofen molecule.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/c_carbon.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -348,7 +351,7 @@ the ibuprofen molecule.</p>
 31
 32
 33
-34</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+34</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -380,7 +383,7 @@ the ibuprofen molecule.</p>
 
 <span class="c"># 1) Print out all carbon positions</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
         <span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">angstrom</span>
 </pre></div>
 </td></tr></table></div>
@@ -390,7 +393,7 @@ the ibuprofen molecule.</p>
 <p>One can define the size of a molecule in several ways. The following program
 prints out the largest inter-atomic distance in Ångström.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/d_size.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -427,7 +430,7 @@ prints out the largest inter-atomic distance in Ångström.</p>
 35
 36
 37
-38</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+38</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -475,7 +478,7 @@ coordinates with respect to their geometric center. Some shape categories were
 introduced by <a class="reference external" href="http://en.wikipedia.org/wiki/Equidimensional">Zingg</a>. The
 following program computes the shape category for the ibuprofen molecule</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/001_molecules/e_shape.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -544,7 +547,7 @@ following program computes the shape category for the ibuprofen molecule</p>
 67
 68
 69
-70</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+70</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -579,14 +582,14 @@ following program computes the shape category for the ibuprofen molecule</p>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;ibuprofen.sdf&quot;</span><span class="p">)</span>
 
 <span class="c"># 1) Compute the arithmetic center of the atomic coordinates.</span>
-<span class="n">center</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="c"># Without the axis=0 argument, the average over all X, Y and Z components would</span>
 <span class="c"># be computed. Now it just computes the averages for each column. axis=1 would</span>
 <span class="c"># refer to averaging over rows.</span>
 
 <span class="c"># 2) Move the arithmetic center of the coordinates to the origin. The same</span>
 <span class="c"># comments from the b_com.py apply.</span>
-<span class="n">centered</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">-</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mf">0</span><span class="p">)</span>
+<span class="n">centered</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span> <span class="o">-</span> <span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c"># 3) Compute the covariance matrix of the centered coordinates.</span>
 <span class="n">covar</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">centered</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">centered</span><span class="p">)</span><span class="o">/</span><span class="n">mol</span><span class="o">.</span><span class="n">size</span>
@@ -649,22 +652,22 @@ molecules from the PubChem database.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference external" href="#">Working with molecules</a><ul>
-<li><a class="reference external" href="#introduction">Introduction</a><ul>
-<li><a class="reference external" href="#molecule-objects">Molecule objects</a></li>
-<li><a class="reference external" href="#derived-quantities">Derived quantities</a></li>
-<li><a class="reference external" href="#modifying-molecule-objects">Modifying molecule objects</a></li>
+<li><a class="reference internal" href="#">Working with molecules</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a><ul>
+<li><a class="reference internal" href="#molecule-objects">Molecule objects</a></li>
+<li><a class="reference internal" href="#derived-quantities">Derived quantities</a></li>
+<li><a class="reference internal" href="#modifying-molecule-objects">Modifying molecule objects</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#examples">Examples</a><ul>
-<li><a class="reference external" href="#conversion-of-files">Conversion of files</a></li>
-<li><a class="reference external" href="#center-of-mass-to-origin">Center of mass to origin</a></li>
-<li><a class="reference external" href="#all-carbons">All carbons</a></li>
-<li><a class="reference external" href="#size-of-a-molecule">Size of a molecule</a></li>
-<li><a class="reference external" href="#shape-of-a-molecule">Shape of a molecule</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#conversion-of-files">Conversion of files</a></li>
+<li><a class="reference internal" href="#center-of-mass-to-origin">Center of mass to origin</a></li>
+<li><a class="reference internal" href="#all-carbons">All carbons</a></li>
+<li><a class="reference internal" href="#size-of-a-molecule">Size of a molecule</a></li>
+<li><a class="reference internal" href="#shape-of-a-molecule">Shape of a molecule</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#problems">Problems</a></li>
+<li><a class="reference internal" href="#problems">Problems</a></li>
 </ul>
 </li>
 </ul>
@@ -683,7 +686,7 @@ molecules from the PubChem database.</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -704,7 +707,7 @@ molecules from the PubChem database.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="graph.html" title="Working with molecular graphs"
@@ -712,13 +715,13 @@ molecules from the PubChem database.</p>
         <li class="right" >
           <a href="units.html" title="Unit conversion"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" >MolMod by example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

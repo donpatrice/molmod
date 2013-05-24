@@ -2,18 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Internal coordinates &mdash; MolMod v0.0 documentation</title>
+    <title>Internal coordinates &mdash; MolMod 0.0 documentation</title>
+    
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
     <link rel="up" title="MolMod by example" href="examples.html" />
     <link rel="next" title="Pattern-matching in molecular graphs" href="patterns.html" />
     <link rel="prev" title="Working with molecular graphs" href="graph.html" /> 
@@ -34,15 +37,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="patterns.html" title="Pattern-matching in molecular graphs"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="graph.html" title="Working with molecular graphs"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
       </ul>
     </div>  
@@ -60,7 +63,7 @@
 the definition of energy terms in valence force-field models. In general an
 internal coordinate can be defined as any function of the Cartesian atomic
 coordinates that does not depend on global rotation and translation.</p>
-<p>The module <a title="" class="reference external" href="../reference/algo.html#module-molmod.ic"><tt class="xref docutils literal"><span class="pre">molmod.ic</span></tt></a> contains functions for the
+<p>The module <a class="reference internal" href="../reference/algo.html#module-molmod.ic" title="molmod.ic"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.ic</span></tt></a> contains functions for the
 internal coordinates listed in the table below.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -69,37 +72,37 @@ internal coordinates listed in the table below.</p>
 <col width="59%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Number of arguments</th>
 <th class="head">Description</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td><tt class="docutils literal"><span class="pre">bond_length</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">bond_length</span></tt></td>
 <td>2</td>
 <td>Distance between two atoms</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">pair_distance</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">pair_distance</span></tt></td>
 <td>2</td>
 <td>(idem)</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">bend_cos</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">bend_cos</span></tt></td>
 <td>3</td>
 <td>The cosine of a bending angle</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">bend_angle</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">bend_angle</span></tt></td>
 <td>4</td>
 <td>The bending angle</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">dihed_cos</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">dihed_cos</span></tt></td>
 <td>4</td>
 <td>The cosine of a dihedral angle</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">dihed_angle</span></tt></td>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">dihed_angle</span></tt></td>
 <td>4</td>
 <td>The dihedral angle, following IUPAC standard for the sign</td>
 </tr>
-<tr><td><tt class="docutils literal"><span class="pre">opbend_angle</span></tt></td>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">opbend_angle</span></tt></td>
 <td>4</td>
 <td>The out of plane bending angle</td>
 </tr>
@@ -109,7 +112,7 @@ internal coordinates listed in the table below.</p>
 the internal coordinate, it can also compute the first and second order
 derivatives of the internal coordinate towards the Cartesian coordinates.
 Each internal coordinate function follows the same <a class="reference external" href="http://en.wikipedia.org/wiki/Application_programming_interface">API</a> style, i.e.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">some_ic</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mf">0</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">some_ic</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -134,7 +137,7 @@ chapter.</p>
 <h3>A simple bond length<a class="headerlink" href="#a-simple-bond-length" title="Permalink to this headline">¶</a></h3>
 <p>This is just a simple example...</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/003_internal_coordinates/a_bond_length.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -168,7 +171,7 @@ chapter.</p>
 32
 33
 34
-35</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+35</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -199,7 +202,7 @@ chapter.</p>
 <span class="n">mol</span> <span class="o">=</span> <span class="n">Molecule</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">&quot;dopamine.xyz&quot;</span><span class="p">)</span>
 <span class="c"># 1) Compute the length of the hydrogen bond.</span>
 <span class="c"># (Atoms 1 and 20 form a hydrogen bond.)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">bond_length</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[[</span><span class="mf">1</span><span class="p">,</span> <span class="mf">20</span><span class="p">]])[</span><span class="mf">0</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">bond_length</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">]])[</span><span class="mi">0</span><span class="p">]</span>
 <span class="c"># The return value of bond_length is a singleton by default. The final</span>
 <span class="c"># part `[0]` takes the first value of this singleton.</span>
 <span class="k">print</span> <span class="s">&quot;Hydrogen bond length [Angstrom] =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="o">/</span><span class="n">angstrom</span>
@@ -212,7 +215,7 @@ chapter.</p>
 An overview is printed including the atomic indexes and elements involved in
 each angle.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/003_internal_coordinates/b_bending_angles.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -266,7 +269,7 @@ each angle.</p>
 52
 53
 54
-55</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+55</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -316,7 +319,7 @@ each angle.</p>
 <span class="k">print</span> <span class="s">&quot;An overview of all bending angles in dopamine:&quot;</span>
 <span class="k">for</span> <span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
     <span class="c"># Notice again the [0] at the end.</span>
-    <span class="n">angle</span> <span class="o">=</span> <span class="n">bend_angle</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[[</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">]])[</span><span class="mf">0</span><span class="p">]</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="n">bend_angle</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">coordinates</span><span class="p">[[</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">]])[</span><span class="mi">0</span><span class="p">]</span>
     <span class="c"># Python formatting of the indexes, symbols, and the angle in degrees.</span>
     <span class="k">print</span> <span class="s">&quot;</span><span class="si">%2i</span><span class="s"> </span><span class="si">%2i</span><span class="s"> </span><span class="si">%2i</span><span class="s">    </span><span class="si">%2s</span><span class="s"> </span><span class="si">%2s</span><span class="s"> </span><span class="si">%2s</span><span class="s">    </span><span class="si">%5.1f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
         <span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">i0</span><span class="p">],</span> <span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">i1</span><span class="p">],</span> <span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">i2</span><span class="p">],</span> <span class="n">angle</span><span class="o">/</span><span class="n">deg</span>
@@ -336,14 +339,14 @@ of the energy terms.</p>
 <div class="math">
 <p><img src="../_images/math/9a7d3e01663f97ca53e47445ea0f47b337c1b2e2.png" alt="E_{\text{FF}} =
 \sum_{i=1}^{M_\text{bonds}} K_{i,\text{bond}} (b_i - b_{i,0})^2 +
-\sum_{i=1}^{M_\text{bends}} K_{i,\text{bend}} (\theta_i - \theta_{i,0})^2." /></p>
+\sum_{i=1}^{M_\text{bends}} K_{i,\text{bend}} (\theta_i - \theta_{i,0})^2."/></p>
 </div><p>The Cartesian gradient of the force-field energy becomes:</p>
 <div class="math">
 <p><img src="../_images/math/e3e1cf4804a257d7a29d289bb00032e4a94081af.png" alt="\frac{\partial E_{\text{FF}}}{\partial x_{j}} =
 \sum_{i=1}^{M_\text{bonds}} 2 K_{i,\text{bond}}
     (b_i - b_{i,0}) \frac{\partial b_i}{\partial x_{j}} +
 \sum_{i=1}^{M_\text{bends}} 2 K_{i,\text{bend}}
-    (\theta_i - \theta_{i,0}) \frac{\partial \theta_i}{\partial x_{j}}" /></p>
+    (\theta_i - \theta_{i,0}) \frac{\partial \theta_i}{\partial x_{j}}"/></p>
 </div><p>The Cartesian Hessian of the force-field becomes:</p>
 <div class="math">
 <p><img src="../_images/math/10b2b4a225812dfd8102b6fce88b77ddfe6c3600.png" alt="\frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} =
@@ -354,7 +357,7 @@ of the energy terms.</p>
 \sum_{i=1}^{M_\text{bends}} 2 K_{i,\text{bend}} \left[
     \frac{\partial \theta_i}{\partial x_{j_1}} \frac{\partial \theta_i}{\partial x_{j_2}} +
     (\theta_i - \theta_{i,0}) \frac{\partial^2 \theta_i}{\partial x_{j_1} \partial x_{j_2}} +
-\right]" /></p>
+\right]"/></p>
 </div><p>For the sake of a simple example, we assume that all bond lengths and valence
 angles are at their optimum such that the second derivatives of the internal
 coordinates towards the Cartesian coordinates drop out of the expression for the
@@ -364,7 +367,7 @@ Hessian:</p>
 \sum_{i=1}^{M_\text{bonds}} 2 K_{i,\text{bond}}
     \frac{\partial b_i}{\partial x_{j_1}} \frac{\partial b_i}{\partial x_{j_2}} +
 \sum_{i=1}^{M_\text{bends}} 2 K_{i,\text{bend}}
-    \frac{\partial \theta_i}{\partial x_{j_1}} \frac{\partial \theta_i}{\partial x_{j_2}} +" /></p>
+    \frac{\partial \theta_i}{\partial x_{j_1}} \frac{\partial \theta_i}{\partial x_{j_2}} +"/></p>
 </div><p>We use the following force constants.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -373,29 +376,29 @@ Hessian:</p>
 <col width="55%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Energy term</th>
+<tr class="row-odd"><th class="head">Energy term</th>
 <th class="head">Force constant</th>
 <th class="head">Unit</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>CH bond</td>
+<tr class="row-even"><td>CH bond</td>
 <td>310</td>
 <td>k cal mol<sup>-1</sup> Å<sup>-2</sup></td>
 </tr>
-<tr><td>CC bond</td>
+<tr class="row-odd"><td>CC bond</td>
 <td>220</td>
 <td>k cal mol<sup>-1</sup> Å<sup>-2</sup></td>
 </tr>
-<tr><td>HCH bend</td>
+<tr class="row-even"><td>HCH bend</td>
 <td>35</td>
 <td>k cal mol<sup>-1</sup> rad<sup>-2</sup></td>
 </tr>
-<tr><td>HCC bend</td>
+<tr class="row-odd"><td>HCC bend</td>
 <td>30</td>
 <td>k cal mol<sup>-1</sup> rad<sup>-2</sup></td>
 </tr>
-<tr><td>CCC bend</td>
+<tr class="row-even"><td>CCC bend</td>
 <td>60</td>
 <td>k cal mol<sup>-1</sup> rad<sup>-2</sup></td>
 </tr>
@@ -410,7 +413,7 @@ indexes that are involved in the internal coordinate. The term objects are kept
 in a list in the <tt class="docutils literal"><span class="pre">ForceField</span></tt> class that has a method to compute the Hessian
 for a given geometry.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/003_internal_coordinates/c_ff_hessian.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre>  1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -587,7 +590,7 @@ for a given geometry.</p>
 175
 176
 177
-178</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+178</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -643,14 +646,14 @@ for a given geometry.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c"># Compute the derivatives of the bond stretch towards the two cartesian</span>
         <span class="c"># coordinates. The bond length is computed too, but not used.</span>
-        <span class="n">q</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">icfn</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">)],</span> <span class="mf">1</span><span class="p">)</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">icfn</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">)],</span> <span class="mi">1</span><span class="p">)</span>
         <span class="c"># Add the contribution to the Hessian (an outer product)</span>
         <span class="k">for</span> <span class="n">ja</span><span class="p">,</span> <span class="n">ia</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">):</span>
             <span class="c"># ja is 0, 1, 2, ...</span>
             <span class="c"># ia is i0, i1, i2, ...</span>
             <span class="k">for</span> <span class="n">jb</span><span class="p">,</span> <span class="n">ib</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">):</span>
-                <span class="n">contrib</span> <span class="o">=</span> <span class="mf">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">force_constant</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">ja</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="n">jb</span><span class="p">])</span>
-                <span class="n">hessian</span><span class="p">[</span><span class="mf">3</span><span class="o">*</span><span class="n">ia</span><span class="p">:</span><span class="mf">3</span><span class="o">*</span><span class="n">ia</span><span class="o">+</span><span class="mf">3</span><span class="p">,</span> <span class="mf">3</span><span class="o">*</span><span class="n">ib</span><span class="p">:</span><span class="mf">3</span><span class="o">*</span><span class="n">ib</span><span class="o">+</span><span class="mf">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">contrib</span>
+                <span class="n">contrib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">force_constant</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">ja</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="n">jb</span><span class="p">])</span>
+                <span class="n">hessian</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">ia</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">ia</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">ib</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">ib</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">contrib</span>
 
 
 <span class="k">class</span> <span class="nc">BondStretchTerm</span><span class="p">(</span><span class="n">HarmonicEnergyTerm</span><span class="p">):</span>
@@ -718,23 +721,23 @@ for a given geometry.</p>
     <span class="c"># A) Define parameters.</span>
     <span class="c"># the bond parameters:</span>
     <span class="n">bond_params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="p">(</span><span class="mf">6</span><span class="p">,</span> <span class="mf">1</span><span class="p">):</span> <span class="mf">310</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mf">2</span><span class="p">,</span>
-        <span class="p">(</span><span class="mf">6</span><span class="p">,</span> <span class="mf">6</span><span class="p">):</span> <span class="mf">220</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mf">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">310</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span> <span class="mi">220</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="c"># for every (a, b), also add (b, a)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">bond_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">key</span><span class="p">[</span><span class="mf">1</span><span class="p">]:</span>
-            <span class="n">bond_params</span><span class="p">[(</span><span class="n">key</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mf">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">bond_params</span><span class="p">[(</span><span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">val</span>
     <span class="c"># the bend parameters</span>
     <span class="n">bend_params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">6</span><span class="p">,</span> <span class="mf">1</span><span class="p">):</span> <span class="mf">35</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mf">2</span><span class="p">,</span>
-        <span class="p">(</span><span class="mf">1</span><span class="p">,</span> <span class="mf">6</span><span class="p">,</span> <span class="mf">6</span><span class="p">):</span> <span class="mf">30</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mf">2</span><span class="p">,</span>
-        <span class="p">(</span><span class="mf">6</span><span class="p">,</span> <span class="mf">6</span><span class="p">,</span> <span class="mf">6</span><span class="p">):</span> <span class="mf">60</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mf">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="mi">35</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span> <span class="mi">30</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span> <span class="mi">60</span><span class="o">*</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">rad</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="c"># for every (a, b, c), also add (c, b, a)</span>
     <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">bend_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">key</span><span class="p">[</span><span class="mf">2</span><span class="p">]:</span>
-            <span class="n">bend_params</span><span class="p">[(</span><span class="n">key</span><span class="p">[</span><span class="mf">2</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mf">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">if</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">key</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="n">bend_params</span><span class="p">[(</span><span class="n">key</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">val</span>
 
     <span class="c"># B) detect all internal coordinates and corresponding energy terms.</span>
     <span class="n">terms</span> <span class="o">=</span> <span class="p">[]</span>
@@ -762,7 +765,7 @@ for a given geometry.</p>
     <span class="n">ff</span> <span class="o">=</span> <span class="n">setup_hydrocarbon_ff</span><span class="p">(</span><span class="n">propane</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span>
     <span class="n">hessian</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">hessian</span><span class="p">(</span><span class="n">propane</span><span class="o">.</span><span class="n">coordinates</span><span class="p">)</span>
     <span class="k">print</span> <span class="s">&quot;The Hessian in kcal/mol/angstrom**2&quot;</span>
-    <span class="n">unit</span> <span class="o">=</span> <span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mf">2</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">hessian</span><span class="p">:</span>
         <span class="k">print</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;</span><span class="si">% 5.0f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">unit</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span>
 </pre></div>
@@ -777,7 +780,7 @@ that one uses a force-field model with all possible cross terms as follows:</p>
 <div class="math">
 <p><img src="../_images/math/8c34d182806b129e825a00a43f44734611101e45.png" alt="E_{\text{FF}} = \sum_{i_1=1}^M
 \sum_{i_2=1}^M
-K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})" /></p>
+K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})"/></p>
 </div><p>One can define internal force constants, <img class="math" src="../_images/math/fa64b63b0947a2be73c32ec2b82ddd8c5b55728b.png" alt="K_{ij}"/> such that the
 force-field Hessian coincides with a given Hessian from a DFT computation. One
 could call the matrix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> the Hessian in <cite>internal coordinates</cite>, but as
@@ -800,17 +803,17 @@ K_{i_1 i_2} \left(
 = 2\sum_{i_1=1}^M \sum_{i_2=1}^M
 K_{i_1 i_2}
 \frac{\partial q_{i_1}}{\partial x_{j_1}}
-\frac{\partial q_{i_2}}{\partial x_{j_2}}" /></p>
+\frac{\partial q_{i_2}}{\partial x_{j_2}}"/></p>
 </div><p>The last step assumes that <img class="math" src="../_images/math/b90654c7e5b6e212986d76795c3c01facdb196f3.png" alt="K_{i_1 i_2} = K_{i_2 i_1}"/>. This can be
 rewritten in matrix notation:</p>
 <div class="math" id="equation-matrix_hessian_int">
-<p><span class="eqno">(1)</span><img src="../_images/math/e519bc1e6500ccae2975fee896a32f6db55ae719.png" alt="H = J K J^T" /></p>
+<p><span class="eqno">(1)</span><img src="../_images/math/e519bc1e6500ccae2975fee896a32f6db55ae719.png" alt="H = J K J^T"/></p>
 </div><p>with</p>
 <div class="math">
 <p><img src="../_images/math/18939994ad93819dda63ba7ce82b12ae1e1b4286.png" alt="\begin{align*}
     H_{j_1 j_2} &amp; = \frac{\partial^2 E_{\text{FF}}}{\partial x_{j_1} \partial x_{j_2}} \\
     J_{j_1 i_i} &amp; = \frac{\partial q_{i_1}}{\partial x_{j_1}}
-\end{align*}" /></p>
+\end{align*}"/></p>
 </div><p>In practice, the Jacobian matrix <img class="math" src="../_images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/> is rectangular, mainly because there
 are often much more internal coordinates than Cartesian coordinates. Therefore
 one can not simply invert <a href="#equation-matrix_hessian_int">(1)</a> to obtain the Hessian in
@@ -838,7 +841,7 @@ coordinates.</p>
 result is stored in the file <tt class="docutils literal"><span class="pre">dopamine.fchk</span></tt>, which is a stripped version of the
 file generated by the <tt class="docutils literal"><span class="pre">fromchk</span></tt> program that is part of Gaussian03.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/003_internal_coordinates/d_dft_hessian.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre>  1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -998,7 +1001,7 @@ file generated by the <tt class="docutils literal"><span class="pre">fromchk</sp
 158
 159
 160
-161</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+161</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -1059,9 +1062,9 @@ file generated by the <tt class="docutils literal"><span class="pre">fromchk</sp
 <span class="sd">            | ``coordinates`` -- A numpy array with Cartesian coordinates,</span>
 <span class="sd">                                 shape=(N,3)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">q</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">icfn</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">)],</span> <span class="mf">1</span><span class="p">)</span>
+        <span class="n">q</span><span class="p">,</span> <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">icfn</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">)],</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indexes</span><span class="p">):</span>
-            <span class="n">jaccol</span><span class="p">[</span><span class="mf">3</span><span class="o">*</span><span class="n">j</span><span class="p">:</span><span class="mf">3</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="mf">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">jaccol</span><span class="p">[</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="p">:</span><span class="mi">3</span><span class="o">*</span><span class="n">j</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">jaccol</span>
 
 
@@ -1072,12 +1075,12 @@ file generated by the <tt class="docutils literal"><span class="pre">fromchk</sp
 
 <span class="k">class</span> <span class="nc">BendingAngle</span><span class="p">(</span><span class="n">InternalCoordinate</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">):</span>
-        <span class="n">InternalCoordinate</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">),</span> <span class="n">bend_angle</span><span class="p">,</span> <span class="n">angstrom</span><span class="o">/</span><span class="p">(</span><span class="mf">5</span><span class="o">*</span><span class="n">deg</span><span class="p">))</span>
+        <span class="n">InternalCoordinate</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">),</span> <span class="n">bend_angle</span><span class="p">,</span> <span class="n">angstrom</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">deg</span><span class="p">))</span>
 
 
 <span class="k">class</span> <span class="nc">DihedralAngle</span><span class="p">(</span><span class="n">InternalCoordinate</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">):</span>
-        <span class="n">InternalCoordinate</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">),</span> <span class="n">dihed_angle</span><span class="p">,</span> <span class="n">angstrom</span><span class="o">/</span><span class="p">(</span><span class="mf">5</span><span class="o">*</span><span class="n">deg</span><span class="p">))</span>
+        <span class="n">InternalCoordinate</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="p">(</span><span class="n">i0</span><span class="p">,</span> <span class="n">i1</span><span class="p">,</span> <span class="n">i2</span><span class="p">,</span> <span class="n">i3</span><span class="p">),</span> <span class="n">dihed_angle</span><span class="p">,</span> <span class="n">angstrom</span><span class="o">/</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">deg</span><span class="p">))</span>
 
 
 <span class="k">def</span> <span class="nf">setup_ics</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
@@ -1156,7 +1159,7 @@ file generated by the <tt class="docutils literal"><span class="pre">fromchk</sp
     <span class="n">K</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Jinv</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">Jinv</span><span class="o">.</span><span class="n">transpose</span><span class="p">()))</span>
     <span class="c"># Make a nice printout of K.</span>
     <span class="k">print</span> <span class="s">&quot;The Hessian in internal coordinates in kcal/mol/angstrom**2&quot;</span>
-    <span class="n">unit</span> <span class="o">=</span> <span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mf">2</span>
+    <span class="n">unit</span> <span class="o">=</span> <span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">K</span><span class="p">:</span>
         <span class="k">print</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&quot;</span><span class="si">% 5.0f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="n">unit</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span>
 </pre></div>
@@ -1200,7 +1203,7 @@ model</p>
 <p><img src="../_images/math/0a585c1cd1021a86048080a094f2fea11df48fca.png" alt="E_{\text{FF}} =
 \sum_{i=1}^M A (q_{i} - q_{i,0}) +
 \sum_{i_1=1}^M \sum_{i_2=1}^M
-K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})" /></p>
+K_{i_1 i_2} (q_{i_1} - q_{i_1,0}) (q_{i_2} - q_{i_2,0})"/></p>
 </div><p>where the rest values can be the current internal coordinates, or some reference
 values. The vector <img class="math" src="../_images/math/019e9892786e493964e145e7c5cf7b700314e53b.png" alt="A"/> and the matrix <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> can be defined in such
 a way that the force-field gradient and Hessian in Cartesian coordinates
@@ -1227,20 +1230,20 @@ choice of rest parameters.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference external" href="#">Internal coordinates</a><ul>
-<li><a class="reference external" href="#introduction">Introduction</a></li>
-<li><a class="reference external" href="#examples">Examples</a><ul>
-<li><a class="reference external" href="#a-simple-bond-length">A simple bond length</a></li>
-<li><a class="reference external" href="#all-bending-angles-in-dopamine">All bending angles in dopamine</a></li>
-<li><a class="reference external" href="#simple-force-field-hessian">Simple Force-field Hessian</a></li>
-<li><a class="reference external" href="#dft-hessian-in-internal-coordinates-stationary-geometries">DFT Hessian in <cite>internal coordinates</cite> &#8211; Stationary geometries</a></li>
+<li><a class="reference internal" href="#">Internal coordinates</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#a-simple-bond-length">A simple bond length</a></li>
+<li><a class="reference internal" href="#all-bending-angles-in-dopamine">All bending angles in dopamine</a></li>
+<li><a class="reference internal" href="#simple-force-field-hessian">Simple Force-field Hessian</a></li>
+<li><a class="reference internal" href="#dft-hessian-in-internal-coordinates-stationary-geometries">DFT Hessian in <cite>internal coordinates</cite> &#8211; Stationary geometries</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#problems">Problems</a><ul>
-<li><a class="reference external" href="#all-bond-ch-bond-lengths-in-propane">All bond CH-bond lengths in propane</a></li>
-<li><a class="reference external" href="#more-complete-force-field-hessian">More complete Force-field Hessian</a></li>
-<li><a class="reference external" href="#dft-hessian-in-internal-coordinates-non-stationary-geometries">DFT Hessian in <cite>internal coordinates</cite> &#8211; Non-stationary geometries</a></li>
-<li><a class="reference external" href="#fitting-force-constants">Fitting force-constants</a></li>
+<li><a class="reference internal" href="#problems">Problems</a><ul>
+<li><a class="reference internal" href="#all-bond-ch-bond-lengths-in-propane">All bond CH-bond lengths in propane</a></li>
+<li><a class="reference internal" href="#more-complete-force-field-hessian">More complete Force-field Hessian</a></li>
+<li><a class="reference internal" href="#dft-hessian-in-internal-coordinates-non-stationary-geometries">DFT Hessian in <cite>internal coordinates</cite> &#8211; Non-stationary geometries</a></li>
+<li><a class="reference internal" href="#fitting-force-constants">Fitting force-constants</a></li>
 </ul>
 </li>
 </ul>
@@ -1261,7 +1264,7 @@ choice of rest parameters.</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -1282,7 +1285,7 @@ choice of rest parameters.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="patterns.html" title="Pattern-matching in molecular graphs"
@@ -1290,13 +1293,13 @@ choice of rest parameters.</p>
         <li class="right" >
           <a href="graph.html" title="Working with molecular graphs"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" >MolMod by example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

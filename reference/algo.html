@@ -2,18 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Algorithms &mdash; MolMod v0.0 documentation</title>
+    <title>Algorithms &mdash; MolMod 0.0 documentation</title>
+    
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
     <link rel="next" title="Internals of the MolMod package" href="internals.html" />
     <link rel="prev" title="Databases" href="data.html" /> 
   </head>
@@ -33,15 +36,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="internals.html" title="Internals of the MolMod package"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="data.html" title="Databases"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,23 +56,23 @@
   <div class="section" id="algorithms">
 <h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-molmod.binning">
-<h2><a title="" class="reference external" href="#module-molmod.binning"><tt class="xref docutils literal"><span class="pre">molmod.binning</span></tt></a> &#8211; Binning<a class="headerlink" href="#module-molmod.binning" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-binning-binning"></span><h2><a class="reference internal" href="#module-molmod.binning" title="molmod.binning"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.binning</span></tt></a> &#8211; Binning<a class="headerlink" href="#module-molmod.binning" title="Permalink to this headline">¶</a></h2>
 <p>Binning is a useful technique for efficiently calculating all distances
 between a number of coordinates when you are only interested in the distances
 below a given cutoff. The algorithm consists of two major steps:</p>
 <blockquote>
-<ol class="arabic simple">
+<div><ol class="arabic simple">
 <li>Divide the given set of coordinates into bins on a regular grid</li>
 <li>Calculate the distances (or other useful things) between coordinates in
 neighboring bins.</li>
 </ol>
-</blockquote>
+</div></blockquote>
 <dl class="class">
 <dt id="molmod.binning.PairSearchIntra">
 <em class="property">class </em><tt class="descclassname">molmod.binning.</tt><tt class="descname">PairSearchIntra</tt><big>(</big><em>coordinates</em>, <em>cutoff</em>, <em>unit_cell=None</em>, <em>grid=None</em><big>)</big><a class="headerlink" href="#molmod.binning.PairSearchIntra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all pairs of coordinates with a distance below a cutoff.</p>
 <p>Example usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">coordinates</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">10</span><span class="p">,(</span><span class="mf">10</span><span class="p">,</span><span class="mf">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">coordinates</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">delta</span> <span class="ow">in</span> <span class="n">PairSearchIntra</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">distance</span>
 </pre></div>
@@ -101,13 +104,13 @@ raised.</div>
 </dl>
 <p>The default value of grid depends on other parameters:</p>
 <blockquote>
-<ol class="arabic simple">
+<div><ol class="arabic simple">
 <li>When no unit cell is given, it is equal to cutoff/2.9.</li>
 <li>When a unit cell is given, the grid cell is as close to cubic
 as possible, with spacings below cutoff/2 that are integer
 divisions of the unit cell spacings</li>
 </ol>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="class">
@@ -115,8 +118,8 @@ divisions of the unit cell spacings</li>
 <em class="property">class </em><tt class="descclassname">molmod.binning.</tt><tt class="descname">PairSearchInter</tt><big>(</big><em>coordinates0</em>, <em>coordinates1</em>, <em>cutoff</em>, <em>unit_cell=None</em>, <em>grid=None</em><big>)</big><a class="headerlink" href="#molmod.binning.PairSearchInter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator over all pairs of coordinates with a distance below a cutoff.</p>
 <p>Example usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">coordinates0</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">10</span><span class="p">,(</span><span class="mf">10</span><span class="p">,</span><span class="mf">3</span><span class="p">))</span>
-<span class="n">coordinates1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="mf">10</span><span class="p">,(</span><span class="mf">10</span><span class="p">,</span><span class="mf">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">coordinates0</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">coordinates1</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">delta</span> <span class="ow">in</span> <span class="n">PairSearchInter</span><span class="p">(</span><span class="n">coordinates0</span><span class="p">,</span> <span class="n">coordinates1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">):</span>
     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">distance</span>
 </pre></div>
@@ -159,7 +162,7 @@ divisions of the unit cell spacings</li>
 
 </div>
 <div class="section" id="module-molmod.clusters">
-<h2><a title="" class="reference external" href="#module-molmod.clusters"><tt class="xref docutils literal"><span class="pre">molmod.clusters</span></tt></a> &#8211; Clustering<a class="headerlink" href="#module-molmod.clusters" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-clusters-clustering"></span><h2><a class="reference internal" href="#module-molmod.clusters" title="molmod.clusters"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.clusters</span></tt></a> &#8211; Clustering<a class="headerlink" href="#module-molmod.clusters" title="Permalink to this headline">¶</a></h2>
 <p>Given a mixed set of related and unrelated data pionts, it is often interesting
 to extract clusters of related items. The basic workflow is as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cf</span> <span class="o">=</span> <span class="n">ClusterFactory</span><span class="p">()</span>
@@ -185,12 +188,14 @@ on is often interested in extending the functionality of a cluster.</p>
 <dl class="method">
 <dt id="molmod.clusters.Cluster.add_item">
 <tt class="descname">add_item</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#molmod.clusters.Cluster.add_item" title="Permalink to this definition">¶</a></dt>
-<dd>Add an item to a cluster</dd></dl>
+<dd><p>Add an item to a cluster</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.clusters.Cluster.update">
 <tt class="descname">update</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#molmod.clusters.Cluster.update" title="Permalink to this definition">¶</a></dt>
-<dd>Merge another cluster into this cluster</dd></dl>
+<dd><p>Merge another cluster into this cluster</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -219,7 +224,8 @@ of equations.</p>
 <dl class="method">
 <dt id="molmod.clusters.RuleCluster.update">
 <tt class="descname">update</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#molmod.clusters.RuleCluster.update" title="Permalink to this definition">¶</a></dt>
-<dd>Extend the current cluster with data from another cluster</dd></dl>
+<dd><p>Extend the current cluster with data from another cluster</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -248,13 +254,14 @@ they will be merged into one cluster.</p>
 <dl class="method">
 <dt id="molmod.clusters.ClusterFactory.get_clusters">
 <tt class="descname">get_clusters</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.clusters.ClusterFactory.get_clusters" title="Permalink to this definition">¶</a></dt>
-<dd>Returns a set with the clusters</dd></dl>
+<dd><p>Returns a set with the clusters</p>
+</dd></dl>
 
 </dd></dl>
 
 </div>
 <div class="section" id="module-molmod.ic">
-<h2><a title="" class="reference external" href="#module-molmod.ic"><tt class="xref docutils literal"><span class="pre">molmod.ic</span></tt></a> &#8211; Internal coordinates<a class="headerlink" href="#module-molmod.ic" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-ic-internal-coordinates"></span><h2><a class="reference internal" href="#module-molmod.ic" title="molmod.ic"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.ic</span></tt></a> &#8211; Internal coordinates<a class="headerlink" href="#module-molmod.ic" title="Permalink to this headline">¶</a></h2>
 <p>This implementation is pure python and sacrifices computational efficiency on
 the altar of programming flexibility. It is really easy to implement new types
 of internal coordinates since one only has to enter the formula that evaluates
@@ -287,17 +294,20 @@ its index.</div>
 <dl class="method">
 <dt id="molmod.ic.Scalar.copy">
 <tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.ic.Scalar.copy" title="Permalink to this definition">¶</a></dt>
-<dd>Return a deep copy</dd></dl>
+<dd><p>Return a deep copy</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.ic.Scalar.inv">
 <tt class="descname">inv</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.ic.Scalar.inv" title="Permalink to this definition">¶</a></dt>
-<dd>In place invert</dd></dl>
+<dd><p>In place invert</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.ic.Scalar.results">
 <tt class="descname">results</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.ic.Scalar.results" title="Permalink to this definition">¶</a></dt>
-<dd>Return the value and optionally derivative and second order derivative</dd></dl>
+<dd><p>Return the value and optionally derivative and second order derivative</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -321,12 +331,14 @@ are the indexes of the components.</div>
 <dl class="method">
 <dt id="molmod.ic.Vector3.copy">
 <tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.ic.Vector3.copy" title="Permalink to this definition">¶</a></dt>
-<dd>Return a deep copy</dd></dl>
+<dd><p>Return a deep copy</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.ic.Vector3.norm">
 <tt class="descname">norm</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.ic.Vector3.norm" title="Permalink to this definition">¶</a></dt>
-<dd>Return a Scalar object with the norm of this vector</dd></dl>
+<dd><p>Return a Scalar object with the norm of this vector</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -337,7 +349,7 @@ are the indexes of the components.</div>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">r1</span></tt>, <tt class="docutils literal"><span class="pre">r2</span></tt>  &#8211; two <a title="molmod.ic.Vector3" class="reference internal" href="#molmod.ic.Vector3"><tt class="xref docutils literal"><span class="pre">Vector3</span></tt></a> objects</div>
+<div class="line"><tt class="docutils literal"><span class="pre">r1</span></tt>, <tt class="docutils literal"><span class="pre">r2</span></tt>  &#8211; two <a class="reference internal" href="#molmod.ic.Vector3" title="molmod.ic.Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a> objects</div>
 </div>
 </dd>
 </dl>
@@ -351,7 +363,7 @@ are the indexes of the components.</div>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">r1</span></tt>, <tt class="docutils literal"><span class="pre">r2</span></tt>  &#8211; two <a title="molmod.ic.Vector3" class="reference internal" href="#molmod.ic.Vector3"><tt class="xref docutils literal"><span class="pre">Vector3</span></tt></a> objects</div>
+<div class="line"><tt class="docutils literal"><span class="pre">r1</span></tt>, <tt class="docutils literal"><span class="pre">r2</span></tt>  &#8211; two <a class="reference internal" href="#molmod.ic.Vector3" title="molmod.ic.Vector3"><tt class="xref py py-class docutils literal"><span class="pre">Vector3</span></tt></a> objects</div>
 </div>
 </dd>
 </dl>
@@ -483,25 +495,25 @@ is defined by right hand rule from rs[0]-rs[1] to rs[0]-rs[2].</p>
 
 </div>
 <div class="section" id="module-molmod.minimizer">
-<h2><a title="" class="reference external" href="#module-molmod.minimizer"><tt class="xref docutils literal"><span class="pre">molmod.minimizer</span></tt></a> &#8211; Minimizer<a class="headerlink" href="#module-molmod.minimizer" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-minimizer-minimizer"></span><h2><a class="reference internal" href="#module-molmod.minimizer" title="molmod.minimizer"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.minimizer</span></tt></a> &#8211; Minimizer<a class="headerlink" href="#module-molmod.minimizer" title="Permalink to this headline">¶</a></h2>
 <p>The implementation is mainly concerned with robustness, rather than
 computational efficiency. Example usage:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">do_gradient</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="mf">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">do_gradient</span><span class="p">:</span>
         <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span> <span class="o">+</span> <span class="mf">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
-            <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">])</span> <span class="o">+</span> <span class="mf">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
         <span class="p">])</span>
         <span class="k">return</span> <span class="n">value</span><span class="p">,</span> <span class="n">gradient</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">value</span>
 
-<span class="n">x_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">x_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
 <span class="n">search_direction</span> <span class="o">=</span> <span class="n">ConjugateGradient</span><span class="p">()</span>
 <span class="n">line_search</span> <span class="o">=</span> <span class="n">NewtonLineSearch</span><span class="p">()</span>
 <span class="n">convergence</span> <span class="o">=</span> <span class="n">ConvergenceCondition</span><span class="p">(</span><span class="n">grad_rms</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">step_rms</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>
-<span class="n">stop_loss</span> <span class="o">=</span> <span class="n">StopLossCondition</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mf">50</span><span class="p">)</span>
+<span class="n">stop_loss</span> <span class="o">=</span> <span class="n">StopLossCondition</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">minimizer</span> <span class="o">=</span> <span class="n">Minimizer</span><span class="p">(</span>
     <span class="n">x_init</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">search_direction</span><span class="p">,</span> <span class="n">line_search</span><span class="p">,</span> <span class="n">convergence</span><span class="p">,</span> <span class="n">stop_loss</span><span class="p">,</span>
     <span class="n">anagrad</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
@@ -512,7 +524,7 @@ computational efficiency. Example usage:</p>
 <p>The signature of the function <tt class="docutils literal"><span class="pre">fun</span></tt> must always be the same as in the
 example. The first argument. <tt class="docutils literal"><span class="pre">x</span></tt> is mandatory and contains a 1D numpy array
 with function arguments. The second argument, <tt class="docutils literal"><span class="pre">do_gradient</span></tt> is optional
-with default value <tt class="xref docutils literal"><span class="pre">False</span></tt>.</p>
+with default value <tt class="docutils literal"><span class="pre">False</span></tt>.</p>
 <p>The returned values must also follow the same convention as in the example.
 When <tt class="docutils literal"><span class="pre">do_gradient==True</span></tt>, two return values are given. The first one is
 the function value and the second one is a 1D numpy array with the partial
@@ -525,7 +537,8 @@ derivatives of the function towards the arguments. When
 <dl class="method">
 <dt id="molmod.minimizer.SearchDirection.is_sd">
 <tt class="descname">is_sd</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.SearchDirection.is_sd" title="Permalink to this definition">¶</a></dt>
-<dd>Return True if the last direction was steepest descent</dd></dl>
+<dd><p>Return True if the last direction was steepest descent</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.SearchDirection.reset">
@@ -537,7 +550,8 @@ derivatives of the function towards the arguments. When
 <dl class="method">
 <dt id="molmod.minimizer.SearchDirection.update">
 <tt class="descname">update</tt><big>(</big><em>gradient</em>, <em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.SearchDirection.update" title="Permalink to this definition">¶</a></dt>
-<dd>Update the search direction given the latest gradient and step</dd></dl>
+<dd><p>Update the search direction given the latest gradient and step</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -565,7 +579,8 @@ ill-conditioned problems.</p>
 <dl class="method">
 <dt id="molmod.minimizer.SteepestDescent.update">
 <tt class="descname">update</tt><big>(</big><em>gradient</em>, <em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.SteepestDescent.update" title="Permalink to this definition">¶</a></dt>
-<dd>Update the search direction given the latest gradient and step</dd></dl>
+<dd><p>Update the search direction given the latest gradient and step</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -579,17 +594,20 @@ direction to the steepest descent when beta becomes negative.</p>
 <dl class="method">
 <dt id="molmod.minimizer.ConjugateGradient.is_sd">
 <tt class="descname">is_sd</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.ConjugateGradient.is_sd" title="Permalink to this definition">¶</a></dt>
-<dd>Return True if the last direction was steepest descent</dd></dl>
+<dd><p>Return True if the last direction was steepest descent</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.ConjugateGradient.reset">
 <tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.ConjugateGradient.reset" title="Permalink to this definition">¶</a></dt>
-<dd>Reset the internal state of the search direction algorithm</dd></dl>
+<dd><p>Reset the internal state of the search direction algorithm</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.ConjugateGradient.update">
 <tt class="descname">update</tt><big>(</big><em>gradient</em>, <em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.ConjugateGradient.update" title="Permalink to this definition">¶</a></dt>
-<dd>Update the search direction given the latest gradient and step</dd></dl>
+<dd><p>Update the search direction given the latest gradient and step</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -600,17 +618,20 @@ direction to the steepest descent when beta becomes negative.</p>
 <dl class="method">
 <dt id="molmod.minimizer.QuasiNewton.is_sd">
 <tt class="descname">is_sd</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.QuasiNewton.is_sd" title="Permalink to this definition">¶</a></dt>
-<dd>Return True if the last direction was steepest descent</dd></dl>
+<dd><p>Return True if the last direction was steepest descent</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.QuasiNewton.reset">
 <tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.QuasiNewton.reset" title="Permalink to this definition">¶</a></dt>
-<dd>Reset the internal state of the search direction algorithm</dd></dl>
+<dd><p>Reset the internal state of the search direction algorithm</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.QuasiNewton.update">
 <tt class="descname">update</tt><big>(</big><em>gradient</em>, <em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.QuasiNewton.update" title="Permalink to this definition">¶</a></dt>
-<dd>Update the search direction given the latest gradient and step</dd></dl>
+<dd><p>Update the search direction given the latest gradient and step</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -656,7 +677,8 @@ satisfies Wolfe conditions</div>
 <dl class="method">
 <dt id="molmod.minimizer.LineSearch.limit_step">
 <tt class="descname">limit_step</tt><big>(</big><em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.LineSearch.limit_step" title="Permalink to this definition">¶</a></dt>
-<dd>Clip the a step within the maximum allowed range</dd></dl>
+<dd><p>Clip the a step within the maximum allowed range</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -708,7 +730,7 @@ satisfies Wolfe conditions</div>
 </dd>
 </dl>
 <p>P.S. The wolfe parameter is always True, but this aspect is not
-guaranteed to be correct. Never use the <a title="molmod.minimizer.GoldenLineSearch" class="reference internal" href="#molmod.minimizer.GoldenLineSearch"><tt class="xref docutils literal"><span class="pre">GoldenLineSearch</span></tt></a> in
+guaranteed to be correct. Never use the <a class="reference internal" href="#molmod.minimizer.GoldenLineSearch" title="molmod.minimizer.GoldenLineSearch"><tt class="xref py py-class docutils literal"><span class="pre">GoldenLineSearch</span></tt></a> in
 combination with a quasi Newton method.</p>
 </dd></dl>
 
@@ -1053,7 +1075,8 @@ converged. All actual values must go below the given thresholds.</p>
 <dl class="method">
 <dt id="molmod.minimizer.ConvergenceCondition.get_header">
 <tt class="descname">get_header</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.ConvergenceCondition.get_header" title="Permalink to this definition">¶</a></dt>
-<dd>Returns the header for screen logging of the minimization</dd></dl>
+<dd><p>Returns the header for screen logging of the minimization</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -1081,7 +1104,8 @@ track.</p>
 <dl class="method">
 <dt id="molmod.minimizer.StopLossCondition.__call__">
 <tt class="descname">__call__</tt><big>(</big><em>counter</em>, <em>fn</em>, <em>gradient</em>, <em>step</em><big>)</big><a class="headerlink" href="#molmod.minimizer.StopLossCondition.__call__" title="Permalink to this definition">¶</a></dt>
-<dd>Return True when the minimizer has lost track</dd></dl>
+<dd><p>Return True when the minimizer has lost track</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.StopLossCondition.reset">
@@ -1185,14 +1209,14 @@ minimized.</div>
 <p>The function <tt class="docutils literal"><span class="pre">fun</span></tt> takes a mandatory argument <tt class="docutils literal"><span class="pre">x</span></tt> and an optional
 argument <tt class="docutils literal"><span class="pre">do_gradient</span></tt>:</p>
 <blockquote>
-<div class="line-block">
+<div><div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">x</span></tt>  &#8211;  the arguments of the function to be tested</div>
 <div class="line"><tt class="docutils literal"><span class="pre">do_gradient</span></tt>  &#8211;  when False, only the function value is
 returned. when True, a 2-tuple with the
 function value and the gradient are returned
 [default=False]</div>
 </div>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -1242,18 +1266,19 @@ matplotlib and written as
 <p>The function <tt class="docutils literal"><span class="pre">fun</span></tt> takes a mandatory argument <tt class="docutils literal"><span class="pre">x</span></tt> and an optional
 argument <tt class="docutils literal"><span class="pre">do_gradient</span></tt>:</p>
 <blockquote>
-<div class="line-block">
+<div><div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">x</span></tt>  &#8211;  the arguments of the function to be tested</div>
 <div class="line"><tt class="docutils literal"><span class="pre">do_gradient</span></tt>  &#8211;  when False, only the function value is
 returned. when True, a 2-tuple with the
 function value and the gradient are returned
 [default=False]</div>
 </div>
-</blockquote>
+</div></blockquote>
 <dl class="method">
 <dt id="molmod.minimizer.Minimizer.get_final">
 <tt class="descname">get_final</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.minimizer.Minimizer.get_final" title="Permalink to this definition">¶</a></dt>
-<dd>Return the final solution in the original coordinates</dd></dl>
+<dd><p>Return the final solution in the original coordinates</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="molmod.minimizer.Minimizer.initialize">
@@ -1287,13 +1312,13 @@ finite differentiation</div>
 <p>The function <tt class="docutils literal"><span class="pre">fun</span></tt> takes a mandatory argument <tt class="docutils literal"><span class="pre">x</span></tt> and an optional
 argument <tt class="docutils literal"><span class="pre">do_gradient</span></tt>:</p>
 <blockquote>
-<div class="line-block">
+<div><div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">x</span></tt>  &#8211;  the arguments of the function to be tested</div>
 <div class="line"><tt class="docutils literal"><span class="pre">do_gradient</span></tt>  &#8211;  When False, only the function value is returned.
 When True, a 2-tuple with the function value and
 the gradient are returned [default=False]</div>
 </div>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -1320,13 +1345,13 @@ periodic boundary conditions.</div>
 <p>The function <tt class="docutils literal"><span class="pre">fun</span></tt> takes a mandatory argument <tt class="docutils literal"><span class="pre">x</span></tt> and an optional
 argument <tt class="docutils literal"><span class="pre">do_gradient</span></tt>:</p>
 <blockquote>
-<div class="line-block">
+<div><div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">x</span></tt>  &#8211;  The arguments of the function to be tested.</div>
 <div class="line"><tt class="docutils literal"><span class="pre">do_gradient</span></tt>  &#8211;  When False, only the function value is returned.
 When True, a 2-tuple with the function value and
 the gradient are returned. [default=False]</div>
 </div>
-</blockquote>
+</div></blockquote>
 <p>For every row in dxs, the following computation is repeated:</p>
 <ol class="arabic simple">
 <li>D1 = &#8216;f(x+dx) - f(x)&#8217; is computed.</li>
@@ -1361,18 +1386,18 @@ differences</div>
 <p>The function <tt class="docutils literal"><span class="pre">fun</span></tt> takes a mandatory argument <tt class="docutils literal"><span class="pre">x</span></tt> and an optional
 argument <tt class="docutils literal"><span class="pre">do_gradient</span></tt>:</p>
 <blockquote>
-<div class="line-block">
+<div><div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">x</span></tt>  &#8211;  the arguments of the function to be tested</div>
 <div class="line"><tt class="docutils literal"><span class="pre">do_gradient</span></tt>  &#8211;  When False, only the function value is returned.
 When True, a 2-tuple with the function value and
 the gradient are returned [default=False]</div>
 </div>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
 <div class="section" id="module-molmod.symmetry">
-<h2><a title="" class="reference external" href="#module-molmod.symmetry"><tt class="xref docutils literal"><span class="pre">molmod.symmetry</span></tt></a> &#8211; Symmetry<a class="headerlink" href="#module-molmod.symmetry" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-symmetry-symmetry"></span><h2><a class="reference internal" href="#module-molmod.symmetry" title="molmod.symmetry"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.symmetry</span></tt></a> &#8211; Symmetry<a class="headerlink" href="#module-molmod.symmetry" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="molmod.symmetry.compute_rotsym">
 <tt class="descclassname">molmod.symmetry.</tt><tt class="descname">compute_rotsym</tt><big>(</big><em>molecule</em>, <em>graph</em>, <em>threshold=0.0018897261339212521</em><big>)</big><a class="headerlink" href="#molmod.symmetry.compute_rotsym" title="Permalink to this definition">¶</a></dt>
@@ -1396,7 +1421,7 @@ transform the molecule onto itself.</div>
 
 </div>
 <div class="section" id="module-molmod.toyff">
-<h2><a title="" class="reference external" href="#module-molmod.toyff"><tt class="xref docutils literal"><span class="pre">molmod.toyff</span></tt></a> &#8211; ToyFF<a class="headerlink" href="#module-molmod.toyff" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-toyff-toyff"></span><h2><a class="reference internal" href="#module-molmod.toyff" title="molmod.toyff"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.toyff</span></tt></a> &#8211; ToyFF<a class="headerlink" href="#module-molmod.toyff" title="Permalink to this headline">¶</a></h2>
 <p>The ToyFF is not meant for accurate geometries, but rather to generate
 molecular geometries from scratch. The routines below start with just a
 random set of coordinates and turn that into a rough molecular geometry.
@@ -1419,7 +1444,7 @@ level of theory is at least advisable.</p>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">unit_cell</span></tt>  &#8211;  periodic boundry conditions, see
-<a title="molmod.unit_cells.UnitCell" class="reference external" href="basic.html#molmod.unit_cells.UnitCell"><tt class="xref docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
+<a class="reference internal" href="basic.html#molmod.unit_cells.UnitCell" title="molmod.unit_cells.UnitCell"><tt class="xref py py-class docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
 <div class="line"><tt class="docutils literal"><span class="pre">verbose</span></tt>  &#8211;  Show optimizer progress when True</div>
 </div>
 </dd>
@@ -1445,7 +1470,7 @@ guess of the coordinates</div>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">unit_cell</span></tt>  &#8211;  periodic boundry conditions, see
-<a title="molmod.unit_cells.UnitCell" class="reference external" href="basic.html#molmod.unit_cells.UnitCell"><tt class="xref docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
+<a class="reference internal" href="basic.html#molmod.unit_cells.UnitCell" title="molmod.unit_cells.UnitCell"><tt class="xref py py-class docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
 <div class="line"><tt class="docutils literal"><span class="pre">verbose</span></tt>  &#8211;  Show optimizer progress when True</div>
 </div>
 </dd>
@@ -1469,7 +1494,7 @@ are extracted. See
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">unit_cell</span></tt>  &#8211;  periodic boundry conditions, see
-<a title="molmod.unit_cells.UnitCell" class="reference external" href="basic.html#molmod.unit_cells.UnitCell"><tt class="xref docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
+<a class="reference internal" href="basic.html#molmod.unit_cells.UnitCell" title="molmod.unit_cells.UnitCell"><tt class="xref py py-class docutils literal"><span class="pre">molmod.unit_cells.UnitCell</span></tt></a></div>
 </div>
 </dd>
 </dl>
@@ -1518,13 +1543,13 @@ central atom in the angle.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference external" href="#">Algorithms</a><ul>
-<li><a class="reference external" href="#module-molmod.binning"><tt class="docutils literal"><span class="pre">molmod.binning</span></tt> &#8211; Binning</a></li>
-<li><a class="reference external" href="#module-molmod.clusters"><tt class="docutils literal"><span class="pre">molmod.clusters</span></tt> &#8211; Clustering</a></li>
-<li><a class="reference external" href="#module-molmod.ic"><tt class="docutils literal"><span class="pre">molmod.ic</span></tt> &#8211; Internal coordinates</a></li>
-<li><a class="reference external" href="#module-molmod.minimizer"><tt class="docutils literal"><span class="pre">molmod.minimizer</span></tt> &#8211; Minimizer</a></li>
-<li><a class="reference external" href="#module-molmod.symmetry"><tt class="docutils literal"><span class="pre">molmod.symmetry</span></tt> &#8211; Symmetry</a></li>
-<li><a class="reference external" href="#module-molmod.toyff"><tt class="docutils literal"><span class="pre">molmod.toyff</span></tt> &#8211; ToyFF</a></li>
+<li><a class="reference internal" href="#">Algorithms</a><ul>
+<li><a class="reference internal" href="#module-molmod.binning"><tt class="docutils literal"><span class="pre">molmod.binning</span></tt> &#8211; Binning</a></li>
+<li><a class="reference internal" href="#module-molmod.clusters"><tt class="docutils literal"><span class="pre">molmod.clusters</span></tt> &#8211; Clustering</a></li>
+<li><a class="reference internal" href="#module-molmod.ic"><tt class="docutils literal"><span class="pre">molmod.ic</span></tt> &#8211; Internal coordinates</a></li>
+<li><a class="reference internal" href="#module-molmod.minimizer"><tt class="docutils literal"><span class="pre">molmod.minimizer</span></tt> &#8211; Minimizer</a></li>
+<li><a class="reference internal" href="#module-molmod.symmetry"><tt class="docutils literal"><span class="pre">molmod.symmetry</span></tt> &#8211; Symmetry</a></li>
+<li><a class="reference internal" href="#module-molmod.toyff"><tt class="docutils literal"><span class="pre">molmod.toyff</span></tt> &#8211; ToyFF</a></li>
 </ul>
 </li>
 </ul>
@@ -1543,7 +1568,7 @@ central atom in the angle.</p>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -1564,7 +1589,7 @@ central atom in the angle.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="internals.html" title="Internals of the MolMod package"
@@ -1572,12 +1597,12 @@ central atom in the angle.</p>
         <li class="right" >
           <a href="data.html" title="Databases"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

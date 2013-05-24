@@ -2,18 +2,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Working with molecular graphs &mdash; MolMod v0.0 documentation</title>
+    <title>Working with molecular graphs &mdash; MolMod 0.0 documentation</title>
+    
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '0.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
@@ -21,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod v0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
     <link rel="up" title="MolMod by example" href="examples.html" />
     <link rel="next" title="Internal coordinates" href="internal_coordinates.html" />
     <link rel="prev" title="Working with molecules" href="molecule.html" /> 
@@ -34,15 +37,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="internal_coordinates.html" title="Internal coordinates"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="molecule.html" title="Working with molecules"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
       </ul>
     </div>  
@@ -59,9 +62,9 @@
 <p>Molecular graphs are objects that describe the connectivity of atoms in a
 molecule. In graph speech, every atom is a vertex and every bond is an edge.
 Some background on <a class="reference external" href="http://en.wikipedia.org/wiki/Graph_theory">Graph Theory</a>
-may be helpful. The <a title="molmod.molecular_graphs.MolecularGraph" class="reference external" href="../reference/basic.html#molmod.molecular_graphs.MolecularGraph"><tt class="xref docutils literal"><span class="pre">molmod.molecular_graphs.MolecularGraph</span></tt></a> class in
+may be helpful. The <a class="reference internal" href="../reference/basic.html#molmod.molecular_graphs.MolecularGraph" title="molmod.molecular_graphs.MolecularGraph"><tt class="xref py py-class docutils literal"><span class="pre">molmod.molecular_graphs.MolecularGraph</span></tt></a> class in
 MolMod can store atomic numbers associated with vertices and bond orders
-associated with edges. The class <a title="molmod.graphs.Graph" class="reference external" href="../reference/basic.html#molmod.graphs.Graph"><tt class="xref docutils literal"><span class="pre">molmod.graphs.Graph</span></tt></a> is the base class
+associated with edges. The class <a class="reference internal" href="../reference/basic.html#molmod.graphs.Graph" title="molmod.graphs.Graph"><tt class="xref py py-class docutils literal"><span class="pre">molmod.graphs.Graph</span></tt></a> is the base class
 that implements all the abstract graph theory without refering to atoms and
 bonds.</p>
 </div>
@@ -73,7 +76,7 @@ bonds.</p>
 attribute of a graph object is <tt class="docutils literal"><span class="pre">edges</span></tt>. This is (in most cases) a list of
 bonds in the molecule, but more edges may be included if that would be useful.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/002_graphs/a_graphs.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -151,7 +154,7 @@ bonds in the molecule, but more edges may be included if that would be useful.</
 76
 77
 78
-79</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+79</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -205,14 +208,14 @@ bonds in the molecule, but more edges may be included if that would be useful.</
 <span class="k">print</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span>
 <span class="k">print</span>
 <span class="c"># Print the third bond.</span>
-<span class="k">print</span> <span class="s">&quot;The third bond:&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;The third bond:&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="c"># It is not possible to access only one of the two atom indexes of an edge. The</span>
 <span class="c"># following won&#39;t work because a frozenset is like unordered list.</span>
 <span class="c">#</span>
 <span class="c">#   print graph.edges[2][0]</span>
 <span class="c">#</span>
 <span class="c"># One can get both indexes of an edge at the same time:</span>
-<span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span>
+<span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 <span class="k">print</span> <span class="s">&quot;The indexes of the second bond:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s">&quot;and&quot;</span><span class="p">,</span> <span class="n">j</span>
 <span class="c"># It is not possible to know a priori which number is assigned to i and which to</span>
 <span class="c"># j.</span>
@@ -226,9 +229,9 @@ bonds in the molecule, but more edges may be included if that would be useful.</
 <span class="c">#</span>
 <span class="c"># but is a little more compact.</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6</span> <span class="ow">and</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">print</span> <span class="s">&quot;C-H bond:&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
-    <span class="k">elif</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6</span> <span class="ow">and</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">1</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">print</span> <span class="s">&quot;C-H bond:&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">i</span>
 </pre></div>
 </td></tr></table></div>
@@ -242,7 +245,7 @@ are used. A few examples, e.g. <tt class="docutils literal"><span class="pre">ne
 in the graph with its direct neighbors. It can be used to get the direct
 chemical environment of an atom, or just to count the number of bonds.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/002_graphs/b_neighbors.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -296,7 +299,7 @@ chemical environment of an atom, or just to count the number of bonds.</p>
 52
 53
 54
-55</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+55</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -336,21 +339,21 @@ chemical environment of an atom, or just to count the number of bonds.</p>
 
 <span class="c"># 1) Print the atomic number of the third atom and the atomic numbers of its</span>
 <span class="c"># neighbors.</span>
-<span class="k">print</span> <span class="s">&quot;Symbol of third atom (should be oxygen):&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span>
-<span class="k">print</span> <span class="s">&quot;The number of bonds to the third atom:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mf">2</span><span class="p">])</span>
-<span class="k">print</span> <span class="s">&quot;Indexes of neigbors of third atom:&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span>
-<span class="k">print</span> <span class="s">&quot;Symbols of neigbors of third atom:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mf">2</span><span class="p">]]</span>
+<span class="k">print</span> <span class="s">&quot;Symbol of third atom (should be oxygen):&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;The number of bonds to the third atom:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span> <span class="s">&quot;Indexes of neigbors of third atom:&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Symbols of neigbors of third atom:&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">mol</span><span class="o">.</span><span class="n">symbols</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
 
 <span class="c"># 2) Look up all methyl groups.</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ns</span> <span class="ow">in</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">6</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span> <span class="o">==</span> <span class="mf">4</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">ns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
         <span class="c"># Get the indexes of the hydrogen atoms.</span>
-        <span class="n">h_indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span> <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">==</span><span class="mf">1</span><span class="p">]</span>
+        <span class="n">h_indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ns</span> <span class="k">if</span> <span class="n">mol</span><span class="o">.</span><span class="n">numbers</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
         <span class="c"># We must have three hydrogens</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_indexes</span><span class="p">)</span> <span class="o">!=</span> <span class="mf">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">h_indexes</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">continue</span>
         <span class="c"># Print stuff</span>
-        <span class="k">print</span> <span class="s">&quot;C=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mf">2</span><span class="p">])</span>
+        <span class="k">print</span> <span class="s">&quot;C=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s"> H=</span><span class="si">%i</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">h_indexes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -360,7 +363,7 @@ chemical environment of an atom, or just to count the number of bonds.</p>
 vertex. Each element contains the (minimal) number of bonds between two atoms.
 The matrix is constructed with the <a class="reference external" href="http://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm">Floyd-Warshall algorithm</a>.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/002_graphs/c_distances.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -406,7 +409,7 @@ The matrix is constructed with the <a class="reference external" href="http://en
 44
 45
 46
-47</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+47</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -445,11 +448,11 @@ The matrix is constructed with the <a class="reference external" href="http://en
 <span class="c"># 1) The distances array can be used to get the &#39;minimal&#39; number of bonds</span>
 <span class="c"># between two atoms. E.g. for two atoms in a five_membered ring, this is at most</span>
 <span class="c"># two:</span>
-<span class="k">print</span> <span class="s">&quot;Distance between atom 5 and 6 (part of a 5-ring):&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span><span class="p">[</span><span class="mf">5</span><span class="p">,</span><span class="mf">6</span><span class="p">]</span>
+<span class="k">print</span> <span class="s">&quot;Distance between atom 5 and 6 (part of a 5-ring):&quot;</span><span class="p">,</span> <span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
 <span class="c"># 2) The matrix can also be used to construct a mask of atom_pairs that are</span>
 <span class="c"># separated by at most three bonds.</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span> <span class="o">&lt;=</span> <span class="mf">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span> <span class="o">!=</span> <span class="mf">0</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">mol</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">distances</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c"># For a nice print output, the mask is converted to integers.</span>
 <span class="k">print</span> <span class="s">&quot;Mask of atom pairs that are typically involved in valence interactions:&quot;</span>
 <span class="k">print</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -461,7 +464,7 @@ The matrix is constructed with the <a class="reference external" href="http://en
 <p>All isomorphisms of a molecular graph can be requested. For molecular graphs,
 only those isomorphisms are considered that do not alter the atomic numbers.</p>
 <p>File: <tt class="docutils literal"><span class="pre">examples/002_graphs/d_symmetries.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><pre> 1
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -504,7 +507,7 @@ only those isomorphisms are considered that do not alter the atomic numbers.</p>
 41
 42
 43
-44</pre></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+44</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -579,16 +582,16 @@ symmetry number of benzene?</li>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference external" href="#">Working with molecular graphs</a><ul>
-<li><a class="reference external" href="#introduction">Introduction</a></li>
-<li><a class="reference external" href="#examples">Examples</a><ul>
-<li><a class="reference external" href="#edges">Edges</a></li>
-<li><a class="reference external" href="#neighbors">Neighbors</a></li>
-<li><a class="reference external" href="#distances">Distances</a></li>
-<li><a class="reference external" href="#symmetries">Symmetries</a></li>
+<li><a class="reference internal" href="#">Working with molecular graphs</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#edges">Edges</a></li>
+<li><a class="reference internal" href="#neighbors">Neighbors</a></li>
+<li><a class="reference internal" href="#distances">Distances</a></li>
+<li><a class="reference internal" href="#symmetries">Symmetries</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#problems">Problems</a></li>
+<li><a class="reference internal" href="#problems">Problems</a></li>
 </ul>
 </li>
 </ul>
@@ -607,7 +610,7 @@ symmetry number of benzene?</li>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -628,7 +631,7 @@ symmetry number of benzene?</li>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../modindex.html" title="Global Module Index"
+          <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="internal_coordinates.html" title="Internal coordinates"
@@ -636,13 +639,13 @@ symmetry number of benzene?</li>
         <li class="right" >
           <a href="molecule.html" title="Working with molecules"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod v0.0 documentation</a> &raquo;</li>
+        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li>
           <li><a href="examples.html" >MolMod by example</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
