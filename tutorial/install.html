@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation instructions &mdash; MolMod 0.0 documentation</title>
+    <title>Installation instructions &mdash; MolMod 1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.0',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 1.0 documentation" href="../index.html" />
     <link rel="next" title="How to cite MolMod" href="cite.html" />
     <link rel="prev" title="MolMod Documentation" href="../index.html" /> 
   </head>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="../index.html" title="MolMod Documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -70,79 +70,84 @@ used. It is recommended to use the software package management of your Linux
 distribution to install these dependencies.</p>
 <p>The following software must be installed for MolMod:</p>
 <ul class="simple">
-<li>Python 2.5, 2.6 or 2.7 (including the header files): <a class="reference external" href="http://www.python.org/doc/">http://www.python.org/doc/</a></li>
-<li>Numpy 1.0 or later: <a class="reference external" href="http://numpy.scipy.org/">http://numpy.scipy.org/</a></li>
+<li>Python &gt;= 2.7 (including the header files): <a class="reference external" href="http://www.python.org/doc/">http://www.python.org/doc/</a></li>
+<li>Numpy &gt;= 1.0 or later: <a class="reference external" href="http://numpy.scipy.org/">http://numpy.scipy.org/</a></li>
 <li>A Fortran and a C compiler supported by the F2PY module in Numpy, e.g.
 gfortran and gcc: <a class="reference external" href="http://gcc.gnu.org/">http://gcc.gnu.org/</a></li>
 <li>Git: <a class="reference external" href="http://git-scm.com/">http://git-scm.com/</a></li>
+<li>Nosetests &gt;= 0.11: <a class="reference external" href="http://somethingaboutorange.com/mrl/projects/nose/0.11.2/">http://somethingaboutorange.com/mrl/projects/nose/0.11.2/</a></li>
+<li>Sphinx &gt;= 1.0: <a class="reference external" href="http://sphinx.pocoo.org/">http://sphinx.pocoo.org/</a></li>
 </ul>
 <p>Most Linux distributions can install this software with just a single command:</p>
 <ul>
 <li><p class="first">Ubuntu 12.4:</p>
-<div class="highlight-python"><pre>sudo apt-get install python python-dev python-numpy gfortran gcc git-core</pre>
+<div class="highlight-python"><pre>sudo apt-get install python python-dev python-numpy gfortran gcc git-core python-nose python-sphinx</pre>
 </div>
 </li>
 <li><p class="first">Debian 5. You first have to become root because the sudo program is not
 configured by default.</p>
 <div class="highlight-python"><pre>su -
-apt-get install python python-dev python-numpy gfortran gcc git-core
+apt-get install python python-dev python-numpy gfortran gcc git-core python-nose python-sphinx
 exit</pre>
 </div>
 </li>
 <li><p class="first">Fedora 17:</p>
-<div class="highlight-python"><pre>sudo yum install python-devel numpy numpy-f2py gcc-gfortran gcc git</pre>
+<div class="highlight-python"><pre>sudo yum install python-devel numpy numpy-f2py gcc-gfortran gcc git python-nose sphinx</pre>
 </div>
 </li>
 <li><p class="first">Suse 11.2:</p>
-<div class="highlight-python"><pre>sudo zypper install python-devel python-numpy gcc gcc-fortran git</pre>
-</div>
-<p>There seems to be something odd going on with the default Python configuration
-on Suse installations. You have to edit the file
-<tt class="docutils literal"><span class="pre">/usr/lib64/python2.4/distutils/distutils.cfg</span></tt> or
-<tt class="docutils literal"><span class="pre">/usr/lib32/python2.4/distutils/distutils.cfg</span></tt>, depending on the CPU
-architecture, to comment out the line <tt class="docutils literal"><span class="pre">prefix=/usr/local</span></tt> with a <tt class="docutils literal"><span class="pre">#</span></tt>
-symbol. Otherwise it is impossible to install Python packages in the home
-directory, as we will do below.</p>
-</li>
-</ul>
-<p>In order to enable the installation and usage of Python packages in the home
-directory, as we will do in the next section, one must configure a few
-environment variables:</p>
-<ul>
-<li><p class="first">Bash users: add the following two lines to your <tt class="docutils literal"><span class="pre">~/.bashrc</span></tt> file:</p>
-<div class="highlight-python"><pre>export PYTHONPATH=$HOME/lib/python:$HOME/lib64/python:$PYTHONPATH
-export PATH=$HOME/bin:$PATH</pre>
-</div>
-</li>
-<li><p class="first">TC Shell users: add the lines to your <tt class="docutils literal"><span class="pre">~/.tcshrc</span></tt> file:</p>
-<div class="highlight-python"><pre>setenv PYTHONPATH $HOME/lib/python:$HOME/lib64/python:$PYTHONPATH
-setenv PATH $HOME/bin:$PATH</pre>
+<div class="highlight-python"><pre>sudo zypper install python-devel python-numpy gcc gcc-fortran git python-nose sphinx</pre>
 </div>
 </li>
 </ul>
-<p>If you don&#8217;t know which shell you are using, you are probably using Bash. Note
-that some of these lines may already be present. <strong>These settings are only
-loaded in new terminal sessions, so close your terminal and open a new one
-before proceeding.</strong></p>
 </div>
-<div class="section" id="installing-the-latest-version-of-molmod">
-<h2>Installing the latest version of MolMod<a class="headerlink" href="#installing-the-latest-version-of-molmod" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-molmod">
+<h2>Download MolMod<a class="headerlink" href="#download-molmod" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stable-release">
+<h3>Stable release<a class="headerlink" href="#stable-release" title="Permalink to this headline">¶</a></h3>
+<p>The latest stable release of MolMod can be downloaded here:</p>
+<blockquote>
+<div><a class="reference external" href="http://users.ugent.be/~tovrstra/molmod/molmod-1.0.tar.gz">http://users.ugent.be/~tovrstra/molmod/molmod-1.0.tar.gz</a>.</div></blockquote>
+<p>Choose a suitable directory, e.g. <tt class="docutils literal"><span class="pre">~/build</span></tt>, download and unpack the archive:</p>
+<div class="highlight-python"><pre>mkdir -p ~/build
+cd ~/build
+wget http://users.ugent.be/~tovrstra/molmod/molmod-1.0.tar.gz
+tar -xvzf molmod-1.0.tar.gz
+cd molmod-1.0</pre>
+</div>
+</div>
+<div class="section" id="latest-development-code-experts-only">
+<h3>Latest development code (experts only)<a class="headerlink" href="#latest-development-code-experts-only" title="Permalink to this headline">¶</a></h3>
+<p>In order to get the latest development version of the source code, and to upload
+your own changes, you need to work with git. Git is a version control system
+that makes life easy when a group of people are working on a common source code.
+All information about git (including downloads and tutorials) can be found here:
+<a class="reference external" href="http://git-scm.com/">http://git-scm.com/</a>. The official git URL of MolMod is:
+git://github.com/molmod/molmod.git. In order to <cite>clone</cite> the public MolMod
+repository, run this command:</p>
+<div class="highlight-python"><pre>git clone git://github.com/molmod/molmod.git
+cd molmod</pre>
+</div>
+<p>The version history can be updated with the latest patches with the following
+command:</p>
+<div class="highlight-python"><pre>git pull</pre>
+</div>
+<p>There is also a web interface to MolMod&#8217;s git repository:
+<a class="reference external" href="https://github.com/molmod/molmod">https://github.com/molmod/molmod</a></p>
+</div>
+</div>
+<div class="section" id="install-molmod">
+<h2>Install MolMod<a class="headerlink" href="#install-molmod" title="Permalink to this headline">¶</a></h2>
 <p>The following series of commands will download the latest versions of the
-MolMod package, and will then install it into your home directory. Make sure you
-execute these commands in some sort of temporary directory.</p>
-<div class="highlight-python"><pre>mkdir ~/build/
-cd ~/build/
-git clone git://github.com/molmod/molmod.git
-(cd molmod; ./setup.py install --home=~)</pre>
+MolMod package, and will then install it into your home directory.</p>
+<div class="highlight-python"><pre>./setup.py install --user</pre>
 </div>
 <p>You are now ready to start using MolMod!</p>
 </div>
 <div class="section" id="a-few-quick-checks">
 <h2>A few quick checks<a class="headerlink" href="#a-few-quick-checks" title="Permalink to this headline">¶</a></h2>
 <p>It may be interesting to double check your installation before proceeding,
-unless you <cite>feel lucky</cite>. The MolMod files are installed in the following
-directory: <tt class="docutils literal"><span class="pre">~/lib/python</span></tt> or <tt class="docutils literal"><span class="pre">~/lib64/python</span></tt>. There should be at least some
-files present in these directories.</p>
+unless you <cite>feel lucky</cite>.</p>
 <p>The MolMod modules should be accessible from any Python session. This can be
 checked by starting Python interactively and loading the modules manually. There
 should be no errors when importing the modules. Just, make sure that you change
@@ -157,48 +162,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; quit()</pre>
 </div>
 </div>
-<div class="section" id="upgrading-to-the-latest-version-of-molmod">
-<h2>Upgrading to the latest version of MolMod<a class="headerlink" href="#upgrading-to-the-latest-version-of-molmod" title="Permalink to this headline">¶</a></h2>
-<p>In case you want to upgrade MolMod to the latests development version after a
-previous install, then execute the following commands (in the same directory):</p>
-<div class="highlight-python"><pre>cd ~/build/
-(cd molmod; ./cleanfiles.sh; git pull; rm -r ~/lib*/python/molmod*; ./setup.py install --home=~)</pre>
-</div>
-</div>
 <div class="section" id="testing-your-installation">
 <h2>Testing your installation<a class="headerlink" href="#testing-your-installation" title="Permalink to this headline">¶</a></h2>
-<p>For the development and testing one needs to install one additional package:</p>
-<ul class="simple">
-<li>Nosetests &gt;= 0.11: <a class="reference external" href="http://somethingaboutorange.com/mrl/projects/nose/0.11.2/">http://somethingaboutorange.com/mrl/projects/nose/0.11.2/</a></li>
-<li>Sphinx &gt;= 1.0: <a class="reference external" href="http://sphinx.pocoo.org/">http://sphinx.pocoo.org/</a></li>
-</ul>
-<p>Most Linux distributions can install this software with just a single terminal command:</p>
-<ul>
-<li><p class="first">Ubuntu 12.4:</p>
-<div class="highlight-python"><pre>sudo apt-get install python-nose python-sphinx</pre>
-</div>
-</li>
-<li><p class="first">Debian 5:</p>
-<div class="highlight-python"><pre>su -
-apt-get install python-nose python-sphinx
-exit</pre>
-</div>
-</li>
-<li><p class="first">Fedora 17:</p>
-<div class="highlight-python"><pre>sudo yum install python-nose sphinx</pre>
-</div>
-</li>
-<li><p class="first">Suse 11.2:</p>
-<div class="highlight-python"><pre>sudo zypper install python-nose sphinx</pre>
-</div>
-</li>
-</ul>
-<p>Once these dependecies are installed, execute the following commands to run the
-tests:</p>
-<div class="highlight-python"><pre>cd ~/build/molmod
-./cleanfiles.sh
-./setup.py build_ext -i
-nosetests -v</pre>
+<p>The installation can be tested outside the source tree as follows:</p>
+<div class="highlight-python"><pre>cd
+nosetests -v molmod</pre>
 </div>
 <p>This will run a series of tests to check the validity of the outcomes generated
 by MolMod. If some tests fail, post the output of the tests on the <a class="reference external" href="https://groups.google.com/forum/#!forum/molmodlib">MolMod
@@ -218,9 +186,13 @@ currently three test that are skipped.)</p>
 <li><a class="reference internal" href="#">Installation instructions</a><ul>
 <li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
 <li><a class="reference internal" href="#external-dependencies">External dependencies</a></li>
-<li><a class="reference internal" href="#installing-the-latest-version-of-molmod">Installing the latest version of MolMod</a></li>
+<li><a class="reference internal" href="#download-molmod">Download MolMod</a><ul>
+<li><a class="reference internal" href="#stable-release">Stable release</a></li>
+<li><a class="reference internal" href="#latest-development-code-experts-only">Latest development code (experts only)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-molmod">Install MolMod</a></li>
 <li><a class="reference internal" href="#a-few-quick-checks">A few quick checks</a></li>
-<li><a class="reference internal" href="#upgrading-to-the-latest-version-of-molmod">Upgrading to the latest version of MolMod</a></li>
 <li><a class="reference internal" href="#testing-your-installation">Testing your installation</a></li>
 </ul>
 </li>
@@ -269,7 +241,7 @@ currently three test that are skipped.)</p>
         <li class="right" >
           <a href="../index.html" title="MolMod Documentation"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Internals of the MolMod package &mdash; MolMod 0.0 documentation</title>
+    <title>Internals of the MolMod package &mdash; MolMod 1.0 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '0.0',
+        VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod 0.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 1.0 documentation" href="../index.html" />
     <link rel="prev" title="Algorithms" href="algo.html" /> 
   </head>
   <body>
@@ -40,7 +40,7 @@
         <li class="right" >
           <a href="algo.html" title="Algorithms"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -102,7 +102,7 @@ original object. This only works if the constructor takes all
 <p>This module defines a <tt class="docutils literal"><span class="pre">context</span></tt> object of the class <a class="reference internal" href="#molmod.context.Context" title="molmod.context.Context"><tt class="xref py py-class docutils literal"><span class="pre">Context</span></tt></a>. The
 instance can be used to retrieve shared files:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">molmod</span> <span class="kn">import</span> <span class="n">context</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">get_share_filename</span><span class="p">(</span><span class="s">&quot;periodic.csv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">context</span><span class="o">.</span><span class="n">get_fn</span><span class="p">(</span><span class="s">&quot;periodic.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -113,8 +113,8 @@ instance can be used to retrieve shared files:</p>
 <p>This is done once, when importing a molmod module. There is no need
 to do this manually a second time.</p>
 <dl class="method">
-<dt id="molmod.context.Context.get_share_filename">
-<tt class="descname">get_share_filename</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.context.Context.get_share_filename" title="Permalink to this definition">¶</a></dt>
+<dt id="molmod.context.Context.get_fn">
+<tt class="descname">get_fn</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.context.Context.get_fn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrieve the full path for a given filename in the share folder</p>
 <dl class="docutils">
 <dt>Argument:</dt>
@@ -183,7 +183,7 @@ to do this manually a second time.</p>
         <li class="right" >
           <a href="algo.html" title="Algorithms"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 0.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

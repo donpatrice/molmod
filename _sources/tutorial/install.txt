@@ -21,72 +21,85 @@ distribution to install these dependencies.
 
 The following software must be installed for MolMod:
 
-* Python 2.5, 2.6 or 2.7 (including the header files): http://www.python.org/doc/
-* Numpy 1.0 or later: http://numpy.scipy.org/
+* Python >= 2.7 (including the header files): http://www.python.org/doc/
+* Numpy >= 1.0 or later: http://numpy.scipy.org/
 * A Fortran and a C compiler supported by the F2PY module in Numpy, e.g.
   gfortran and gcc: http://gcc.gnu.org/
 * Git: http://git-scm.com/
+* Nosetests >= 0.11: http://somethingaboutorange.com/mrl/projects/nose/0.11.2/
+* Sphinx >= 1.0: http://sphinx.pocoo.org/
+
 
 Most Linux distributions can install this software with just a single command:
 
 * Ubuntu 12.4::
 
-    sudo apt-get install python python-dev python-numpy gfortran gcc git-core
+    sudo apt-get install python python-dev python-numpy gfortran gcc git-core python-nose python-sphinx
 
 * Debian 5. You first have to become root because the sudo program is not
   configured by default. ::
 
     su -
-    apt-get install python python-dev python-numpy gfortran gcc git-core
+    apt-get install python python-dev python-numpy gfortran gcc git-core python-nose python-sphinx
     exit
 
 * Fedora 17::
 
-    sudo yum install python-devel numpy numpy-f2py gcc-gfortran gcc git
+    sudo yum install python-devel numpy numpy-f2py gcc-gfortran gcc git python-nose sphinx
 
 * Suse 11.2::
 
-    sudo zypper install python-devel python-numpy gcc gcc-fortran git
-
-  There seems to be something odd going on with the default Python configuration
-  on Suse installations. You have to edit the file
-  ``/usr/lib64/python2.4/distutils/distutils.cfg`` or
-  ``/usr/lib32/python2.4/distutils/distutils.cfg``, depending on the CPU
-  architecture, to comment out the line ``prefix=/usr/local`` with a ``#``
-  symbol. Otherwise it is impossible to install Python packages in the home
-  directory, as we will do below.
-
-In order to enable the installation and usage of Python packages in the home
-directory, as we will do in the next section, one must configure a few
-environment variables:
-
-* Bash users: add the following two lines to your ``~/.bashrc`` file::
-
-    export PYTHONPATH=$HOME/lib/python:$HOME/lib64/python:$PYTHONPATH
-    export PATH=$HOME/bin:$PATH
-
-* TC Shell users: add the lines to your ``~/.tcshrc`` file::
-
-    setenv PYTHONPATH $HOME/lib/python:$HOME/lib64/python:$PYTHONPATH
-    setenv PATH $HOME/bin:$PATH
-
-If you don't know which shell you are using, you are probably using Bash. Note
-that some of these lines may already be present. **These settings are only
-loaded in new terminal sessions, so close your terminal and open a new one
-before proceeding.**
+    sudo zypper install python-devel python-numpy gcc gcc-fortran git python-nose sphinx
 
 
-Installing the latest version of MolMod
-=======================================
+Download MolMod
+===============
+
+Stable release
+--------------
+
+The latest stable release of MolMod can be downloaded here:
+
+    http://users.ugent.be/~tovrstra/molmod/molmod-1.0.tar.gz.
+
+Choose a suitable directory, e.g. ``~/build``, download and unpack the archive::
+
+    mkdir -p ~/build
+    cd ~/build
+    wget http://users.ugent.be/~tovrstra/molmod/molmod-1.0.tar.gz
+    tar -xvzf molmod-1.0.tar.gz
+    cd molmod-1.0
+
+Latest development code (experts only)
+--------------------------------------
+
+In order to get the latest development version of the source code, and to upload
+your own changes, you need to work with git. Git is a version control system
+that makes life easy when a group of people are working on a common source code.
+All information about git (including downloads and tutorials) can be found here:
+http://git-scm.com/. The official git URL of MolMod is:
+git://github.com/molmod/molmod.git. In order to `clone` the public MolMod
+repository, run this command::
+
+    git clone git://github.com/molmod/molmod.git
+    cd molmod
+
+The version history can be updated with the latest patches with the following
+command::
+
+    git pull
+
+There is also a web interface to MolMod's git repository:
+https://github.com/molmod/molmod
+
+
+Install MolMod
+==============
 
 The following series of commands will download the latest versions of the
-MolMod package, and will then install it into your home directory. Make sure you
-execute these commands in some sort of temporary directory. ::
+MolMod package, and will then install it into your home directory. ::
 
-    mkdir ~/build/
-    cd ~/build/
-    git clone git://github.com/molmod/molmod.git
-    (cd molmod; ./setup.py install --home=~)
+    ./setup.py install --user
 
 You are now ready to start using MolMod!
 
@@ -95,9 +108,7 @@ A few quick checks
 ==================
 
 It may be interesting to double check your installation before proceeding,
-unless you `feel lucky`. The MolMod files are installed in the following
-directory: ``~/lib/python`` or ``~/lib64/python``. There should be at least some
-files present in these directories.
+unless you `feel lucky`.
 
 The MolMod modules should be accessible from any Python session. This can be
 checked by starting Python interactively and loading the modules manually. There
@@ -114,51 +125,13 @@ trying this test, e.g. as follows::
     >>> quit()
 
 
-Upgrading to the latest version of MolMod
-=========================================
-
-In case you want to upgrade MolMod to the latests development version after a
-previous install, then execute the following commands (in the same directory)::
-
-    cd ~/build/
-    (cd molmod; ./cleanfiles.sh; git pull; rm -r ~/lib*/python/molmod*; ./setup.py install --home=~)
-
-
 Testing your installation
 =========================
 
-For the development and testing one needs to install one additional package:
+The installation can be tested outside the source tree as follows::
 
-* Nosetests >= 0.11: http://somethingaboutorange.com/mrl/projects/nose/0.11.2/
-* Sphinx >= 1.0: http://sphinx.pocoo.org/
-
-Most Linux distributions can install this software with just a single terminal command:
-
-* Ubuntu 12.4::
-
-    sudo apt-get install python-nose python-sphinx
-
-* Debian 5::
-
-    su -
-    apt-get install python-nose python-sphinx
-    exit
-
-* Fedora 17::
-
-    sudo yum install python-nose sphinx
-
-* Suse 11.2::
-
-    sudo zypper install python-nose sphinx
-
-Once these dependecies are installed, execute the following commands to run the
-tests::
-
-    cd ~/build/molmod
-    ./cleanfiles.sh
-    ./setup.py build_ext -i
-    nosetests -v
+    cd
+    nosetests -v molmod
 
 This will run a series of tests to check the validity of the outcomes generated
 by MolMod. If some tests fail, post the output of the tests on the `MolMod
