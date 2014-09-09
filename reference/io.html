@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Input/output &mdash; MolMod 1.0 documentation</title>
+    <title>Input/output &mdash; MolMod 1.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -15,7 +15,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.0',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <link rel="top" title="MolMod 1.0 documentation" href="../index.html" />
+    <link rel="top" title="MolMod 1.1 documentation" href="../index.html" />
     <link rel="next" title="Databases" href="data.html" />
     <link rel="prev" title="Basic classes" href="basic.html" /> 
   </head>
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="basic.html" title="Basic classes"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -462,7 +462,7 @@ points in the cube.</p>
 <span id="molmod-io-dlpoly-dlpoly-files"></span><h2><a class="reference internal" href="#module-molmod.io.dlpoly" title="molmod.io.dlpoly"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.dlpoly</span></tt></a> &#8211; DLPoly Files<a class="headerlink" href="#module-molmod.io.dlpoly" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.dlpoly.DLPolyHistoryReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.dlpoly.</tt><tt class="descname">DLPolyHistoryReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>pos_unit=1.889726133921252</em>, <em>vel_unit=4.5710289267195566e-05</em>, <em>frc_unit=2.015529715950126e-06</em>, <em>time_unit=41341.37333664682</em>, <em>mass_unit=1822.8886273532887</em><big>)</big><a class="headerlink" href="#molmod.io.dlpoly.DLPolyHistoryReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">molmod.io.dlpoly.</tt><tt class="descname">DLPolyHistoryReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>pos_unit=1.889726133921252</em>, <em>vel_unit=4.5710289267195566e-05</em>, <em>frc_unit=2.015529715950126e-06</em>, <em>time_unit=41341.37333664682</em>, <em>mass_unit=1822.8886273532887</em>, <em>restart=False</em><big>)</big><a class="headerlink" href="#molmod.io.dlpoly.DLPolyHistoryReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader for the DLPoly history file format.</p>
 <p>Use this object as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">hr</span> <span class="o">=</span> <span class="n">HistoryReader</span><span class="p">(</span><span class="s">&quot;somefile.txt&quot;</span><span class="p">)</span>
@@ -486,6 +486,14 @@ points in the cube.</p>
 </div>
 </dd>
 </dl>
+<p>When the file starts with a line that satisfies the following
+conditions, it is assumed that this is a history restart file:</p>
+<ul class="simple">
+<li>line consists of 6 words</li>
+<li>first word equals &#8216;timestep&#8217;</li>
+<li>the following for words are integers</li>
+<li>the last word is a float</li>
+</ul>
 </dd></dl>
 
 <dl class="class">
@@ -1307,7 +1315,7 @@ units [default=angstrom]</div>
         <li class="right" >
           <a href="basic.html" title="Basic classes"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.0 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
