@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -28,8 +27,8 @@
     <link rel="next" title="Basic classes" href="basic.html" />
     <link rel="prev" title="MolMod Developers guide" href="../development/development.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,19 +43,19 @@
         <li class="right" >
           <a href="../development/development.html" title="MolMod Developers guide"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="units-and-constants">
 <h1>Units and constants<a class="headerlink" href="#units-and-constants" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-molmod.units">
-<span id="molmod-units-conversion-from-and-to-atomic-units"></span><h2><a class="reference internal" href="#module-molmod.units" title="molmod.units"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.units</span></tt></a> &#8211; Conversion from and to atomic units<a class="headerlink" href="#module-molmod.units" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-units-conversion-from-and-to-atomic-units"></span><h2><a class="reference internal" href="#module-molmod.units" title="molmod.units"><code class="xref py py-mod docutils literal"><span class="pre">molmod.units</span></code></a> &#8211; Conversion from and to atomic units<a class="headerlink" href="#module-molmod.units" title="Permalink to this headline">¶</a></h2>
 <p>Internally the MolMod package works always in atomic units. This unit system
 is consistent, like the SI unit system one does not need conversion factors
 in the middle of a computation once all values are converted to atomic units.
@@ -73,8 +72,8 @@ constants: 1998, Rev. Mod. Phys. 72(2), 351 (2000)</li>
 </ul>
 <p>Naming conventions in this module: unit is the value of one external unit
 in internal - i.e. atomic - units. e.g. If you want to have a distance of
-five angstrom in internal units: <tt class="docutils literal"><span class="pre">5*angstrom</span></tt>. If you want to convert a
-length of 5 internal units to angstrom: <tt class="docutils literal"><span class="pre">5/angstrom</span></tt>. It is recommended to
+five angstrom in internal units: <code class="docutils literal"><span class="pre">5*angstrom</span></code>. If you want to convert a
+length of 5 internal units to angstrom: <code class="docutils literal"><span class="pre">5/angstrom</span></code>. It is recommended to
 perform this kind of conversions, only when data is read from the input and
 data is written to the output.</p>
 <p>An often recurring question is how to convert a frequency in internal units
@@ -218,12 +217,12 @@ done:</p>
 </div></blockquote>
 <dl class="function">
 <dt id="molmod.units.parse_unit">
-<tt class="descclassname">molmod.units.</tt><tt class="descname">parse_unit</tt><big>(</big><em>expression</em><big>)</big><a class="headerlink" href="#molmod.units.parse_unit" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.units.</code><code class="descname">parse_unit</code><span class="sig-paren">(</span><em>expression</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.units.parse_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate a python expression string containing constants</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">expression</span></tt>  &#8211;  A string containing a numerical expressions
+<div class="line"><code class="docutils literal"><span class="pre">expression</span></code>  &#8211;  A string containing a numerical expressions
 including unit conversions.</div>
 </div>
 </dd>
@@ -324,7 +323,7 @@ shorthands are supported:</p>
 
 </div>
 <div class="section" id="module-molmod.constants">
-<span id="molmod-constants-physical-constants"></span><h2><a class="reference internal" href="#module-molmod.constants" title="molmod.constants"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></tt></a> &#8211; Physical Constants<a class="headerlink" href="#module-molmod.constants" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-constants-physical-constants"></span><h2><a class="reference internal" href="#module-molmod.constants" title="molmod.constants"><code class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></code></a> &#8211; Physical Constants<a class="headerlink" href="#module-molmod.constants" title="Permalink to this headline">¶</a></h2>
 <p>These are the physical constants defined in this module (in atomic units):</p>
 <blockquote>
 <div><table border="1" class="docutils">
@@ -360,13 +359,13 @@ shorthands are supported:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Units and constants</a><ul>
-<li><a class="reference internal" href="#module-molmod.units"><tt class="docutils literal"><span class="pre">molmod.units</span></tt> &#8211; Conversion from and to atomic units</a></li>
-<li><a class="reference internal" href="#module-molmod.constants"><tt class="docutils literal"><span class="pre">molmod.constants</span></tt> &#8211; Physical Constants</a></li>
+<li><a class="reference internal" href="#module-molmod.units"><code class="docutils literal"><span class="pre">molmod.units</span></code> &#8211; Conversion from and to atomic units</a></li>
+<li><a class="reference internal" href="#module-molmod.constants"><code class="docutils literal"><span class="pre">molmod.constants</span></code> &#8211; Physical Constants</a></li>
 </ul>
 </li>
 </ul>
@@ -377,12 +376,14 @@ shorthands are supported:</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="basic.html"
                         title="next chapter">Basic classes</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/const.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/const.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -399,7 +400,7 @@ shorthands are supported:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -414,12 +415,12 @@ shorthands are supported:</p>
         <li class="right" >
           <a href="../development/development.html" title="MolMod Developers guide"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

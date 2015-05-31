@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -29,8 +28,8 @@
     <link rel="next" title="Working with molecules" href="molecule.html" />
     <link rel="prev" title="MolMod by example" href="examples.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,15 +44,15 @@
         <li class="right" >
           <a href="examples.html" title="MolMod by example"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li>
-          <li><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="examples.html" accesskey="U">MolMod by example</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="unit-conversion">
 <h1>Unit conversion<a class="headerlink" href="#unit-conversion" title="Permalink to this headline">¶</a></h1>
@@ -62,7 +61,7 @@
 <p>The MolMod package expresses all quantities in a well-defined <cite>internal units</cite>.
 Whenever numerical data goes into the MolMod code, it is assumed to be in
 <cite>internal units</cite>, and results will also be returned in <cite>internal units</cite>. When
-data is read from a file (through one of the modules in <a class="reference internal" href="../reference/io.html#module-molmod.io" title="molmod.io"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io</span></tt></a>) the
+data is read from a file (through one of the modules in <a class="reference internal" href="../reference/io.html#module-molmod.io" title="molmod.io"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io</span></code></a>) the
 numerical values are immediately converted to <cite>internal units</cite>. In case one
 needs to print a number on screen or to a file, it can be converted back to some
 <cite>non-internal unit</cite>.</p>
@@ -80,7 +79,7 @@ units, which reduces numerical issues.</li>
 <li>Several important constants become unity, which simplifies the programming.</li>
 </ol>
 <p>The conversion factors to translate values from and to <cite>internal units</cite> are
-defined in the module <a class="reference internal" href="../reference/const.html#module-molmod.units" title="molmod.units"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.units</span></tt></a>. The convention for unit conversion is
+defined in the module <a class="reference internal" href="../reference/const.html#module-molmod.units" title="molmod.units"><code class="xref py py-mod docutils literal"><span class="pre">molmod.units</span></code></a>. The convention for unit conversion is
 as follows:</p>
 <ul class="simple">
 <li><strong>Multiplication</strong> with a constant converts a value <strong>to</strong> <cite>internal units</cite>.</li>
@@ -99,7 +98,7 @@ as follows:</p>
 <span class="k">print</span> <span class="s">&quot;Distances in Angstrom:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="o">/</span><span class="n">angstrom</span>
 </pre></div>
 </td></tr></table></div>
-<p>Some relevant physical constants are defined in <a class="reference internal" href="../reference/const.html#module-molmod.constants" title="molmod.constants"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></tt></a>.</p>
+<p>Some relevant physical constants are defined in <a class="reference internal" href="../reference/const.html#module-molmod.constants" title="molmod.constants"><code class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></code></a>.</p>
 </div>
 <div class="section" id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
@@ -107,40 +106,8 @@ as follows:</p>
 <h3>Energies<a class="headerlink" href="#energies" title="Permalink to this headline">¶</a></h3>
 <p>This example shows, given a reactant and product energy, how one computes the
 reaction energy and prints out the result in kJ/mol.</p>
-<p>File: <tt class="docutils literal"><span class="pre">data/examples/000_units/a_reaction.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<p>File: <code class="docutils literal"><span class="pre">data/examples/000_units/a_reaction.py</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -174,24 +141,27 @@ reaction energy and prints out the result in kJ/mol.</p>
 
 <span class="k">print</span> <span class="s">&quot;Reaction energy [kJ mol^-1]:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">reaction_energy</span><span class="o">/</span><span class="n">kjmol</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>This example is very basic, but it demonstrates some general requirements for
 any script that uses the MolMod package:</p>
 <ul>
-<li><p class="first">The first line always reads <tt class="docutils literal"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></tt>. This only matters when
+<li><p class="first">The first line always reads <code class="docutils literal"><span class="pre">#!/usr/bin/env</span> <span class="pre">python</span></code>. This only matters when
 the script is executed on a Unix machine. It is the so-called <a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang line</a>, which is used to
 determine the interpreter when the script is executed on the command line:</p>
-<div class="highlight-python"><pre>toon@poony ~&gt; ./a_reaction.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>toon@poony ~&gt; ./a_reaction.py
+</pre></div>
 </div>
 <p>is equivalent to:</p>
-<div class="highlight-python"><pre>toon@poony ~&gt; /usr/bin/env python a_reaction.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>toon@poony ~&gt; /usr/bin/env python a_reaction.py
+</pre></div>
 </div>
 <p>The short form only works when the executable flag of the script file is set.
 If this is not the case yet, it can be changed as follows:</p>
-<div class="highlight-python"><pre>toon@poony ~&gt; chmod +x a_reaction.py</pre>
+<div class="highlight-python"><div class="highlight"><pre>toon@poony ~&gt; chmod +x a_reaction.py
+</pre></div>
 </div>
 </li>
-<li><p class="first">The beginning of the file must contain a line <tt class="docutils literal"><span class="pre">from</span> <span class="pre">molmod</span> <span class="pre">import</span> <span class="pre">*</span></tt> to
+<li><p class="first">The beginning of the file must contain a line <code class="docutils literal"><span class="pre">from</span> <span class="pre">molmod</span> <span class="pre">import</span> <span class="pre">*</span></code> to
 import the entire molmod package. Some alternative methods to import
 libraries in Python are discussed in the <a class="reference external" href="http://docs.python.org/">official Python documentation</a>.</p>
 </li>
@@ -202,42 +172,8 @@ libraries in Python are discussed in the <a class="reference external" href="htt
 <p>Given the mass and force constant of a harmonic spring the following script
 computes the spectroscopic wavenumber of the oscillation. The mass and the force
 constant are an approximate model for a C-H bond.</p>
-<p>File: <tt class="docutils literal"><span class="pre">data/examples/000_units/b_chbond.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<p>File: <code class="docutils literal"><span class="pre">data/examples/000_units/b_chbond.py</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -273,68 +209,17 @@ constant are an approximate model for a C-H bond.</p>
 <span class="k">print</span> <span class="s">&quot;Force constant [kcal mol^-1 angstrom^-2]:&quot;</span><span class="p">,</span> <span class="n">k</span><span class="o">/</span><span class="p">(</span><span class="n">kcalmol</span><span class="o">/</span><span class="n">angstrom</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">print</span> <span class="s">&quot;Wavenumber [cm^-1]:&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">freq</span><span class="o">/</span><span class="n">lightspeed</span><span class="o">*</span><span class="n">centimeter</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <div class="section" id="rotational-partition-function-of-hydrogen">
 <h3>Rotational partition function of Hydrogen<a class="headerlink" href="#rotational-partition-function-of-hydrogen" title="Permalink to this headline">¶</a></h3>
 <p>The last example solves a typical statistical physics exam question: &#8220;Compute
 the probability that a Hydrogen molecule in a dilute gas does not rotate at a
 temperature of 300 K. Approximate the Hydrogen molecule as a rigid rotor&#8221;. The
-parameters are included in the source code below. The constant <tt class="docutils literal"><span class="pre">boltzmann</span></tt> is
-defined in <a class="reference internal" href="../reference/const.html#module-molmod.constants" title="molmod.constants"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></tt></a>.</p>
-<p>File: <tt class="docutils literal"><span class="pre">data/examples/000_units/c_h2rot.py</span></tt></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+parameters are included in the source code below. The constant <code class="docutils literal"><span class="pre">boltzmann</span></code> is
+defined in <a class="reference internal" href="../reference/const.html#module-molmod.constants" title="molmod.constants"><code class="xref py py-mod docutils literal"><span class="pre">molmod.constants</span></code></a>.</p>
+<p>File: <code class="docutils literal"><span class="pre">data/examples/000_units/c_h2rot.py</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
 <span class="c"># -*- coding: utf-8 -*-</span>
 <span class="c"># MolMod is a collection of molecular modelling tools for python.</span>
 <span class="c"># Copyright (C) 2007 - 2012 Toon Verstraelen &lt;Toon.Verstraelen@UGent.be&gt;, Center</span>
@@ -387,7 +272,7 @@ defined in <a class="reference internal" href="../reference/const.html#module-mo
 <span class="k">print</span> <span class="s">&quot;The rotational temperature [Kelvin]:&quot;</span><span class="p">,</span> <span class="n">rot_temp</span>
 <span class="k">print</span> <span class="s">&quot;Probability [%]:&quot;</span><span class="p">,</span> <span class="n">prob</span><span class="o">*</span><span class="mi">100</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 </div>
 <div class="section" id="problems">
@@ -407,14 +292,14 @@ molecule. Write a program that prints out the internal energy in kJ mol<sup>-1</
 temperatures: 300K, 400K, 500K and 600K. The partition function of a harmonic
 oscillator is given by:</p>
 <div class="math">
-<p><img src="../_images/math/0e95cc7862ea5f78bac0be8141591f47ac3614a8.png" alt="q_{\text{vib}} = \frac{\exp\left(-\frac{\hbar\nu}{2 k_BT}\right)}
+<p><img src="../_images/math/005865edaaaafbc4ecaefcb3c5581dbdfb073ade.png" alt="q_{\text{vib}} = \frac{\exp\left(-\frac{\hbar\nu}{2 k_BT}\right)}
 {1-\exp\left(-\frac{\hbar\nu}{k_BT}\right)}"/></p>
 </div><p>The heat capacity can be derived from the partition function,</p>
 <div class="math">
-<p><img src="../_images/math/58f8e87e6d7dbdc6cb129f7541cea2864de80c39.png" alt="C = \frac{\partial E}{\partial T},"/></p>
+<p><img src="../_images/math/df58ca2b49a404115ffd6413cabbca0d1364e10d.png" alt="C = \frac{\partial E}{\partial T},"/></p>
 </div><p>where E is the internal energy,</p>
 <div class="math">
-<p><img src="../_images/math/65a65a357a85ea607e75fa8e84815fd71e63c2cc.png" alt="E = k_BT^2 \frac{\partial \ln(q_{\text{vib}})}{\partial T}."/></p>
+<p><img src="../_images/math/f56ada398f7b4ae5c7aabb86c7873666d2245d6e.png" alt="E = k_BT^2 \frac{\partial \ln(q_{\text{vib}})}{\partial T}."/></p>
 </div><p>The spectroscopic wavenumer of the H-H bond is 4160 cm<sup>-1</sup>.</p>
 </div>
 </div>
@@ -424,7 +309,7 @@ oscillator is given by:</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -451,12 +336,14 @@ oscillator is given by:</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="molecule.html"
                         title="next chapter">Working with molecules</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/tutorial/units.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorial/units.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -473,7 +360,7 @@ oscillator is given by:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -488,13 +375,13 @@ oscillator is given by:</p>
         <li class="right" >
           <a href="examples.html" title="MolMod by example"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li>
-          <li><a href="examples.html" >MolMod by example</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="examples.html" >MolMod by example</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

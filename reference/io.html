@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -28,8 +27,8 @@
     <link rel="next" title="Databases" href="data.html" />
     <link rel="prev" title="Basic classes" href="basic.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -44,14 +43,14 @@
         <li class="right" >
           <a href="basic.html" title="Basic classes"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="module-molmod.io">
 <span id="input-output"></span><h1>Input/output<a class="headerlink" href="#module-molmod.io" title="Permalink to this headline">¶</a></h1>
@@ -61,10 +60,10 @@ simulations and not all of them deal with representing molecular systems. The
 scope is more generic. The selection of supported formats is purely driven
 by the convenience of the MolMod developers.</p>
 <div class="section" id="module-molmod.io.atrj">
-<span id="molmod-io-atrj-atrj-files"></span><h2><a class="reference internal" href="#module-molmod.io.atrj" title="molmod.io.atrj"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.atrj</span></tt></a> &#8211; ATRJ Files<a class="headerlink" href="#module-molmod.io.atrj" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-atrj-atrj-files"></span><h2><a class="reference internal" href="#module-molmod.io.atrj" title="molmod.io.atrj"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.atrj</span></code></a> &#8211; ATRJ Files<a class="headerlink" href="#module-molmod.io.atrj" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.atrj.ATRJReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.atrj.</tt><tt class="descname">ATRJReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><big>)</big><a class="headerlink" href="#molmod.io.atrj.ATRJReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.atrj.</code><code class="descname">ATRJReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.atrj.ATRJReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader class for the ATRJ trajectory file format</p>
 <p>Once initialized, this object behaves like an iterator that runs over
 the individual time frames. Example usage:</p>
@@ -77,25 +76,25 @@ the individual time frames. Example usage:</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  an optional slice object to select a subset of time
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  an optional slice object to select a subset of time
 frames</div>
 </div>
 </dd>
 </dl>
 <p>The number of atoms is read immediately and is available as
-<tt class="docutils literal"><span class="pre">self.num_atoms</span></tt>.</p>
+<code class="docutils literal"><span class="pre">self.num_atoms</span></code>.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="molmod.io.atrj.ATRJFrame">
-<em class="property">class </em><tt class="descclassname">molmod.io.atrj.</tt><tt class="descname">ATRJFrame</tt><a class="headerlink" href="#molmod.io.atrj.ATRJFrame" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.atrj.</code><code class="descname">ATRJFrame</code><a class="headerlink" href="#molmod.io.atrj.ATRJFrame" title="Permalink to this definition">¶</a></dt>
 <dd><p>A single time frame from an ATRJ file</p>
 </dd></dl>
 
 </div>
 <div class="section" id="module-molmod.io.cml">
-<span id="molmod-io-cml-cml-files"></span><h2><a class="reference internal" href="#module-molmod.io.cml" title="molmod.io.cml"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.cml</span></tt></a> &#8211; CML Files<a class="headerlink" href="#module-molmod.io.cml" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-cml-cml-files"></span><h2><a class="reference internal" href="#module-molmod.io.cml" title="molmod.io.cml"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.cml</span></code></a> &#8211; CML Files<a class="headerlink" href="#module-molmod.io.cml" title="Permalink to this headline">¶</a></h2>
 <p>Not all features of the CML standard are supported in this module, only the
 basic aspects that are relevant for computational chemistry. For more info
 on the CML format, visit: <a class="reference external" href="http://cml.sourceforge.net/">http://cml.sourceforge.net/</a></p>
@@ -103,12 +102,12 @@ on the CML format, visit: <a class="reference external" href="http://cml.sourcef
 bond orders are supported.</p>
 <dl class="function">
 <dt id="molmod.io.cml.load_cml">
-<tt class="descclassname">molmod.io.cml.</tt><tt class="descname">load_cml</tt><big>(</big><em>cml_filename</em><big>)</big><a class="headerlink" href="#molmod.io.cml.load_cml" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.io.cml.</code><code class="descname">load_cml</code><span class="sig-paren">(</span><em>cml_filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cml.load_cml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the molecules from a CML file</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">cml_filename</span></tt>  &#8211;  The filename of a CML file.</div>
+<div class="line"><code class="docutils literal"><span class="pre">cml_filename</span></code>  &#8211;  The filename of a CML file.</div>
 </div>
 </dd>
 </dl>
@@ -118,13 +117,13 @@ attribute and extra attributes.</p>
 
 <dl class="function">
 <dt id="molmod.io.cml.dump_cml">
-<tt class="descclassname">molmod.io.cml.</tt><tt class="descname">dump_cml</tt><big>(</big><em>f</em>, <em>molecules</em><big>)</big><a class="headerlink" href="#molmod.io.cml.dump_cml" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.io.cml.</code><code class="descname">dump_cml</code><span class="sig-paren">(</span><em>f</em>, <em>molecules</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cml.dump_cml" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a list of molecules to a CML file</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename of a CML file or a file-like object</div>
-<div class="line"><tt class="docutils literal"><span class="pre">molecules</span></tt>  &#8211;  a list of molecule objects.</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename of a CML file or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">molecules</span></code>  &#8211;  a list of molecule objects.</div>
 </div>
 </dd>
 </dl>
@@ -132,72 +131,72 @@ attribute and extra attributes.</p>
 
 </div>
 <div class="section" id="module-molmod.io.cp2k">
-<span id="molmod-io-cp2k-cp2k-files"></span><h2><a class="reference internal" href="#module-molmod.io.cp2k" title="molmod.io.cp2k"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.cp2k</span></tt></a> &#8211; CP2K Files<a class="headerlink" href="#module-molmod.io.cp2k" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-cp2k-cp2k-files"></span><h2><a class="reference internal" href="#module-molmod.io.cp2k" title="molmod.io.cp2k"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.cp2k</span></code></a> &#8211; CP2K Files<a class="headerlink" href="#module-molmod.io.cp2k" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.cp2k.CP2KSection">
-<em class="property">class </em><tt class="descclassname">molmod.io.cp2k.</tt><tt class="descname">CP2KSection</tt><big>(</big><em>name=''</em>, <em>children=None</em>, <em>section_parameters=''</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cp2k.</code><code class="descname">CP2KSection</code><span class="sig-paren">(</span><em>name=''</em>, <em>children=None</em>, <em>section_parameters=''</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data structure representing a section in a CP2K input file</p>
 <p>Instances of this class are iterable and support full element access.</p>
 <dl class="docutils">
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">name</span></tt>  &#8211;  the name of the section</div>
-<div class="line"><tt class="docutils literal"><span class="pre">children</span></tt>  &#8211;  a list of CP2KSection and CP2KKeyword objects</div>
-<div class="line"><tt class="docutils literal"><span class="pre">section_parameters</span></tt>  &#8211;  the value assigned to the section</div>
+<div class="line"><code class="docutils literal"><span class="pre">name</span></code>  &#8211;  the name of the section</div>
+<div class="line"><code class="docutils literal"><span class="pre">children</span></code>  &#8211;  a list of CP2KSection and CP2KKeyword objects</div>
+<div class="line"><code class="docutils literal"><span class="pre">section_parameters</span></code>  &#8211;  the value assigned to the section</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.append">
-<tt class="descname">append</tt><big>(</big><em>child</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.append" title="Permalink to this definition">¶</a></dt>
+<code class="descname">append</code><span class="sig-paren">(</span><em>child</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a child section or keyword</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.dump">
-<tt class="descname">dump</tt><big>(</big><em>f</em>, <em>indent=''</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>f</em>, <em>indent=''</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump this section and its children to a file-like object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.dump_children">
-<tt class="descname">dump_children</tt><big>(</big><em>f</em>, <em>indent=''</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.dump_children" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump_children</code><span class="sig-paren">(</span><em>f</em>, <em>indent=''</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.dump_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the children of the current section to a file-like object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.get_name">
-<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the name of this section</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.insert">
-<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>child</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.insert" title="Permalink to this definition">¶</a></dt>
+<code class="descname">insert</code><span class="sig-paren">(</span><em>index</em>, <em>child</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert a child section or keyword</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.load">
-<tt class="descname">load</tt><big>(</big><em>f</em>, <em>line=None</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.load" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load</code><span class="sig-paren">(</span><em>f</em>, <em>line=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load this section from a file-like object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.load_children">
-<tt class="descname">load_children</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.load_children" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load_children</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.load_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the children of this section from a file-like object</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="molmod.io.cp2k.CP2KSection.name">
-<tt class="descname">name</tt><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the name of this section</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KSection.readline">
-<tt class="descname">readline</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.readline" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readline</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KSection.readline" title="Permalink to this definition">¶</a></dt>
 <dd><p>A helper method that only reads uncommented lines</p>
 </dd></dl>
 
@@ -205,68 +204,68 @@ attribute and extra attributes.</p>
 
 <dl class="class">
 <dt id="molmod.io.cp2k.CP2KKeyword">
-<em class="property">class </em><tt class="descclassname">molmod.io.cp2k.</tt><tt class="descname">CP2KKeyword</tt><big>(</big><em>name=''</em>, <em>value=''</em>, <em>unit=None</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cp2k.</code><code class="descname">CP2KKeyword</code><span class="sig-paren">(</span><em>name=''</em>, <em>value=''</em>, <em>unit=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data structure representing a keyword-value pair in a CP2K input file</p>
 <dl class="docutils">
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">name</span></tt>  &#8211;  The keyword name</div>
-<div class="line"><tt class="docutils literal"><span class="pre">value</span></tt>  &#8211;  The associated value</div>
-<div class="line"><tt class="docutils literal"><span class="pre">unit</span></tt>  &#8211;  The unit (user must guarantee validity of the unit)</div>
+<div class="line"><code class="docutils literal"><span class="pre">name</span></code>  &#8211;  The keyword name</div>
+<div class="line"><code class="docutils literal"><span class="pre">value</span></code>  &#8211;  The associated value</div>
+<div class="line"><code class="docutils literal"><span class="pre">unit</span></code>  &#8211;  The unit (user must guarantee validity of the unit)</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.dump">
-<tt class="descname">dump</tt><big>(</big><em>f</em>, <em>indent=''</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>f</em>, <em>indent=''</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump this keyword to a file-like object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.get_name">
-<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the keyword</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.get_unit">
-<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_unit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_unit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the unit</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.get_value">
-<tt class="descname">get_value</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_value" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.get_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the value of the keyword</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.load">
-<tt class="descname">load</tt><big>(</big><em>line</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.load" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load this keyword from a file-like object</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="molmod.io.cp2k.CP2KKeyword.name">
-<tt class="descname">name</tt><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.name" title="Permalink to this definition">¶</a></dt>
+<code class="descname">name</code><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the keyword</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KKeyword.set_value">
-<tt class="descname">set_value</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.set_value" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.set_value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the value associated with the keyword</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="molmod.io.cp2k.CP2KKeyword.unit">
-<tt class="descname">unit</tt><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.unit" title="Permalink to this definition">¶</a></dt>
+<code class="descname">unit</code><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.unit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the name of the unit</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="molmod.io.cp2k.CP2KKeyword.value">
-<tt class="descname">value</tt><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.value" title="Permalink to this definition">¶</a></dt>
+<code class="descname">value</code><a class="headerlink" href="#molmod.io.cp2k.CP2KKeyword.value" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the value of the keyword</p>
 </dd></dl>
 
@@ -274,22 +273,22 @@ attribute and extra attributes.</p>
 
 <dl class="class">
 <dt id="molmod.io.cp2k.CP2KInputFile">
-<em class="property">class </em><tt class="descclassname">molmod.io.cp2k.</tt><tt class="descname">CP2KInputFile</tt><big>(</big><em>children=None</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cp2k.</code><code class="descname">CP2KInputFile</code><span class="sig-paren">(</span><em>children=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data structure representing an entire CP2K input file</p>
 <p>Initialize a new (empty) CP2KInputFile object</p>
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KInputFile.dump">
-<tt class="descname">dump</tt><big>(</big><em>f</em>, <em>indent=''</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>f</em>, <em>indent=''</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the CP2KInput data structure to a file-like object</p>
 </dd></dl>
 
 <dl class="staticmethod">
 <dt id="molmod.io.cp2k.CP2KInputFile.read_from_file">
-<em class="property">static </em><tt class="descname">read_from_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.read_from_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="descname">read_from_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.read_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  the filename of the input file</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  the filename of the input file</div>
 </div>
 </dd>
 </dl>
@@ -303,7 +302,7 @@ attribute and extra attributes.</p>
 
 <dl class="method">
 <dt id="molmod.io.cp2k.CP2KInputFile.write_to_file">
-<tt class="descname">write_to_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.write_to_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cp2k.CP2KInputFile.write_to_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the CP2KInput data structure to a file</p>
 </dd></dl>
 
@@ -311,10 +310,10 @@ attribute and extra attributes.</p>
 
 </div>
 <div class="section" id="module-molmod.io.cpmd">
-<span id="molmod-io-cpmd-cpmd-files"></span><h2><a class="reference internal" href="#module-molmod.io.cpmd" title="molmod.io.cpmd"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.cpmd</span></tt></a> &#8211; CPMD Files<a class="headerlink" href="#module-molmod.io.cpmd" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-cpmd-cpmd-files"></span><h2><a class="reference internal" href="#module-molmod.io.cpmd" title="molmod.io.cpmd"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.cpmd</span></code></a> &#8211; CPMD Files<a class="headerlink" href="#module-molmod.io.cpmd" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.cpmd.CPMDTrajectoryReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.cpmd.</tt><tt class="descname">CPMDTrajectoryReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><big>)</big><a class="headerlink" href="#molmod.io.cpmd.CPMDTrajectoryReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cpmd.</code><code class="descname">CPMDTrajectoryReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cpmd.CPMDTrajectoryReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader for CPMD trajectory files</p>
 <p>Use this reader as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ldr</span> <span class="o">=</span> <span class="n">CPMDTrajectoryReader</span><span class="p">(</span><span class="s">&quot;TRAJECTORY&quot;</span><span class="p">)</span>
@@ -325,12 +324,12 @@ attribute and extra attributes.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice object indicating which time frames to skip/read</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice object indicating which time frames to skip/read</div>
 </div>
 </dd>
 </dl>
@@ -338,20 +337,20 @@ attribute and extra attributes.</p>
 
 </div>
 <div class="section" id="module-molmod.io.gamess">
-<span id="molmod-io-gamess-gamess-punch-files"></span><h2><a class="reference internal" href="#module-molmod.io.gamess" title="molmod.io.gamess"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.gamess</span></tt></a> &#8211; Gamess punch files<a class="headerlink" href="#module-molmod.io.gamess" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-gamess-gamess-punch-files"></span><h2><a class="reference internal" href="#module-molmod.io.gamess" title="molmod.io.gamess"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.gamess</span></code></a> &#8211; Gamess punch files<a class="headerlink" href="#module-molmod.io.gamess" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.gamess.PunchFile">
-<em class="property">class </em><tt class="descclassname">molmod.io.gamess.</tt><tt class="descname">PunchFile</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.gamess.PunchFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.gamess.</code><code class="descname">PunchFile</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.gamess.PunchFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reader for GAMESS Punch files.</p>
 <p>After initialization, the data from the file is available as attributes
 of the created object. The following attributes are created if the
-corresponding data is present in the punch file: <tt class="docutils literal"><span class="pre">title</span></tt>, <tt class="docutils literal"><span class="pre">symmetry</span></tt>,
-<tt class="docutils literal"><span class="pre">symbols</span></tt>, <tt class="docutils literal"><span class="pre">numbers</span></tt>, <tt class="docutils literal"><span class="pre">coordinates</span></tt>, <tt class="docutils literal"><span class="pre">energy</span></tt>, <tt class="docutils literal"><span class="pre">gradient</span></tt> and
-<tt class="docutils literal"><span class="pre">hessian</span></tt>.</p>
+corresponding data is present in the punch file: <code class="docutils literal"><span class="pre">title</span></code>, <code class="docutils literal"><span class="pre">symmetry</span></code>,
+<code class="docutils literal"><span class="pre">symbols</span></code>, <code class="docutils literal"><span class="pre">numbers</span></code>, <code class="docutils literal"><span class="pre">coordinates</span></code>, <code class="docutils literal"><span class="pre">energy</span></code>, <code class="docutils literal"><span class="pre">gradient</span></code> and
+<code class="docutils literal"><span class="pre">hessian</span></code>.</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt> &#8211;  The file to load from.</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code> &#8211;  The file to load from.</div>
 </div>
 </dd>
 </dl>
@@ -359,10 +358,10 @@ corresponding data is present in the punch file: <tt class="docutils literal"><s
 
 </div>
 <div class="section" id="module-molmod.io.cube">
-<span id="molmod-io-cube-gaussian-cube-files"></span><h2><a class="reference internal" href="#module-molmod.io.cube" title="molmod.io.cube"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.cube</span></tt></a> &#8211; Gaussian Cube Files<a class="headerlink" href="#module-molmod.io.cube" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-cube-gaussian-cube-files"></span><h2><a class="reference internal" href="#module-molmod.io.cube" title="molmod.io.cube"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.cube</span></code></a> &#8211; Gaussian Cube Files<a class="headerlink" href="#module-molmod.io.cube" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="molmod.io.cube.get_cube_points">
-<tt class="descclassname">molmod.io.cube.</tt><tt class="descname">get_cube_points</tt><big>(</big><em>origin</em>, <em>axes</em>, <em>nrep</em><big>)</big><a class="headerlink" href="#molmod.io.cube.get_cube_points" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.io.cube.</code><code class="descname">get_cube_points</code><span class="sig-paren">(</span><em>origin</em>, <em>axes</em>, <em>nrep</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.get_cube_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate the Cartesian coordinates of the points in a cube file</p>
 <p><em>Arguemnts:</em></p>
 <dl class="docutils">
@@ -377,7 +376,7 @@ corresponding data is present in the punch file: <tt class="docutils literal"><s
 
 <dl class="class">
 <dt id="molmod.io.cube.CubeReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.cube.</tt><tt class="descname">CubeReader</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.cube.CubeReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cube.</code><code class="descname">CubeReader</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.CubeReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator that reads cube files. See the cubegen manual for more
 information about cube files:
 <a class="reference external" href="http://www.gaussian.com/g_tech/g_ur/u_cubegen.htm">http://www.gaussian.com/g_tech/g_ur/u_cubegen.htm</a></p>
@@ -391,13 +390,13 @@ information about cube files:
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  the filename with the formatted cube data</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  the filename with the formatted cube data</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.cube.CubeReader.next">
-<tt class="descname">next</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cube.CubeReader.next" title="Permalink to this definition">¶</a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.CubeReader.next" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the next datapoint from the cube file</p>
 <p>This method is part of the iterator protocol.</p>
 </dd></dl>
@@ -406,7 +405,7 @@ information about cube files:
 
 <dl class="class">
 <dt id="molmod.io.cube.Cube">
-<em class="property">class </em><tt class="descclassname">molmod.io.cube.</tt><tt class="descname">Cube</tt><big>(</big><em>molecule</em>, <em>origin</em>, <em>axes</em>, <em>nrep</em>, <em>data</em>, <em>subtitle=''</em>, <em>nuclear_charges=None</em><big>)</big><a class="headerlink" href="#molmod.io.cube.Cube" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.cube.</code><code class="descname">Cube</code><span class="sig-paren">(</span><em>molecule</em>, <em>origin</em>, <em>axes</em>, <em>nrep</em>, <em>data</em>, <em>subtitle=''</em>, <em>nuclear_charges=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.Cube" title="Permalink to this definition">¶</a></dt>
 <dd><p>A data structure for cube file data.</p>
 <p><em>Arguments:</em></p>
 <dl class="docutils">
@@ -426,13 +425,13 @@ in case of effective core potentials.</dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.cube.Cube.copy">
-<tt class="descname">copy</tt><big>(</big><em>newdata=None</em><big>)</big><a class="headerlink" href="#molmod.io.cube.Cube.copy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">copy</code><span class="sig-paren">(</span><em>newdata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.Cube.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a copy of the cube with optionally new data.</p>
 </dd></dl>
 
 <dl class="classmethod">
 <dt id="molmod.io.cube.Cube.from_file">
-<em class="property">classmethod </em><tt class="descname">from_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.cube.Cube.from_file" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">from_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.Cube.from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a cube object by loading data from a file.</p>
 <p><em>Arguemnts:</em></p>
 <dl class="docutils">
@@ -444,14 +443,14 @@ description of the grid and the molecule.</dd>
 
 <dl class="method">
 <dt id="molmod.io.cube.Cube.get_points">
-<tt class="descname">get_points</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.cube.Cube.get_points" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_points</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.Cube.get_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a Nz*Nb*Nc*3 array with all Cartesian coordinates of the
 points in the cube.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.cube.Cube.write_to_file">
-<tt class="descname">write_to_file</tt><big>(</big><em>fn</em><big>)</big><a class="headerlink" href="#molmod.io.cube.Cube.write_to_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.cube.Cube.write_to_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the cube to a file in the Gaussian cube format.</p>
 </dd></dl>
 
@@ -459,10 +458,10 @@ points in the cube.</p>
 
 </div>
 <div class="section" id="module-molmod.io.dlpoly">
-<span id="molmod-io-dlpoly-dlpoly-files"></span><h2><a class="reference internal" href="#module-molmod.io.dlpoly" title="molmod.io.dlpoly"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.dlpoly</span></tt></a> &#8211; DLPoly Files<a class="headerlink" href="#module-molmod.io.dlpoly" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-dlpoly-dlpoly-files"></span><h2><a class="reference internal" href="#module-molmod.io.dlpoly" title="molmod.io.dlpoly"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.dlpoly</span></code></a> &#8211; DLPoly Files<a class="headerlink" href="#module-molmod.io.dlpoly" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.dlpoly.DLPolyHistoryReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.dlpoly.</tt><tt class="descname">DLPolyHistoryReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>pos_unit=1.889726133921252</em>, <em>vel_unit=4.5710289267195566e-05</em>, <em>frc_unit=2.015529715950126e-06</em>, <em>time_unit=41341.37333664682</em>, <em>mass_unit=1822.8886273532887</em>, <em>restart=False</em><big>)</big><a class="headerlink" href="#molmod.io.dlpoly.DLPolyHistoryReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.dlpoly.</code><code class="descname">DLPolyHistoryReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>pos_unit=1.889726133921252</em>, <em>vel_unit=4.5710289267195566e-05</em>, <em>frc_unit=2.015529715950126e-06</em>, <em>time_unit=41341.37333664682</em>, <em>mass_unit=1822.8886273532887</em>, <em>restart=False</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.dlpoly.DLPolyHistoryReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader for the DLPoly history file format.</p>
 <p>Use this object as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">hr</span> <span class="o">=</span> <span class="n">HistoryReader</span><span class="p">(</span><span class="s">&quot;somefile.txt&quot;</span><span class="p">)</span>
@@ -473,14 +472,14 @@ points in the cube.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice indicating the frames to be skipped/selected</div>
-<div class="line"><tt class="docutils literal"><span class="pre">pos_unit</span></tt>, <tt class="docutils literal"><span class="pre">vel_unit</span></tt>, <tt class="docutils literal"><span class="pre">frc_unit</span></tt>, <tt class="docutils literal"><span class="pre">time_unit</span></tt>,
-<tt class="docutils literal"><span class="pre">mass_unit</span></tt>  &#8211;  The conversion factors for the unit conversion
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice indicating the frames to be skipped/selected</div>
+<div class="line"><code class="docutils literal"><span class="pre">pos_unit</span></code>, <code class="docutils literal"><span class="pre">vel_unit</span></code>, <code class="docutils literal"><span class="pre">frc_unit</span></code>, <code class="docutils literal"><span class="pre">time_unit</span></code>,
+<code class="docutils literal"><span class="pre">mass_unit</span></code>  &#8211;  The conversion factors for the unit conversion
  from the units in the data file to atomic units. The defaults of
  these optional arguments correspond to the defaults of dlpoly.</div>
 </div>
@@ -498,7 +497,7 @@ conditions, it is assumed that this is a history restart file:</p>
 
 <dl class="class">
 <dt id="molmod.io.dlpoly.DLPolyOutputReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.dlpoly.</tt><tt class="descname">DLPolyOutputReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>skip_equi_period=True</em>, <em>pos_unit=1.889726133921252</em>, <em>time_unit=41341.37333664682</em>, <em>angle_unit=0.017453292519943295</em>, <em>e_unit=872433224359.0566</em><big>)</big><a class="headerlink" href="#molmod.io.dlpoly.DLPolyOutputReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.dlpoly.</code><code class="descname">DLPolyOutputReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>skip_equi_period=True</em>, <em>pos_unit=1.889726133921252</em>, <em>time_unit=41341.37333664682</em>, <em>angle_unit=0.017453292519943295</em>, <em>e_unit=872433224359.0566</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.dlpoly.DLPolyOutputReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader for DLPoly output files.</p>
 <p>Use this object as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">outr</span> <span class="o">=</span> <span class="n">OutputReader</span><span class="p">(</span><span class="s">&quot;somefile.txt&quot;</span><span class="p">)</span>
@@ -511,15 +510,15 @@ values that belong to one time frame. (line after line)</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice indicating the frames to be skipped/selected</div>
-<div class="line"><tt class="docutils literal"><span class="pre">skip_equi_period</span></tt>  &#8211; When True, the equilibration period is
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice indicating the frames to be skipped/selected</div>
+<div class="line"><code class="docutils literal"><span class="pre">skip_equi_period</span></code>  &#8211; When True, the equilibration period is
 not read [default=True]</div>
-<div class="line"><tt class="docutils literal"><span class="pre">pos_unit</span></tt>, <tt class="docutils literal"><span class="pre">time_unit</span></tt>, <tt class="docutils literal"><span class="pre">angle_unit</span></tt>, <tt class="docutils literal"><span class="pre">e_unit</span></tt> &#8211;  The
+<div class="line"><code class="docutils literal"><span class="pre">pos_unit</span></code>, <code class="docutils literal"><span class="pre">time_unit</span></code>, <code class="docutils literal"><span class="pre">angle_unit</span></code>, <code class="docutils literal"><span class="pre">e_unit</span></code> &#8211;  The
 conversion factors for the unit conversion from the units in the
 data file to atomic units. The defaults of these optional
 arguments correspond to the defaults of dlpoly.</div>
@@ -528,7 +527,7 @@ arguments correspond to the defaults of dlpoly.</div>
 </dl>
 <dl class="method">
 <dt id="molmod.io.dlpoly.DLPolyOutputReader.goto_next_frame">
-<tt class="descname">goto_next_frame</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.dlpoly.DLPolyOutputReader.goto_next_frame" title="Permalink to this definition">¶</a></dt>
+<code class="descname">goto_next_frame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.dlpoly.DLPolyOutputReader.goto_next_frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>Continue reading until the next frame is reached</p>
 </dd></dl>
 
@@ -536,10 +535,10 @@ arguments correspond to the defaults of dlpoly.</div>
 
 </div>
 <div class="section" id="module-molmod.io.fchk">
-<span id="molmod-io-fchk-gaussian-formatted-checkpoint-files"></span><h2><a class="reference internal" href="#module-molmod.io.fchk" title="molmod.io.fchk"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.fchk</span></tt></a> &#8211; Gaussian Formatted Checkpoint Files<a class="headerlink" href="#module-molmod.io.fchk" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-fchk-gaussian-formatted-checkpoint-files"></span><h2><a class="reference internal" href="#module-molmod.io.fchk" title="molmod.io.fchk"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.fchk</span></code></a> &#8211; Gaussian Formatted Checkpoint Files<a class="headerlink" href="#module-molmod.io.fchk" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.fchk.FCHKFile">
-<em class="property">class </em><tt class="descclassname">molmod.io.fchk.</tt><tt class="descname">FCHKFile</tt><big>(</big><em>filename</em>, <em>ignore_errors=False</em>, <em>field_labels=None</em><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.fchk.</code><code class="descname">FCHKFile</code><span class="sig-paren">(</span><em>filename</em>, <em>ignore_errors=False</em>, <em>field_labels=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reader for Formatted checkpoint files</p>
 <p>After initialization, the data from the file is available in the fields
 dictionary. Also the following attributes are read from the file: title,
@@ -547,14 +546,14 @@ command, lot (level of theory) and basis.</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  The formatted checkpoint file</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  The formatted checkpoint file</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">ignore_errors</span></tt>  &#8211;  Try to read incorrectly formatted files
+<div class="line"><code class="docutils literal"><span class="pre">ignore_errors</span></code>  &#8211;  Try to read incorrectly formatted files
 without raising exceptions [default=False]</div>
-<div class="line"><tt class="docutils literal"><span class="pre">field_labels</span></tt>  &#8211;  When given, only these fields are read from
+<div class="line"><code class="docutils literal"><span class="pre">field_labels</span></code>  &#8211;  When given, only these fields are read from
 the formatted checkpoint file. (This can
 save a lot of time.)</div>
 </div>
@@ -562,49 +561,49 @@ save a lot of time.)</div>
 </dl>
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_hessian">
-<tt class="descname">get_hessian</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_hessian" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_hessian</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_hessian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the hessian</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimization_coordinates">
-<tt class="descname">get_optimization_coordinates</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_coordinates" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimization_coordinates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_coordinates" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the coordinates of the geometries at each point in the optimization</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimization_energies">
-<tt class="descname">get_optimization_energies</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_energies" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimization_energies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_energies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an array with the energy at each point in the optimization</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimization_gradients">
-<tt class="descname">get_optimization_gradients</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_gradients" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimization_gradients</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_gradients" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the energy gradients of all geometries during an optimization</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimization_lowest_index">
-<tt class="descname">get_optimization_lowest_index</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_lowest_index" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimization_lowest_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimization_lowest_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the index of the lowest energy during the optimization process</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimized_energy">
-<tt class="descname">get_optimized_energy</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_energy" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimized_energy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the final energy after optimization</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimized_gradient">
-<tt class="descname">get_optimized_gradient</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_gradient" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimized_gradient</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_gradient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the energy gradient of the optimized geometry</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.fchk.FCHKFile.get_optimized_molecule">
-<tt class="descname">get_optimized_molecule</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_molecule" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_optimized_molecule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.fchk.FCHKFile.get_optimized_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a molecule object of the optimal geometry</p>
 </dd></dl>
 
@@ -612,10 +611,10 @@ save a lot of time.)</div>
 
 </div>
 <div class="section" id="module-molmod.io.number_state">
-<span id="molmod-io-number-state-custom-formatted-checkpoint-files"></span><h2><a class="reference internal" href="#module-molmod.io.number_state" title="molmod.io.number_state"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.number_state</span></tt></a> &#8211; Custom Formatted Checkpoint Files<a class="headerlink" href="#module-molmod.io.number_state" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-number-state-custom-formatted-checkpoint-files"></span><h2><a class="reference internal" href="#module-molmod.io.number_state" title="molmod.io.number_state"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.number_state</span></code></a> &#8211; Custom Formatted Checkpoint Files<a class="headerlink" href="#module-molmod.io.number_state" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.number_state.NumberState">
-<em class="property">class </em><tt class="descclassname">molmod.io.number_state.</tt><tt class="descname">NumberState</tt><big>(</big><em>owner</em>, <em>names</em><big>)</big><a class="headerlink" href="#molmod.io.number_state.NumberState" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.number_state.</code><code class="descname">NumberState</code><span class="sig-paren">(</span><em>owner</em>, <em>names</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.number_state.NumberState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component class for data structures with human-readable persistence.</p>
 <p>The format used to save and load the object is similar to a formatted
 checkpoint file from the Gaussian package. Some additional info is
@@ -641,19 +640,19 @@ read/write these attributes to a file as follows:</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">owner</span></tt>  &#8211;  the object whose attributes are dumped and loaded</div>
-<div class="line"><tt class="docutils literal"><span class="pre">names</span></tt>  &#8211;  a list of attribute names to dump and load</div>
+<div class="line"><code class="docutils literal"><span class="pre">owner</span></code>  &#8211;  the object whose attributes are dumped and loaded</div>
+<div class="line"><code class="docutils literal"><span class="pre">names</span></code>  &#8211;  a list of attribute names to dump and load</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.number_state.NumberState.dump">
-<tt class="descname">dump</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.number_state.NumberState.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.number_state.NumberState.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the registered fields to a file</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  the file to write to</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  the file to write to</div>
 </div>
 </dd>
 </dl>
@@ -661,12 +660,12 @@ read/write these attributes to a file as follows:</p>
 
 <dl class="method">
 <dt id="molmod.io.number_state.NumberState.get">
-<tt class="descname">get</tt><big>(</big><em>subset=None</em><big>)</big><a class="headerlink" href="#molmod.io.number_state.NumberState.get" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get</code><span class="sig-paren">(</span><em>subset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.number_state.NumberState.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary object with the registered fields and their values</p>
 <dl class="docutils">
 <dt>Optional rgument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">subset</span></tt>  &#8211;  a list of names to restrict the number of fields
+<div class="line"><code class="docutils literal"><span class="pre">subset</span></code>  &#8211;  a list of names to restrict the number of fields
 in the result</div>
 </div>
 </dd>
@@ -675,17 +674,17 @@ in the result</div>
 
 <dl class="method">
 <dt id="molmod.io.number_state.NumberState.load">
-<tt class="descname">load</tt><big>(</big><em>filename</em>, <em>subset=None</em><big>)</big><a class="headerlink" href="#molmod.io.number_state.NumberState.load" title="Permalink to this definition">¶</a></dt>
+<code class="descname">load</code><span class="sig-paren">(</span><em>filename</em>, <em>subset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.number_state.NumberState.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load data into the registered fields</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  the filename to read from</div>
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  the filename to read from</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">subset</span></tt>  &#8211;  a list of field names that are read from the file.
+<div class="line"><code class="docutils literal"><span class="pre">subset</span></code>  &#8211;  a list of field names that are read from the file.
 If not given, all data is read from the file.</div>
 </div>
 </dd>
@@ -694,18 +693,18 @@ If not given, all data is read from the file.</div>
 
 <dl class="method">
 <dt id="molmod.io.number_state.NumberState.set">
-<tt class="descname">set</tt><big>(</big><em>new_fields</em>, <em>subset=None</em><big>)</big><a class="headerlink" href="#molmod.io.number_state.NumberState.set" title="Permalink to this definition">¶</a></dt>
+<code class="descname">set</code><span class="sig-paren">(</span><em>new_fields</em>, <em>subset=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.number_state.NumberState.set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assign the registered fields based on a dictionary</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">new_fields</span></tt>  &#8211;  the dictionary with the data to be assigned to
+<div class="line"><code class="docutils literal"><span class="pre">new_fields</span></code>  &#8211;  the dictionary with the data to be assigned to
 the attributes</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">subset</span></tt>  &#8211;  a list of names to restrict the fields that are
+<div class="line"><code class="docutils literal"><span class="pre">subset</span></code>  &#8211;  a list of names to restrict the fields that are
 effectively overwritten</div>
 </div>
 </dd>
@@ -716,10 +715,10 @@ effectively overwritten</div>
 
 </div>
 <div class="section" id="module-molmod.io.gromacs">
-<span id="molmod-io-gromacs-gromacs-files"></span><h2><a class="reference internal" href="#module-molmod.io.gromacs" title="molmod.io.gromacs"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.gromacs</span></tt></a> &#8211; Gromacs Files<a class="headerlink" href="#module-molmod.io.gromacs" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-gromacs-gromacs-files"></span><h2><a class="reference internal" href="#module-molmod.io.gromacs" title="molmod.io.gromacs"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.gromacs</span></code></a> &#8211; Gromacs Files<a class="headerlink" href="#module-molmod.io.gromacs" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.gromacs.GroReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.gromacs.</tt><tt class="descname">GroReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><big>)</big><a class="headerlink" href="#molmod.io.gromacs.GroReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.gromacs.</code><code class="descname">GroReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.gromacs.GroReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reader from .gro trajectory files from gromacs</p>
 <p>Use this reader as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">gr</span> <span class="o">=</span> <span class="n">GroReader</span><span class="p">(</span><span class="s">&quot;somefile.gro&quot;</span><span class="p">)</span>
@@ -730,12 +729,12 @@ effectively overwritten</div>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice object to indicate the frames to be read/skipped.</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice object to indicate the frames to be read/skipped.</div>
 </div>
 </dd>
 </dl>
@@ -743,10 +742,10 @@ effectively overwritten</div>
 
 </div>
 <div class="section" id="module-molmod.io.lammps">
-<span id="molmod-io-lammps-lammps-files"></span><h2><a class="reference internal" href="#module-molmod.io.lammps" title="molmod.io.lammps"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.lammps</span></tt></a> &#8211; LAMMPS Files<a class="headerlink" href="#module-molmod.io.lammps" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-lammps-lammps-files"></span><h2><a class="reference internal" href="#module-molmod.io.lammps" title="molmod.io.lammps"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.lammps</span></code></a> &#8211; LAMMPS Files<a class="headerlink" href="#module-molmod.io.lammps" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.lammps.LAMMPSDumpReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.lammps.</tt><tt class="descname">LAMMPSDumpReader</tt><big>(</big><em>f</em>, <em>units</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><big>)</big><a class="headerlink" href="#molmod.io.lammps.LAMMPSDumpReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.lammps.</code><code class="descname">LAMMPSDumpReader</code><span class="sig-paren">(</span><em>f</em>, <em>units</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.lammps.LAMMPSDumpReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A Reader for LAMMPS dump files</p>
 <p>Use this reader as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ldr</span> <span class="o">=</span> <span class="n">LAMMPSDumpReader</span><span class="p">(</span><span class="s">&quot;some_file.dump&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">some</span><span class="p">,</span> <span class="n">units</span><span class="p">])</span>
@@ -757,15 +756,15 @@ effectively overwritten</div>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
-<div class="line"><tt class="docutils literal"><span class="pre">units</span></tt>  &#8211;  The units of the atom fields. The number of fields,
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">units</span></code>  &#8211;  The units of the atom fields. The number of fields,
 their unit and their meaning depends on the input
 file of the LAMMPS simulation.</div>
 </div>
 </dd>
 <dt>Optional argumtent:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice object indicating which time frames to skip/read</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice object indicating which time frames to skip/read</div>
 </div>
 </dd>
 </dl>
@@ -773,10 +772,10 @@ file of the LAMMPS simulation.</div>
 
 </div>
 <div class="section" id="module-molmod.io.pdb">
-<span id="molmod-io-pdb-pdb-files"></span><h2><a class="reference internal" href="#module-molmod.io.pdb" title="molmod.io.pdb"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.pdb</span></tt></a> &#8211; PDB Files<a class="headerlink" href="#module-molmod.io.pdb" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-pdb-pdb-files"></span><h2><a class="reference internal" href="#module-molmod.io.pdb" title="molmod.io.pdb"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.pdb</span></code></a> &#8211; PDB Files<a class="headerlink" href="#module-molmod.io.pdb" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="molmod.io.pdb.load_pdb">
-<tt class="descclassname">molmod.io.pdb.</tt><tt class="descname">load_pdb</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.pdb.load_pdb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.io.pdb.</code><code class="descname">load_pdb</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.pdb.load_pdb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a single molecule from a pdb file.</p>
 <p>This function does support only a small fragment from the pdb specification.
 It assumes that there is only one molecular geometry in the pdb file.</p>
@@ -784,7 +783,7 @@ It assumes that there is only one molecular geometry in the pdb file.</p>
 
 <dl class="function">
 <dt id="molmod.io.pdb.dump_pdb">
-<tt class="descclassname">molmod.io.pdb.</tt><tt class="descname">dump_pdb</tt><big>(</big><em>filename</em>, <em>molecule</em>, <em>atomnames=None</em>, <em>resnames=None</em>, <em>chain_ids=None</em>, <em>occupancies=None</em>, <em>betas=None</em><big>)</big><a class="headerlink" href="#molmod.io.pdb.dump_pdb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">molmod.io.pdb.</code><code class="descname">dump_pdb</code><span class="sig-paren">(</span><em>filename</em>, <em>molecule</em>, <em>atomnames=None</em>, <em>resnames=None</em>, <em>chain_ids=None</em>, <em>occupancies=None</em>, <em>betas=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.pdb.dump_pdb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes a single molecule to a pdb file.</p>
 <p>This function is based on the pdb file specification:
 <a class="reference external" href="http://www.wwpdb.org/documentation/format32/sect9.html">http://www.wwpdb.org/documentation/format32/sect9.html</a>
@@ -886,7 +885,7 @@ transformed to C-style (starting from zero)</p>
 
 </div>
 <div class="section" id="module-molmod.io.psf">
-<span id="molmod-io-psf-psf-files"></span><h2><a class="reference internal" href="#module-molmod.io.psf" title="molmod.io.psf"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.psf</span></tt></a> &#8211; PSF Files<a class="headerlink" href="#module-molmod.io.psf" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-psf-psf-files"></span><h2><a class="reference internal" href="#module-molmod.io.psf" title="molmod.io.psf"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.psf</span></code></a> &#8211; PSF Files<a class="headerlink" href="#module-molmod.io.psf" title="Permalink to this headline">¶</a></h2>
 <p>This format is orignally developed in conjunction with the CHARMM program,
 but is also used by CP2K as a generic format to define the molecular bond
 graph and other topological aspects of a molecular model. This module just
@@ -898,31 +897,31 @@ define a new public standard for molecular topologies, which is also suitable
 for non-protein systems.</p>
 <dl class="class">
 <dt id="molmod.io.psf.PSFFile">
-<em class="property">class </em><tt class="descclassname">molmod.io.psf.</tt><tt class="descname">PSFFile</tt><big>(</big><em>filename=None</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.psf.</code><code class="descname">PSFFile</code><span class="sig-paren">(</span><em>filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>A very simplistic and limited implementation of the PSF file format</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">filename</span></tt>  &#8211;  When not given, an empty data structure is
+<div class="line"><code class="docutils literal"><span class="pre">filename</span></code>  &#8211;  When not given, an empty data structure is
 created, otherwise the file is loaded from disk</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.add_molecular_graph">
-<tt class="descname">add_molecular_graph</tt><big>(</big><em>molecular_graph</em>, <em>atom_types=None</em>, <em>charges=None</em>, <em>split=True</em>, <em>molecule=None</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.add_molecular_graph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_molecular_graph</code><span class="sig-paren">(</span><em>molecular_graph</em>, <em>atom_types=None</em>, <em>charges=None</em>, <em>split=True</em>, <em>molecule=None</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.add_molecular_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add the molecular graph to the data structure</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">molecular_graph</span></tt>  &#8211;  a MolecularGraph instance</div>
+<div class="line"><code class="docutils literal"><span class="pre">molecular_graph</span></code>  &#8211;  a MolecularGraph instance</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">atom_types</span></tt>  &#8211;  a list with atom type strings</div>
-<div class="line"><tt class="docutils literal"><span class="pre">charges</span></tt>  &#8211;  The net atom charges</div>
-<div class="line"><tt class="docutils literal"><span class="pre">split</span></tt>  &#8211;  When True, the molecule is split into disconnected
+<div class="line"><code class="docutils literal"><span class="pre">atom_types</span></code>  &#8211;  a list with atom type strings</div>
+<div class="line"><code class="docutils literal"><span class="pre">charges</span></code>  &#8211;  The net atom charges</div>
+<div class="line"><code class="docutils literal"><span class="pre">split</span></code>  &#8211;  When True, the molecule is split into disconnected
 molecules [default=True]</div>
 </div>
 </dd>
@@ -931,21 +930,21 @@ molecules [default=True]</div>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.add_molecule">
-<tt class="descname">add_molecule</tt><big>(</big><em>molecule</em>, <em>atom_types=None</em>, <em>charges=None</em>, <em>split=True</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.add_molecule" title="Permalink to this definition">¶</a></dt>
+<code class="descname">add_molecule</code><span class="sig-paren">(</span><em>molecule</em>, <em>atom_types=None</em>, <em>charges=None</em>, <em>split=True</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.add_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add the graph of the molecule to the data structure</p>
 <p>The molecular graph is estimated from the molecular geometry based on
 interatomic distances.</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">molecule</span></tt>  &#8211;  a Molecule instance</div>
+<div class="line"><code class="docutils literal"><span class="pre">molecule</span></code>  &#8211;  a Molecule instance</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">atom_types</span></tt>  &#8211;  a list with atom type strings</div>
-<div class="line"><tt class="docutils literal"><span class="pre">charges</span></tt>  &#8211;  The net atom charges</div>
-<div class="line"><tt class="docutils literal"><span class="pre">split</span></tt>  &#8211;  When True, the molecule is split into disconnected
+<div class="line"><code class="docutils literal"><span class="pre">atom_types</span></code>  &#8211;  a list with atom type strings</div>
+<div class="line"><code class="docutils literal"><span class="pre">charges</span></code>  &#8211;  The net atom charges</div>
+<div class="line"><code class="docutils literal"><span class="pre">split</span></code>  &#8211;  When True, the molecule is split into disconnected
 molecules [default=True]</div>
 </div>
 </dd>
@@ -954,44 +953,44 @@ molecules [default=True]</div>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.clear">
-<tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.clear" title="Permalink to this definition">¶</a></dt>
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clear the contents of the data structure</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.dump">
-<tt class="descname">dump</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump the data structure to a file-like object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.get_graph">
-<tt class="descname">get_graph</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.get_graph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.get_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the bond graph represented by the data structure</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.get_groups">
-<tt class="descname">get_groups</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.get_groups" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_groups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.get_groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of groups of atom indexes</p>
 <p>Each atom in a group belongs to the same molecule or residue.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.get_molecular_graph">
-<tt class="descname">get_molecular_graph</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.get_molecular_graph" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_molecular_graph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.get_molecular_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the molecular graph represented by the data structure</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.read_from_file">
-<tt class="descname">read_from_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.read_from_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_from_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.read_from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a PSF file</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="molmod.io.psf.PSFFile.write_to_file">
-<tt class="descname">write_to_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#molmod.io.psf.PSFFile.write_to_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.psf.PSFFile.write_to_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the data structure to a file</p>
 </dd></dl>
 
@@ -999,12 +998,12 @@ molecules [default=True]</div>
 
 </div>
 <div class="section" id="module-molmod.io.sdf">
-<span id="molmod-io-sdf-sdf-files"></span><h2><a class="reference internal" href="#module-molmod.io.sdf" title="molmod.io.sdf"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.sdf</span></tt></a> &#8211; SDF Files<a class="headerlink" href="#module-molmod.io.sdf" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-sdf-sdf-files"></span><h2><a class="reference internal" href="#module-molmod.io.sdf" title="molmod.io.sdf"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.sdf</span></code></a> &#8211; SDF Files<a class="headerlink" href="#module-molmod.io.sdf" title="Permalink to this headline">¶</a></h2>
 <p>For more information about the file format, see
 <a class="reference external" href="http://www.epa.gov/ncct/dsstox/MoreonSDF.html">http://www.epa.gov/ncct/dsstox/MoreonSDF.html</a></p>
 <dl class="class">
 <dt id="molmod.io.sdf.SDFReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.sdf.</tt><tt class="descname">SDFReader</tt><big>(</big><em>f</em><big>)</big><a class="headerlink" href="#molmod.io.sdf.SDFReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.sdf.</code><code class="descname">SDFReader</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.sdf.SDFReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A basic reader for SDF files.</p>
 <p>Use this reader as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sr</span> <span class="o">=</span> <span class="n">SDFReader</span><span class="p">(</span><span class="s">&quot;somefile.sdf&quot;</span><span class="p">)</span>
@@ -1015,13 +1014,13 @@ molecules [default=True]</div>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.sdf.SDFReader.next">
-<tt class="descname">next</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.sdf.SDFReader.next" title="Permalink to this definition">¶</a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.sdf.SDFReader.next" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the next molecule from the SDF file</p>
 <p>This method is part of the iterator protocol.</p>
 </dd></dl>
@@ -1030,10 +1029,10 @@ molecules [default=True]</div>
 
 </div>
 <div class="section" id="module-molmod.io.xyz">
-<span id="molmod-io-xyz-xyz-files"></span><h2><a class="reference internal" href="#module-molmod.io.xyz" title="molmod.io.xyz"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.xyz</span></tt></a> &#8211; XYZ Files<a class="headerlink" href="#module-molmod.io.xyz" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-xyz-xyz-files"></span><h2><a class="reference internal" href="#module-molmod.io.xyz" title="molmod.io.xyz"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.xyz</span></code></a> &#8211; XYZ Files<a class="headerlink" href="#module-molmod.io.xyz" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="molmod.io.xyz.XYZReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.xyz.</tt><tt class="descname">XYZReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>file_unit=1.889726133921252</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.xyz.</code><code class="descname">XYZReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>file_unit=1.889726133921252</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>A reader for XYZ trajectory files</p>
 <p>Use this reader as an iterator:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">xr</span> <span class="o">=</span> <span class="n">XYZReader</span><span class="p">(</span><span class="s">&quot;somefile.xyz&quot;</span><span class="p">)</span>
@@ -1045,26 +1044,26 @@ molecules [default=True]</div>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice indicating which frames to read/skip</div>
-<div class="line"><tt class="docutils literal"><span class="pre">file_unit</span></tt>  &#8211;  the conversion constant to convert data into atomic
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice indicating which frames to read/skip</div>
+<div class="line"><code class="docutils literal"><span class="pre">file_unit</span></code>  &#8211;  the conversion constant to convert data into atomic
 units [default=angstrom]</div>
 </div>
 </dd>
 <dt>After initialization, the following attributes are defined:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">symbols</span></tt>  &#8211;  The atom symbols</div>
-<div class="line"><tt class="docutils literal"><span class="pre">numbers</span></tt>  &#8211;  The atom numbers</div>
+<div class="line"><code class="docutils literal"><span class="pre">symbols</span></code>  &#8211;  The atom symbols</div>
+<div class="line"><code class="docutils literal"><span class="pre">numbers</span></code>  &#8211;  The atom numbers</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.xyz.XYZReader.get_first_molecule">
-<tt class="descname">get_first_molecule</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZReader.get_first_molecule" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_first_molecule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZReader.get_first_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the first molecule from the trajectory</p>
 <p>This can be useful to configure your program before handeling the
 actual trajectory.</p>
@@ -1072,7 +1071,7 @@ actual trajectory.</p>
 
 <dl class="method">
 <dt id="molmod.io.xyz.XYZReader.read_size">
-<tt class="descname">read_size</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZReader.read_size" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZReader.read_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read the number of atoms</p>
 </dd></dl>
 
@@ -1080,7 +1079,7 @@ actual trajectory.</p>
 
 <dl class="class">
 <dt id="molmod.io.xyz.XYZWriter">
-<em class="property">class </em><tt class="descclassname">molmod.io.xyz.</tt><tt class="descname">XYZWriter</tt><big>(</big><em>f</em>, <em>symbols</em>, <em>file_unit=1.889726133921252</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZWriter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.xyz.</code><code class="descname">XYZWriter</code><span class="sig-paren">(</span><em>f</em>, <em>symbols</em>, <em>file_unit=1.889726133921252</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZWriter" title="Permalink to this definition">¶</a></dt>
 <dd><p>A XYZ trajectory file writer</p>
 <p>This writer is designed to be used in conjunction with an iterator that
 generates coordinates in one way or the other. Example:</p>
@@ -1093,26 +1092,26 @@ generates coordinates in one way or the other. Example:</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211; a filename or a file-like object to write to</div>
-<div class="line"><tt class="docutils literal"><span class="pre">symbols</span></tt>  &#8211;  the atom symbols</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211; a filename or a file-like object to write to</div>
+<div class="line"><code class="docutils literal"><span class="pre">symbols</span></code>  &#8211;  the atom symbols</div>
 </div>
 </dd>
 <dt>Optional argument</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">file_unit</span></tt>  &#8211;  the unit of the values written to file
+<div class="line"><code class="docutils literal"><span class="pre">file_unit</span></code>  &#8211;  the unit of the values written to file
 [default=angstrom]</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.xyz.XYZWriter.dump">
-<tt class="descname">dump</tt><big>(</big><em>title</em>, <em>coordinates</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZWriter.dump" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dump</code><span class="sig-paren">(</span><em>title</em>, <em>coordinates</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZWriter.dump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dump a frame to the trajectory file</p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">title</span></tt>  &#8211;  the title of the frame</div>
-<div class="line"><tt class="docutils literal"><span class="pre">coordinates</span></tt>  &#8211;  a numpy array with coordinates in atomic units</div>
+<div class="line"><code class="docutils literal"><span class="pre">title</span></code>  &#8211;  the title of the frame</div>
+<div class="line"><code class="docutils literal"><span class="pre">coordinates</span></code>  &#8211;  a numpy array with coordinates in atomic units</div>
 </div>
 </dd>
 </dl>
@@ -1122,7 +1121,7 @@ generates coordinates in one way or the other. Example:</p>
 
 <dl class="class">
 <dt id="molmod.io.xyz.XYZFile">
-<em class="property">class </em><tt class="descclassname">molmod.io.xyz.</tt><tt class="descname">XYZFile</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>file_unit=1.889726133921252</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZFile" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.xyz.</code><code class="descname">XYZFile</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em>, <em>file_unit=1.889726133921252</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZFile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data structure representing an XYZ File</p>
 <p>This implementation is extra layer on top the XYZReader and XYZWriter,
 and is somewhat easier to use. Example:</p>
@@ -1137,33 +1136,33 @@ and is somewhat easier to use. Example:</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object to read from</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object to read from</div>
 </div>
 </dd>
 <dt>Optional arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice indicating which frames to read/skip</div>
-<div class="line"><tt class="docutils literal"><span class="pre">file_unit</span></tt>  &#8211;  the conversion constant to convert data into atomic
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice indicating which frames to read/skip</div>
+<div class="line"><code class="docutils literal"><span class="pre">file_unit</span></code>  &#8211;  the conversion constant to convert data into atomic
 units [default=angstrom]</div>
 </div>
 </dd>
 <dt>XYZFile instances always have to following attriubtes:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">numbers</span></tt>  &#8211;  The atom numbers (of one frame)</div>
-<div class="line"><tt class="docutils literal"><span class="pre">symbols</span></tt>  &#8211;  The atom symbols (of one frame)</div>
-<div class="line"><tt class="docutils literal"><span class="pre">titles</span></tt>   &#8211;  The titles of all the frames</div>
-<div class="line"><tt class="docutils literal"><span class="pre">geometries</span></tt>  &#8211;  A MxNx3 array with all the atom coordinates</div>
+<div class="line"><code class="docutils literal"><span class="pre">numbers</span></code>  &#8211;  The atom numbers (of one frame)</div>
+<div class="line"><code class="docutils literal"><span class="pre">symbols</span></code>  &#8211;  The atom symbols (of one frame)</div>
+<div class="line"><code class="docutils literal"><span class="pre">titles</span></code>   &#8211;  The titles of all the frames</div>
+<div class="line"><code class="docutils literal"><span class="pre">geometries</span></code>  &#8211;  A MxNx3 array with all the atom coordinates</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.xyz.XYZFile.get_molecule">
-<tt class="descname">get_molecule</tt><big>(</big><em>index=0</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZFile.get_molecule" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_molecule</code><span class="sig-paren">(</span><em>index=0</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZFile.get_molecule" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a molecule from the trajectory</p>
 <dl class="docutils">
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">index</span></tt>  &#8211;  The frame index [default=0]</div>
+<div class="line"><code class="docutils literal"><span class="pre">index</span></code>  &#8211;  The frame index [default=0]</div>
 </div>
 </dd>
 </dl>
@@ -1171,17 +1170,17 @@ units [default=angstrom]</div>
 
 <dl class="method">
 <dt id="molmod.io.xyz.XYZFile.write_to_file">
-<tt class="descname">write_to_file</tt><big>(</big><em>f</em>, <em>file_unit=1.889726133921252</em><big>)</big><a class="headerlink" href="#molmod.io.xyz.XYZFile.write_to_file" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_to_file</code><span class="sig-paren">(</span><em>f</em>, <em>file_unit=1.889726133921252</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.xyz.XYZFile.write_to_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the trajectory to a file</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211; a filename or a file-like object to write to</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211; a filename or a file-like object to write to</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">file_unit</span></tt>  &#8211;  the unit of the values written to file
+<div class="line"><code class="docutils literal"><span class="pre">file_unit</span></code>  &#8211;  the unit of the values written to file
 [default=angstrom]</div>
 </div>
 </dd>
@@ -1192,48 +1191,48 @@ units [default=angstrom]</div>
 
 </div>
 <div class="section" id="module-molmod.io.common">
-<span id="molmod-io-common-common-routines"></span><h2><a class="reference internal" href="#module-molmod.io.common" title="molmod.io.common"><tt class="xref py py-mod docutils literal"><span class="pre">molmod.io.common</span></tt></a> &#8211; Common routines<a class="headerlink" href="#module-molmod.io.common" title="Permalink to this headline">¶</a></h2>
+<span id="molmod-io-common-common-routines"></span><h2><a class="reference internal" href="#module-molmod.io.common" title="molmod.io.common"><code class="xref py py-mod docutils literal"><span class="pre">molmod.io.common</span></code></a> &#8211; Common routines<a class="headerlink" href="#module-molmod.io.common" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="molmod.io.common.slice_match">
-<tt class="descclassname">molmod.io.common.</tt><tt class="descname">slice_match</tt><big>(</big><em>sub</em>, <em>counter</em><big>)</big><a class="headerlink" href="#molmod.io.common.slice_match" title="Permalink to this definition">¶</a></dt>
-<dd><p>Efficiently test if counter is in <tt class="docutils literal"><span class="pre">xrange(*sub)</span></tt></p>
+<code class="descclassname">molmod.io.common.</code><code class="descname">slice_match</code><span class="sig-paren">(</span><em>sub</em>, <em>counter</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.common.slice_match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Efficiently test if counter is in <code class="docutils literal"><span class="pre">xrange(*sub)</span></code></p>
 <dl class="docutils">
 <dt>Arguments:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice object</div>
-<div class="line"><tt class="docutils literal"><span class="pre">counter</span></tt>  &#8211; an integer</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice object</div>
+<div class="line"><code class="docutils literal"><span class="pre">counter</span></code>  &#8211; an integer</div>
 </div>
 </dd>
 </dl>
 <p>The function returns True if the counter is in
-<tt class="docutils literal"><span class="pre">xrange(sub.start,</span> <span class="pre">sub.stop,</span> <span class="pre">sub.step)</span></tt>.</p>
+<code class="docutils literal"><span class="pre">xrange(sub.start,</span> <span class="pre">sub.stop,</span> <span class="pre">sub.step)</span></code>.</p>
 </dd></dl>
 
 <dl class="exception">
 <dt id="molmod.io.common.FileFormatError">
-<em class="property">exception </em><tt class="descclassname">molmod.io.common.</tt><tt class="descname">FileFormatError</tt><a class="headerlink" href="#molmod.io.common.FileFormatError" title="Permalink to this definition">¶</a></dt>
+<em class="property">exception </em><code class="descclassname">molmod.io.common.</code><code class="descname">FileFormatError</code><a class="headerlink" href="#molmod.io.common.FileFormatError" title="Permalink to this definition">¶</a></dt>
 <dd><p>Is raised when unexpected data is encountered while reading a file</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="molmod.io.common.SlicedReader">
-<em class="property">class </em><tt class="descclassname">molmod.io.common.</tt><tt class="descname">SlicedReader</tt><big>(</big><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><big>)</big><a class="headerlink" href="#molmod.io.common.SlicedReader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">molmod.io.common.</code><code class="descname">SlicedReader</code><span class="sig-paren">(</span><em>f</em>, <em>sub=slice(None</em>, <em>None</em>, <em>None)</em><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.common.SlicedReader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for readers that can read a slice of all the frames</p>
 <dl class="docutils">
 <dt>Argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">f</span></tt>  &#8211;  a filename or a file-like object</div>
+<div class="line"><code class="docutils literal"><span class="pre">f</span></code>  &#8211;  a filename or a file-like object</div>
 </div>
 </dd>
 <dt>Optional argument:</dt>
 <dd><div class="first last line-block">
-<div class="line"><tt class="docutils literal"><span class="pre">sub</span></tt>  &#8211;  a slice indicating which frames to read/skip</div>
+<div class="line"><code class="docutils literal"><span class="pre">sub</span></code>  &#8211;  a slice indicating which frames to read/skip</div>
 </div>
 </dd>
 </dl>
 <dl class="method">
 <dt id="molmod.io.common.SlicedReader.next">
-<tt class="descname">next</tt><big>(</big><big>)</big><a class="headerlink" href="#molmod.io.common.SlicedReader.next" title="Permalink to this definition">¶</a></dt>
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molmod.io.common.SlicedReader.next" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the next frame from the file, taking into account the slice</p>
 <p>This method is part of the iterator protocol.</p>
 </dd></dl>
@@ -1247,27 +1246,27 @@ units [default=angstrom]</div>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Input/output</a><ul>
-<li><a class="reference internal" href="#module-molmod.io.atrj"><tt class="docutils literal"><span class="pre">molmod.io.atrj</span></tt> &#8211; ATRJ Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.cml"><tt class="docutils literal"><span class="pre">molmod.io.cml</span></tt> &#8211; CML Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.cp2k"><tt class="docutils literal"><span class="pre">molmod.io.cp2k</span></tt> &#8211; CP2K Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.cpmd"><tt class="docutils literal"><span class="pre">molmod.io.cpmd</span></tt> &#8211; CPMD Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.gamess"><tt class="docutils literal"><span class="pre">molmod.io.gamess</span></tt> &#8211; Gamess punch files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.cube"><tt class="docutils literal"><span class="pre">molmod.io.cube</span></tt> &#8211; Gaussian Cube Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.dlpoly"><tt class="docutils literal"><span class="pre">molmod.io.dlpoly</span></tt> &#8211; DLPoly Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.fchk"><tt class="docutils literal"><span class="pre">molmod.io.fchk</span></tt> &#8211; Gaussian Formatted Checkpoint Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.number_state"><tt class="docutils literal"><span class="pre">molmod.io.number_state</span></tt> &#8211; Custom Formatted Checkpoint Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.gromacs"><tt class="docutils literal"><span class="pre">molmod.io.gromacs</span></tt> &#8211; Gromacs Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.lammps"><tt class="docutils literal"><span class="pre">molmod.io.lammps</span></tt> &#8211; LAMMPS Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.pdb"><tt class="docutils literal"><span class="pre">molmod.io.pdb</span></tt> &#8211; PDB Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.psf"><tt class="docutils literal"><span class="pre">molmod.io.psf</span></tt> &#8211; PSF Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.sdf"><tt class="docutils literal"><span class="pre">molmod.io.sdf</span></tt> &#8211; SDF Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.xyz"><tt class="docutils literal"><span class="pre">molmod.io.xyz</span></tt> &#8211; XYZ Files</a></li>
-<li><a class="reference internal" href="#module-molmod.io.common"><tt class="docutils literal"><span class="pre">molmod.io.common</span></tt> &#8211; Common routines</a></li>
+<li><a class="reference internal" href="#module-molmod.io.atrj"><code class="docutils literal"><span class="pre">molmod.io.atrj</span></code> &#8211; ATRJ Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.cml"><code class="docutils literal"><span class="pre">molmod.io.cml</span></code> &#8211; CML Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.cp2k"><code class="docutils literal"><span class="pre">molmod.io.cp2k</span></code> &#8211; CP2K Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.cpmd"><code class="docutils literal"><span class="pre">molmod.io.cpmd</span></code> &#8211; CPMD Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.gamess"><code class="docutils literal"><span class="pre">molmod.io.gamess</span></code> &#8211; Gamess punch files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.cube"><code class="docutils literal"><span class="pre">molmod.io.cube</span></code> &#8211; Gaussian Cube Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.dlpoly"><code class="docutils literal"><span class="pre">molmod.io.dlpoly</span></code> &#8211; DLPoly Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.fchk"><code class="docutils literal"><span class="pre">molmod.io.fchk</span></code> &#8211; Gaussian Formatted Checkpoint Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.number_state"><code class="docutils literal"><span class="pre">molmod.io.number_state</span></code> &#8211; Custom Formatted Checkpoint Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.gromacs"><code class="docutils literal"><span class="pre">molmod.io.gromacs</span></code> &#8211; Gromacs Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.lammps"><code class="docutils literal"><span class="pre">molmod.io.lammps</span></code> &#8211; LAMMPS Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.pdb"><code class="docutils literal"><span class="pre">molmod.io.pdb</span></code> &#8211; PDB Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.psf"><code class="docutils literal"><span class="pre">molmod.io.psf</span></code> &#8211; PSF Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.sdf"><code class="docutils literal"><span class="pre">molmod.io.sdf</span></code> &#8211; SDF Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.xyz"><code class="docutils literal"><span class="pre">molmod.io.xyz</span></code> &#8211; XYZ Files</a></li>
+<li><a class="reference internal" href="#module-molmod.io.common"><code class="docutils literal"><span class="pre">molmod.io.common</span></code> &#8211; Common routines</a></li>
 </ul>
 </li>
 </ul>
@@ -1278,12 +1277,14 @@ units [default=angstrom]</div>
   <h4>Next topic</h4>
   <p class="topless"><a href="data.html"
                         title="next chapter">Databases</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/io.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/io.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -1300,7 +1301,7 @@ units [default=angstrom]</div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1315,12 +1316,12 @@ units [default=angstrom]</div>
         <li class="right" >
           <a href="basic.html" title="Basic classes"
              >previous</a> |</li>
-        <li><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">MolMod 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2010, Toon Verstraelen.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>
